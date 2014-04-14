@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="19.1.0" >
+        <source path="/Volumes/Files/Users/liub3/Google Drive/Learning Android/Slidenerd/VisualMidwifery2/app/build/exploded-aar/com.android.support/appcompat-v7/19.1.0/assets" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/Volumes/Files/Users/liub3/Google Drive/Learning Android/Slidenerd/VisualMidwifery2/app/src/main/assets" >
+            <file
+                name="OTAGOMEDDIT.sqlite"
+                path="/Volumes/Files/Users/liub3/Google Drive/Learning Android/Slidenerd/VisualMidwifery2/app/src/main/assets/OTAGOMEDDIT.sqlite" />
+        </source>
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Volumes/Files/Users/liub3/Google Drive/Learning Android/Slidenerd/VisualMidwifery2/app/src/debug/assets" />
+    </dataSet>
+
+</merger>
