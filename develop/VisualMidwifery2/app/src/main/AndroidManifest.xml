@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.liub3">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:maxSdkVersion="19" />
+    <application
+        android:name="com.liub3.StartUpApplication"
+        android:allowBackup="true"
+        android:configChanges="orientation|keyboardHidden|screenSize"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        <activity
+            android:name="com.liub3.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+
+                <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.liub3.CategoryView"
+            android:label="@string/title_activity_category_view">
+
+        </activity>
+        <activity
+            android:name="com.liub3.Splash"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.liub3.ModelDetails"
+            android:label="@string/title_activity_model_details"
+            android:configChanges="orientation|screenSize"></activity>
+    </application>
+
+</manifest>
