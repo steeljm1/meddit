@@ -1,0 +1,17 @@
+<android.support.v4.view.ViewPager
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/pager"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.v4.view.PagerTitleStrip
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:background="#33B5E5"
+        android:paddingBottom="4dp"
+        android:layout_gravity="top"
+        android:id="@+id/title">
+
+    </android.support.v4.view.PagerTitleStrip>
+</android.support.v4.view.ViewPager>
