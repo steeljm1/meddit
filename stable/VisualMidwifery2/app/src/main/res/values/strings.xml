@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Visual Midwifery</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_category_view">CategoryView</string>
+    <string name="title_activity_splash">Splash</string>
+    <string name="title_activity_model_details">ModelDetails</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>
