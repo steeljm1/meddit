@@ -1,7 +1,5 @@
 package ContentView;
 
-
-
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,10 +7,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-
-import Models.ContentFieldModel;
 import otago.Midwifery.R;
 
 
@@ -39,7 +36,7 @@ public class Image_Fragment extends Fragment {
         ImageView imageView = (ImageView) v.findViewById(R.id.imageView);
         imageView.setImageBitmap(image);
 
-        v.setOnClickListener(new View.OnClickListener() {
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Fragment textFragment = new Notes_Fragment();
@@ -51,9 +48,8 @@ public class Image_Fragment extends Fragment {
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.slide_in_bottom, 0, 0, R.anim.slide_out_bottom);
-                ft.add(R.id.GridRootContainer, textFragment);
-
-                ft.addToBackStack(null);
+                ft.add(R.id.GridRootContainer, textFragment, "NOTES_FRAG");
+                ft.addToBackStack("NOTES_FRAG");
                 ft.commit();
             }
         });

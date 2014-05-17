@@ -31,7 +31,7 @@ public class ContentGridViewRootFragment extends Fragment {
         contentFrag.setArguments(getArguments());
 
         final FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.GridRootContainer, contentFrag);
+        ft.replace(R.id.GridRootContainer, contentFrag, "CONTENT_FRAG");
         ft.commit();
 
         return v;

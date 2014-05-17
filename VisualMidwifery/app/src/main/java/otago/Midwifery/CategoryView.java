@@ -225,6 +225,8 @@ public class CategoryView extends FragmentActivity implements ActionBar.TabListe
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager.setOffscreenPageLimit(2);
+
         myPagerAdapter = new MyPagerAdapter(this.getSupportFragmentManager());
         viewPager.setAdapter(myPagerAdapter);
         List<String> myCats = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.CateActivity)));
@@ -261,7 +263,6 @@ public class CategoryView extends FragmentActivity implements ActionBar.TabListe
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
         viewPager.setCurrentItem(tab.getPosition());
         mDrawerLayout.closeDrawers();
-
     }
 
     @Override

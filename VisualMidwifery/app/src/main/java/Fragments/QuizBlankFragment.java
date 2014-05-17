@@ -1,8 +1,10 @@
 package Fragments;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,17 +26,7 @@ public class QuizBlankFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        Bundle x = getArguments();
-        if(x != null)
-        {
-            String y = String.valueOf(x.getInt("categoryID"));
-            Toast.makeText(getActivity(), y, Toast.LENGTH_LONG).show();
-        }
-
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_quizblankfragment, container, false);
     }
-
 }

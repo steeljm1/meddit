@@ -33,7 +33,6 @@ public class ContentGridViewFragment extends Fragment {
 
         Bundle bundle = getArguments();
         int categoryID = bundle.getInt("categoryID");
-        int mainID = bundle.getInt("mainID");
 
         dataSource = new DatabaseController(getActivity());
         content =  dataSource.getContentOfCategory(categoryID);
@@ -54,8 +53,8 @@ public class ContentGridViewFragment extends Fragment {
                 imagePager.setArguments(bundle);
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.GridRootContainer, imagePager);
-                ft.addToBackStack(null);
+                ft.replace(R.id.GridRootContainer, imagePager, "IMAGE_PAGER_FRAG");
+                ft.addToBackStack("IMAGE_PAGER_FRAG");
                 ft.commit();
             }
         });
