@@ -267,7 +267,7 @@ public class CategoryView extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
+        //get the last tab selected
     }
 
     @Override
@@ -359,9 +359,12 @@ public class CategoryView extends FragmentActivity implements ActionBar.TabListe
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     @Override
     public void onBackPressed() {
+
         super.onBackPressed();
+
         overridePendingTransition(R.anim.left_in, R.anim.right_out);
     }
 

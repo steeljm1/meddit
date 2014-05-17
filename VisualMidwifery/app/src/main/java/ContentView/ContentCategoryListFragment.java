@@ -59,8 +59,10 @@ public class ContentCategoryListFragment extends ListFragment
         GridViewRoot.setArguments(data);
 
         final FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.RootFrame, GridViewRoot, "GRID_FRAG");
-        ft.addToBackStack("GRID_FRAG");
+
+        ft.replace(R.id.RootFrame, GridViewRoot,"GridViewRoot");
+        ft.addToBackStack("GridViewRoot");
+
         ft.commit();
     }
 }

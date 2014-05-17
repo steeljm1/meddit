@@ -53,8 +53,10 @@ public class ContentGridViewFragment extends Fragment {
                 imagePager.setArguments(bundle);
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.GridRootContainer, imagePager, "IMAGE_PAGER_FRAG");
-                ft.addToBackStack("IMAGE_PAGER_FRAG");
+
+                ft.replace(R.id.GridRootContainer, imagePager,"ImagePager");
+                ft.addToBackStack("ImagePager");
+
                 ft.commit();
             }
         });
