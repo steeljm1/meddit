@@ -25,7 +25,8 @@ public class ContentBlankFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_contentblankfragment, container, false);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.RootFrame, new ContentCategoryListFragment());
+        Fragment contentCategoryListFragment = new ContentCategoryListFragment();
+        ft.replace(R.id.RootFrame, contentCategoryListFragment,"ContentCategoryList");
         ft.commit();
 
         return v;

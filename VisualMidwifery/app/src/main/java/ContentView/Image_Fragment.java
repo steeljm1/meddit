@@ -51,9 +51,9 @@ public class Image_Fragment extends Fragment {
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.slide_in_bottom, 0, 0, R.anim.slide_out_bottom);
-                ft.add(R.id.GridRootContainer, textFragment);
+                ft.add(R.id.GridRootContainer, textFragment,"NotesFragment");
 
-                ft.addToBackStack(null);
+                ft.addToBackStack("NotesFragment");
                 ft.commit();
             }
         });

@@ -225,6 +225,8 @@ public class CategoryView extends FragmentActivity implements ActionBar.TabListe
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager.setOffscreenPageLimit(2);
+
         myPagerAdapter = new MyPagerAdapter(this.getSupportFragmentManager());
         viewPager.setAdapter(myPagerAdapter);
         List<String> myCats = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.CateActivity)));
@@ -266,7 +268,7 @@ public class CategoryView extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
+        //get the last tab selected
     }
 
     @Override
@@ -358,9 +360,12 @@ public class CategoryView extends FragmentActivity implements ActionBar.TabListe
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     @Override
     public void onBackPressed() {
+
         super.onBackPressed();
+
         overridePendingTransition(R.anim.left_in, R.anim.right_out);
     }
 
