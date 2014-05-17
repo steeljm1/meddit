@@ -18,14 +18,18 @@ import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import DBController.DatabaseController;
 import Fragments.ContentBlankFragment;
 import Fragments.ModelBlankFragment;
 import Fragments.QuizBlankFragment;
+import Models.ContentFieldModel;
+import Models.MainCategoryModel;
 
 
 public class CategoryView extends FragmentActivity implements ActionBar.TabListener {
@@ -269,12 +273,11 @@ public class CategoryView extends FragmentActivity implements ActionBar.TabListe
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
     }
 
-    public int getmMainID(){
+    public int getmMainID() {
         return mainID;
     }
 
-    class MyPagerAdapter extends FragmentStatePagerAdapter
-    {
+    class MyPagerAdapter extends FragmentStatePagerAdapter {
         //SparseArray<Fragment> registeredFragments = new SparseArray<Fragment>();
 
         public MyPagerAdapter(FragmentManager fm) {
@@ -365,6 +368,16 @@ public class CategoryView extends FragmentActivity implements ActionBar.TabListe
         Intent intent = new Intent();
         intent.setClass(this, CategoryView.class);
         Bundle extras = new Bundle();
+
+        DatabaseController myDatabase = new DatabaseController(this);
+        try{
+            ArrayList<MainCategoryModel> tempCategory = myDatabase.GetAllMainCategory();
+            extras.putInt("menuID", tempCategory.get(positionIn).getId());
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+
         extras.putInt("activityId", positionIn);
 
         extras.putInt("subTabId", subTabIn);
