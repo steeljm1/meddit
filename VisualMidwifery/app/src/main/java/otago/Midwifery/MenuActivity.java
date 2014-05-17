@@ -252,7 +252,7 @@ public class MenuActivity extends ActionBarActivity {
         intent.setClass(MenuActivity.this, CategoryView.class);
         Bundle extras = new Bundle();
 
-        extras.putInt("menuID",tempCategory.get(positionIn).getId());
+        extras.putInt("menuID", tempCategory.get(positionIn).getId());
         extras.putInt("activityId", positionIn);
 
         extras.putInt("subTabId", subTabIn);

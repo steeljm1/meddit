@@ -39,13 +39,15 @@ public class DatabaseController {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public ArrayList<ContentCategoryModel> GetAllContentCategory() throws SQLException {
+    public ArrayList<ContentCategoryModel> GetAllContentCategory(int mainID) throws SQLException {
         ArrayList<ContentCategoryModel> contentCategoryModelArrayList = new ArrayList<ContentCategoryModel>();
 
         database = contentCategoryTable.getWritableDatabase();
         //queries from here
         String[] contentCategoryColumns = {contentCategoryTable.COLUMN_ID, contentCategoryTable.COLUMN_TITLE, contentCategoryTable.COLUMN_MAINID};
-        Cursor cursor = database.query(contentCategoryTable.TABLE_NAME, contentCategoryColumns, null, null, null, null, null);
+
+        String whereClause = "_mainID = " + String.valueOf(mainID);
+        Cursor cursor = database.query(contentCategoryTable.TABLE_NAME, contentCategoryColumns, whereClause, null, null, null, null);
         cursor.moveToFirst();
 
         while(!cursor.isAfterLast()) {
@@ -89,6 +91,32 @@ public class DatabaseController {
 
         return contentFieldModelArrayList;
     }
+
+    public ArrayList<ContentFieldModel> getContentOfCategory(int categoryId)
+    {
+        ArrayList<ContentFieldModel> content = new ArrayList<ContentFieldModel>();
+
+        String[] contentFieldsColumns = {contentFieldsTable.COLUMN_ID, contentFieldsTable.COLUMN_IMAGE, contentFieldsTable.COLUMN_NOTES,contentFieldsTable.COLUMN_CATEGORYID};
+
+        database = contentFieldsTable.getWritableDatabase();
+
+        String whereClause = "_categoryID = " + String.valueOf(categoryId);
+        Cursor cursor = database.query(ContentFieldsTable.TABLE_NAME, contentFieldsColumns, whereClause, null, null, null, null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast())
+        {
+            ContentFieldModel newContent = cursorToContentFieldsModel(cursor);
+            content.add(newContent);
+
+            cursor.moveToNext();
+        }
+
+        cursor.close();
+
+        return  content;
+    }
+
     private ContentFieldModel cursorToContentFieldsModel(Cursor cursor){
         ContentFieldModel temp = new ContentFieldModel();
 
