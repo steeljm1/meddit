@@ -9,7 +9,7 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
  */
 public class ModelViewTable extends SQLiteAssetHelper {
 
-    public static final String TABLE_NAME = "modelColor";
+    public static final String TABLE_NAME = "modelView";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_MAINID = "_mainID";
     public static final String COLUMN_ANGLE = "angle";

@@ -45,4 +45,9 @@ public class ModelViewModel {
     public void setModelImage(Bitmap modelImage) {
         this.modelImage = modelImage;
     }
+
+    @Override
+    public String toString(){
+        return angle;
+    }
 }
