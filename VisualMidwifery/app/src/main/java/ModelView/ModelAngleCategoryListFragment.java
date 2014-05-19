@@ -53,9 +53,9 @@ public class ModelAngleCategoryListFragment extends ListFragment{
         modelViewDetail.setArguments(data);
 
         final android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.right_in, R.anim.left_out);
+        ft.add(R.id.RootFrameM,modelViewDetail,"ModelDetail");
 
-        ft.replace(R.id.RootFrameM,modelViewDetail,"ModelDetail");
-        //ft.addToBackStack("ModelDetail");
         MessageToast.message(getActivity(),""+modelID+" "+clickedCategory.getAngle());
         ft.commit();
     }

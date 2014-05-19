@@ -16,6 +16,9 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.ImageView;
 
+import ModelView.ModelViewDetailFragment;
+import otago.Midwifery.MessageToast;
+
 public class PinchTouchModelDetailsImageView extends ImageView {
 
     Matrix matrix;
@@ -128,7 +131,7 @@ public class PinchTouchModelDetailsImageView extends ImageView {
         setDrawingCacheEnabled(false);
         String myString = "" + Color.rgb(redValue, greenValue, blueValue);
 
-        //ModelDetails.getInstance().txtView.setText(myString);
+        ModelViewDetailFragment.getInstance().txtView.setText(myString);
 
         //MessageToast.message(getContext(), myString);
         return super.performClick();
