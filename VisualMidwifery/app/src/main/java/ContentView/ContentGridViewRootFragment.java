@@ -2,12 +2,16 @@ package ContentView;
 
 
 
+import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.GridView;
 
 import otago.Midwifery.R;
 
@@ -18,10 +22,6 @@ import otago.Midwifery.R;
  */
 public class ContentGridViewRootFragment extends Fragment {
 
-    public ContentGridViewRootFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -31,11 +31,9 @@ public class ContentGridViewRootFragment extends Fragment {
         contentFrag.setArguments(getArguments());
 
         final FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.GridRootContainer, contentFrag, "CONTENT_FRAG");
+        ft.replace(R.id.GridRootContainer, contentFrag, "GridViewFragment");
         ft.commit();
 
         return v;
     }
-
-
 }
