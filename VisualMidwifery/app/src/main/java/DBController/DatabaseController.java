@@ -162,13 +162,14 @@ public class DatabaseController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public ArrayList<ModelViewModel> GetAllModelView() throws SQLException {
+    public ArrayList<ModelViewModel> GetAllModelView(int mainID) throws SQLException {
         ArrayList<ModelViewModel> modelViewModelsArrayList = new ArrayList<ModelViewModel>();
 
         database = modelViewTable.getWritableDatabase();
         //queries from here
         String[] modelViewColumns = {modelViewTable.COLUMN_ID, modelViewTable.COLUMN_MAINID,modelViewTable.COLUMN_ANGLE,modelViewTable.COLUMN_IMAGE};
-        Cursor cursor = database.query(modelViewTable.TABLE_NAME, modelViewColumns, null, null, null, null, null);
+        String whereClause = "_mainID = " + String.valueOf(mainID);
+        Cursor cursor = database.query(modelViewTable.TABLE_NAME, modelViewColumns, whereClause, null, null, null, null);
         cursor.moveToFirst();
 
         while(!cursor.isAfterLast()) {
