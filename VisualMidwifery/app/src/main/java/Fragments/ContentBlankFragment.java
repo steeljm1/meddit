@@ -13,6 +13,11 @@ import otago.Midwifery.R;
 
 public class ContentBlankFragment extends Fragment {
 
+
+    public ContentBlankFragment() {
+        // Required empty public constructor
+    }
+
     // THE FRAGMENT FOR THE STATIC CONTENT THAT IS DISPLAYED IN THE BASE LEVEL FRAGMENT PAGER
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

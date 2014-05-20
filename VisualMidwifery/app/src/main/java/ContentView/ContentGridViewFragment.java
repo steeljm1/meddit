@@ -1,5 +1,7 @@
 package ContentView;
 
+
+
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,7 +22,9 @@ public class ContentGridViewFragment extends Fragment {
 
     ArrayList<ContentFieldModel> content;
     DatabaseController dataSource;
-    GridView gridView;
+
+    public ContentGridViewFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,7 +37,10 @@ public class ContentGridViewFragment extends Fragment {
         dataSource = new DatabaseController(getActivity());
         content =  dataSource.getContentOfCategory(categoryID);
 
-        gridView = (GridView)v.findViewById(R.id.gridView);
+        GridView gridView = (GridView)v.findViewById(R.id.gridView);
+
+        gridView.setAdapter(new ImageAdapter());
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -46,20 +53,13 @@ public class ContentGridViewFragment extends Fragment {
                 imagePager.setArguments(bundle);
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.add(R.id.GridRootContainer, imagePager, "ImagePager");
-                ft.commit();
-            }
-        });
 
-        v.findViewById(R.id.backButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.remove(getFragmentManager().findFragmentByTag("GridViewFragment"));
+                ft.replace(R.id.GridRootContainer, imagePager,"ImagePager");
+                ft.addToBackStack("ImagePager");
+
                 ft.commit();
             }
         });
-        gridView.setAdapter(new ImageAdapter());
 
         return v;
     }
@@ -90,6 +90,7 @@ public class ContentGridViewFragment extends Fragment {
             imageView.setLayoutParams(new GridView.LayoutParams(150, 150));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setImageBitmap(image);
+
             return imageView;
         }
     }

@@ -30,8 +30,8 @@ public class ContentCategoryListFragment extends ListFragment
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-
         mainID = ((CategoryView) getActivity()).getmMainID();
+
         dataSource = new DatabaseController(getActivity());
 
         try {
@@ -60,7 +60,9 @@ public class ContentCategoryListFragment extends ListFragment
 
         final FragmentTransaction ft = getFragmentManager().beginTransaction();
 
-        ft.add(R.id.RootFrame, GridViewRoot,"GridViewRoot");
+        ft.replace(R.id.RootFrame, GridViewRoot,"GridViewRoot");
+        ft.addToBackStack("GridViewRoot");
+
         ft.commit();
     }
 }

@@ -2,7 +2,6 @@ package ContentView;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,9 +24,7 @@ public class Notes_Fragment extends Fragment {
         view.findViewById(R.id.notesContainer).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.remove(getFragmentManager().findFragmentByTag("NotesFragment"));
-                ft.commit();
+               getFragmentManager().popBackStack();
             }
         });
 
