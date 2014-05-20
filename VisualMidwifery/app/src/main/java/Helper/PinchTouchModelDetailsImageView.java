@@ -16,7 +16,7 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.ImageView;
 
-public class PinchTouchImageView extends ImageView {
+public class PinchTouchModelDetailsImageView extends ImageView {
 
     Matrix matrix;
     // We can be in one of these 3 states
@@ -43,13 +43,13 @@ public class PinchTouchImageView extends ImageView {
     Context context;
     PointF curr;
 
-    public PinchTouchImageView(Context context) {
+    public PinchTouchModelDetailsImageView(Context context) {
         super(context);
         sharedConstructing(context);
 
     }
 
-    public PinchTouchImageView(Context context, AttributeSet attrs) {
+    public PinchTouchModelDetailsImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         sharedConstructing(context);
     }
@@ -128,7 +128,7 @@ public class PinchTouchImageView extends ImageView {
         setDrawingCacheEnabled(false);
         String myString = "" + Color.rgb(redValue, greenValue, blueValue);
 
-        //ModelDetails.getInstance().txtView.setText(myString);
+        ModelViewDetailFragment.getInstance().txtView.setText(myString);
 
         //MessageToast.message(getContext(), myString);
         return super.performClick();
