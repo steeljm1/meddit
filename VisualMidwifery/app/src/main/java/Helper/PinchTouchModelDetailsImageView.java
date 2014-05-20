@@ -128,7 +128,7 @@ public class PinchTouchModelDetailsImageView extends ImageView {
         setDrawingCacheEnabled(false);
         String myString = "" + Color.rgb(redValue, greenValue, blueValue);
 
-        ModelViewDetailFragment.getInstance().txtView.setText(myString);
+        //ModelDetails.getInstance().txtView.setText(myString);
 
         //MessageToast.message(getContext(), myString);
         return super.performClick();
