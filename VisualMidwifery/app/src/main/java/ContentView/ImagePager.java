@@ -6,6 +6,7 @@ import android.os.Parcel;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,11 +22,6 @@ public class ImagePager extends Fragment {
 
     ArrayList<ContentFieldModel> content;
 
-    public ImagePager()
-    {
-
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -38,6 +34,16 @@ public class ImagePager extends Fragment {
 
         int position = getArguments().getInt("position");
         viewPager.setCurrentItem(position);
+
+
+        v.findViewById(R.id.backButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               FragmentTransaction d = getFragmentManager().beginTransaction();
+               d.remove(getFragmentManager().findFragmentByTag("ImagePager"));
+               d.commit();
+            }
+        });
 
         return v;
     }

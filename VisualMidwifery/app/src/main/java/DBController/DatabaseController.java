@@ -168,6 +168,7 @@ public class DatabaseController {
         database = modelViewTable.getWritableDatabase();
         //queries from here
         String[] modelViewColumns = {modelViewTable.COLUMN_ID, modelViewTable.COLUMN_MAINID,modelViewTable.COLUMN_ANGLE,modelViewTable.COLUMN_IMAGE};
+
         String whereClause = "_mainID = " + String.valueOf(mainID);
         Cursor cursor = database.query(modelViewTable.TABLE_NAME, modelViewColumns, whereClause, null, null, null, null);
         cursor.moveToFirst();

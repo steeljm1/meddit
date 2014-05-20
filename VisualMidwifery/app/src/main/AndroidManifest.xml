@@ -22,7 +22,8 @@
         </activity>
         <activity
             android:name="otago.Midwifery.CategoryView"
-            android:label="@string/title_activity_category_view" >
+            android:label="@string/title_activity_category_view"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
