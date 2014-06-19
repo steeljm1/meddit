@@ -56,7 +56,7 @@ public class ModelAngleCategoryListFragment extends ListFragment{
 
         ft.add(R.id.RootFrameM,modelViewDetail,"ModelDetail");
         //ft.addToBackStack("ModelDetail");
-        MessageToast.message(getActivity(),""+modelID+" "+clickedCategory.getAngle());
+        //MessageToast.message(getActivity(),""+modelID+" "+clickedCategory.getAngle());
         ft.commit();
     }
 }
