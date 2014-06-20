@@ -4,10 +4,6 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.gradle" />
-<<<<<<< HEAD
-=======
-      <excludeFolder url="file://$MODULE_DIR$/build" />
->>>>>>> 289a68e1baa6ae3ba39ec15e490b149ab1f344d6
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
