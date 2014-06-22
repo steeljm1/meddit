@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="C:\Users\liub3\Desktop\OtagoMedditGit\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-e311e493b238b75da4095bd5ee7b69d76d73dc42.jar"
+        jar="C:\Program Files (x86)\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="C:\Users\liub3\Desktop\OtagoMedditGit\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\classes-5dc5ac7956da466a475c6a7773c25b10215c346c.jar"
+        jar="C:\Users\liub3\Desktop\OtagoMedditGit\meddit\VisualMidwifery\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+    <item
+        dex="C:\Users\liub3\Desktop\OtagoMedditGit\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\sqliteassethelper-2.0.1-96d82b28126dc0faeef3a138c7d2a2453c710637.jar"
+        jar="C:\Users\liub3\.gradle\caches\modules-2\files-2.1\com.readystatesoftware.sqliteasset\sqliteassethelper\2.0.1\d5f02e4a4d65ec0fbb339f2e4228723d1540bb9f\sqliteassethelper-2.0.1.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="d5f02e4a4d65ec0fbb339f2e4228723d1540bb9f"/>
+
+</pre-dex-items>
