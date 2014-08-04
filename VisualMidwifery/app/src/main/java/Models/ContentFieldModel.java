@@ -1,11 +1,13 @@
 package Models;
 
 import android.graphics.Bitmap;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * Created by liub3 on 16/05/14.
  */
-public class ContentFieldModel {
+public class ContentFieldModel implements Parcelable{
     int id;
     Bitmap imageContent;
     String textContent;
@@ -44,5 +46,15 @@ public class ContentFieldModel {
 
     public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }

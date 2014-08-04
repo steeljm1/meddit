@@ -12,6 +12,8 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.ImageView;
 
+import ContentView.ImagePager;
+
 /**
  * Created by glenn_000 on 17/05/2014.
  */
@@ -41,6 +43,15 @@ public class PinchTouchContentImageView extends ImageView {
     float mScaleFactor;
     Context context;
     PointF curr;
+
+    public PinchTouchContentImageView getInstance()
+    {
+        return this;
+    }
+    public float getSaveScale()
+    {
+        return saveScale;
+    }
 
     public PinchTouchContentImageView(Context context) {
         super(context);
@@ -74,7 +85,6 @@ public class PinchTouchContentImageView extends ImageView {
                         last.set(curr);
                         start.set(last);
                         mode = DRAG;
-
                         break;
 
                     case MotionEvent.ACTION_MOVE:
@@ -88,6 +98,8 @@ public class PinchTouchContentImageView extends ImageView {
                             matrix.postTranslate(fixTransX, fixTransY);
                             fixTrans();
                             last.set(curr.x, curr.y);
+
+                            ImagePager.getViewPager().setPagingEnabled(false);
                         }
                         break;
 
@@ -98,6 +110,7 @@ public class PinchTouchContentImageView extends ImageView {
                         if (xDiff < CLICK && yDiff < CLICK) {
                             performClick();
                         }
+                        ImagePager.getViewPager().setPagingEnabled(true);
                         break;
 
                     case MotionEvent.ACTION_POINTER_UP:

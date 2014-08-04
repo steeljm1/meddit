@@ -3,12 +3,12 @@
     android:layout_height="match_parent"
     android:background="@color/imageFragment">
 
-    <android.support.v4.view.ViewPager
+    <Helper.NonSwipeableViewPager
         android:id="@+id/imagePager"
         android:layout_height="fill_parent"
         android:layout_width="fill_parent">
 
-    </android.support.v4.view.ViewPager>
+    </Helper.NonSwipeableViewPager>
 
     <LinearLayout
         android:orientation="horizontal"

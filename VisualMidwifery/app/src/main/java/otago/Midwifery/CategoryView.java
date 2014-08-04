@@ -9,15 +9,18 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,7 +37,7 @@ import Models.MainCategoryModel;
 import QuizView.QuizLogIn;
 
 
-public class CategoryView extends FragmentActivity {
+public class CategoryView extends FragmentActivity{
     ArrayList<String> mainMenuArrayList;
 
     int activityId;
@@ -302,7 +305,7 @@ public class CategoryView extends FragmentActivity {
                 //no need of animation, no need of stack pushing, just show the target fragment
 
                 //the bug in here is for image pager when changing tab back the image cannot be loaded
-                if(tabId == TabConstants.TAB_CONTENT && mStacks.get(tabId).size() ==3){
+                if(tabId == TabConstants.TAB_CONTENT && mStacks.get(tabId).size() == 3){
                     popFragments();
                 }
                 ///
@@ -477,6 +480,15 @@ public class CategoryView extends FragmentActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.right_in, R.anim.left_out);
         finish();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_HOME)
+        {
+            MessageToast.message(this,"Hello world");
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
 

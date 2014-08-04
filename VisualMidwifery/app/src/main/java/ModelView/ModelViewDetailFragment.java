@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,11 +35,15 @@ public class ModelViewDetailFragment extends BaseFragment {
     int mainID;
     int modelID;
     PinchTouchModelDetailsImageView modelImageDisplay;
+    public static TextView txtView;
 
     public ModelViewDetailFragment() {
         // Required empty public constructor
     }
-
+    public ModelViewDetailFragment getInstance()
+    {
+        return this;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -53,6 +58,9 @@ public class ModelViewDetailFragment extends BaseFragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+
+        txtView = (TextView) mActivity.findViewById(R.id.txtviewModel);
+
         dataSource = new DatabaseController(getActivity());
         mainID = ((CategoryView) getActivity()).getmMainID();
 

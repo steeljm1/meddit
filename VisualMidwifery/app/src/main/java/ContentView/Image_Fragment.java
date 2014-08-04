@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import Fragments.BaseFragment;
+import Helper.PinchTouchContentImageView;
 import otago.Midwifery.R;
 import otago.Midwifery.TabConstants;
 
@@ -22,26 +23,28 @@ import otago.Midwifery.TabConstants;
  * A simple {@link android.support.v4.app.Fragment} subclass.
  *
  */
-public class Image_Fragment extends BaseFragment {
+public class Image_Fragment extends BaseFragment  {
 
     Bitmap image;
     String notes;
+    PinchTouchContentImageView imageView;
+    TextView noteTextView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.image_fragment, container, false);
-
-        image = getArguments().getParcelable("image");
-        notes = getArguments().getString("notes");
-
-        ImageView imageView = (ImageView) v.findViewById(R.id.imageView);
-        imageView.setImageBitmap(image);
-
-        TextView noteTextView = (TextView) v.findViewById(R.id.notesTextView);
-        noteTextView.setText(notes);
+        imageView = (PinchTouchContentImageView) v.findViewById(R.id.imageView);
+        noteTextView = (TextView) v.findViewById(R.id.notesTextView);
 
         return v;
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        image = getArguments().getParcelable("image");
+        notes = getArguments().getString("notes");
+        imageView.setImageBitmap(image);
+        noteTextView.setText(notes);
+    }
 }

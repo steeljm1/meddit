@@ -17,6 +17,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import Fragments.BaseFragment;
+import Helper.NonSwipeableViewPager;
 import Models.ContentFieldModel;
 import otago.Midwifery.R;
 import otago.Midwifery.TabConstants;
@@ -25,6 +26,15 @@ import otago.Midwifery.TabConstants;
 public class ImagePager extends BaseFragment {
 
     ArrayList<ContentFieldModel> content;
+    public static NonSwipeableViewPager viewPager;
+
+    public ImagePager() {
+    }
+
+    public static NonSwipeableViewPager getViewPager()
+    {
+        return viewPager;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,8 +43,8 @@ public class ImagePager extends BaseFragment {
 
         this.content = (ArrayList<ContentFieldModel>)getArguments().getSerializable("content");
 
-        final ViewPager viewPager = (ViewPager)v.findViewById(R.id.imagePager);
-
+        viewPager = (NonSwipeableViewPager)v.findViewById(R.id.imagePager);
+        viewPager.setPagingEnabled(true);
         ImageFragmentAdapter viewPagerAdapter = new ImageFragmentAdapter(getFragmentManager(),content);
 
         viewPager.setAdapter(viewPagerAdapter);
@@ -44,33 +54,9 @@ public class ImagePager extends BaseFragment {
 
         return v;
     }
-}
-
-class ImageFragmentAdapter extends FragmentStatePagerAdapter
-{
-    ArrayList<ContentFieldModel> content;
-
-    public ImageFragmentAdapter(FragmentManager fm, ArrayList<ContentFieldModel> content) {
-
-        super(fm);
-        this.content = content;
-    }
 
     @Override
-    public Fragment getItem(int position) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        Fragment fragment = new Image_Fragment();
-        Bundle bundle = new Bundle();
-
-        bundle.putParcelable("image", content.get(position).getImageContent());
-        bundle.putString("notes", content.get(position).getTextContent());
-
-        fragment.setArguments(bundle);
-        return  fragment;
-    }
-
-    @Override
-    public int getCount() {
-        return content.size();
     }
 }

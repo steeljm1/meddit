@@ -125,16 +125,12 @@ public class PinchTouchModelDetailsImageView extends ImageView {
         Bitmap bitmap = getDrawingCache();
         int pixel = bitmap.getPixel((int) curr.x, (int) curr.y);
 
-        int redValue = Color.red(pixel);
-        int greenValue = Color.green(pixel);
-        int blueValue = Color.blue(pixel);
-
         setDrawingCacheEnabled(false);
-        String myString = "" + Color.rgb(redValue, greenValue, blueValue);
+        String myString = String.format("#%06X", (0xFFFFFF & pixel));//"" + Color.rgb(redValue, greenValue, blueValue);
         //ModelDetails.getInstance().txtView.setText(myString);
+        ModelViewDetailFragment.txtView.setText(myString);
 
-
-        MessageToast.message(getContext(), myString);
+        //MessageToast.message(getContext(), myString);
         return super.performClick();
     }
 
