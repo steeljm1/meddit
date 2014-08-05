@@ -17,8 +17,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import DBController.DatabaseController;
 import ModelView.ModelViewDetailFragment;
+import Models.ModelColorModel;
+import Models.ModelViewModel;
 import otago.Midwifery.MessageToast;
+import otago.Midwifery.R;
 
 public class PinchTouchModelDetailsImageView extends ImageView {
 
@@ -128,7 +135,28 @@ public class PinchTouchModelDetailsImageView extends ImageView {
         setDrawingCacheEnabled(false);
         String myString = String.format("#%06X", (0xFFFFFF & pixel));//"" + Color.rgb(redValue, greenValue, blueValue);
         //ModelDetails.getInstance().txtView.setText(myString);
-        ModelViewDetailFragment.txtView.setText(myString);
+        DatabaseController dataSource;
+        ArrayList<ModelColorModel> colors;
+        int modelID = ModelViewDetailFragment.modelID;
+        dataSource = new DatabaseController(this.getContext());
+        try{
+            colors = dataSource.GetAllModelColor();
+            String hexColor="";
+            for(ModelColorModel c : colors){
+                hexColor = "#"+c.getHex();
+                if(c.getModelID() == modelID){
+                    if(hexColor.equals(myString)) {
+                        ModelViewDetailFragment.txtView.setText(c.getPartName());
+                    }
+                }
+
+            }
+
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
 
         //MessageToast.message(getContext(), myString);
         return super.performClick();

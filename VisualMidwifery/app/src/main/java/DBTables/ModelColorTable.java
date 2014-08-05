@@ -12,10 +12,9 @@ public class ModelColorTable extends SQLiteAssetHelper {
     public static final String TABLE_NAME = "modelColor";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_MODELID = "_modelID";
-    public static final String COLUMN_R = "R";
-    public static final String COLUMN_G = "G";
-    public static final String COLUMN_B = "B";
+    public static final String COLUMN_HEX = "HEX";
     public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_LASTEDITED = "LastEdited";
 
 
     public static final int DATABASE_VERSION = 1;

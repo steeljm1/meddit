@@ -33,17 +33,14 @@ public class ModelViewDetailFragment extends BaseFragment {
     DatabaseController dataSource;
     ArrayList<ModelViewModel> angles;
     int mainID;
-    int modelID;
+    public static int modelID;
     PinchTouchModelDetailsImageView modelImageDisplay;
     public static TextView txtView;
 
     public ModelViewDetailFragment() {
         // Required empty public constructor
     }
-    public ModelViewDetailFragment getInstance()
-    {
-        return this;
-    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

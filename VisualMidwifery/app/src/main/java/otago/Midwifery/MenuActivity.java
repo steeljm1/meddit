@@ -249,7 +249,7 @@ public class MenuActivity extends ActionBarActivity {
             }else{
                 //selected exam revision item
                 Intent intent = new Intent();
-                intent.setClass(MenuActivity.this, ExamRevision.class);
+                intent.setClass(MenuActivity.this, ExamRevisionPager.class);
                 startActivity(intent);
 
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);

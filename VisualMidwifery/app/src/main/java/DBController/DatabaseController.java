@@ -168,7 +168,7 @@ public class DatabaseController {
 
         database = modelViewTable.getWritableDatabase();
         //queries from here
-        String[] modelViewColumns = {modelViewTable.COLUMN_ID, modelViewTable.COLUMN_MAINID,modelViewTable.COLUMN_ANGLE,modelViewTable.COLUMN_IMAGE};
+        String[] modelViewColumns = {modelViewTable.COLUMN_ID, modelViewTable.COLUMN_MAINID,modelViewTable.COLUMN_ANGLE,modelViewTable.COLUMN_IMAGE,modelViewTable.COLUMN_LASTEDITED,modelViewTable.COLUMN_STEP};
 
         String whereClause = "_mainID = " + String.valueOf(mainID);
         Cursor cursor = database.query(modelViewTable.TABLE_NAME, modelViewColumns, whereClause, null, null, null, null);
@@ -194,6 +194,10 @@ public class DatabaseController {
         byte[] image = cursor.getBlob(3);
         temp.setModelImage(BitmapFactory.decodeByteArray(image, 0, image.length));
 
+        temp.setLastEdited(cursor.getString(4));
+
+        temp.setStep(cursor.getInt(5));
+
         return temp;
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -204,7 +208,7 @@ public class DatabaseController {
 
         database = modelColorTable.getWritableDatabase();
         //queries from here
-        String[] modelColorColumns = {modelColorTable.COLUMN_ID, modelColorTable.COLUMN_MODELID,modelColorTable.COLUMN_R,modelColorTable.COLUMN_G,modelColorTable.COLUMN_B,modelColorTable.COLUMN_NAME};
+        String[] modelColorColumns = {modelColorTable.COLUMN_ID, modelColorTable.COLUMN_MODELID,modelColorTable.COLUMN_HEX,modelColorTable.COLUMN_NAME,modelColorTable.COLUMN_LASTEDITED};
         Cursor cursor = database.query(modelColorTable.TABLE_NAME, modelColorColumns, null, null, null, null, null);
         cursor.moveToFirst();
 
@@ -223,10 +227,9 @@ public class DatabaseController {
 
         temp.setId(cursor.getInt(0));
         temp.setModelID(cursor.getInt(1));
-        temp.setCodeR(cursor.getInt(2));
-        temp.setCodeG(cursor.getInt(3));
-        temp.setCodeB(cursor.getInt(4));
-        temp.setPartName(cursor.getString(5));
+        temp.setHex(cursor.getString(2));
+        temp.setPartName(cursor.getString(3));
+        temp.setLastEdited(cursor.getString(4));
 
         return temp;
     }

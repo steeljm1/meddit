@@ -28,7 +28,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".ExamRevision"
+            android:name=".ExamRevisionPager"
             android:label="@string/title_activity_exam_revision" >
         </activity>
     </application>

@@ -14,6 +14,8 @@ public class ModelViewTable extends SQLiteAssetHelper {
     public static final String COLUMN_MAINID = "_mainID";
     public static final String COLUMN_ANGLE = "angle";
     public static final String COLUMN_IMAGE = "image";
+    public static final String COLUMN_LASTEDITED = "LastEdited";
+    public static final String COLUMN_STEP = "step";
 
     public static final int DATABASE_VERSION = 1;
 
