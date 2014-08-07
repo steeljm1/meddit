@@ -23,19 +23,25 @@ public class ExamRevisionPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        switch (position) {
-            case 1:
-                return new StaticSheet();
-            case 2:
-                return new StaticSheet();
-            case 3:
-                return new StaticSheet();
-            case 0:
-                return new PlaceholderFragment();
-
-            default:
-                return new PlaceholderFragment();
+        Fragment f = null;
+        if(position == 0)
+        {
+            f = new ExamRevisionWeb();
         }
+
+        if(position == 1)
+        {
+            f = new StaticSheetFS();
+        }
+        if(position == 2)
+        {
+            f = new StaticSheetMP();
+        }
+        if(position == 3)
+        {
+            f = new StaticSheetML();
+        }
+        return f;
     }
 
     @Override
@@ -69,55 +75,6 @@ public class ExamRevisionPagerAdapter extends FragmentStatePagerAdapter {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
 
-        public PlaceholderFragment() {
-        }
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_exam_revision, container, false);
-            return rootView;
-        }
-
-        @Override
-        public void onViewCreated(View view, Bundle savedInstanceState) {
-            WebView mywebview = (WebView) getActivity().findViewById(R.id.webviewExamRevision);
-            mywebview.setWebViewClient(new MyBrowser());
-
-            //mywebview.setScrollBarStyle(view.SCROLLBARS_INSIDE_OVERLAY);
-
-            WebSettings webSettings = mywebview.getSettings();
-            webSettings.setJavaScriptEnabled(true);
-            webSettings.setLoadsImagesAutomatically(true);
-            webSettings.setSupportZoom(true);
-            webSettings.setBuiltInZoomControls(true);
-            //webSettings.setDisplayZoomControls(true);
-            webSettings.setUseWideViewPort(true);
-            String url = getResources().getString(R.string.moodleURL)+"10";
-            mywebview.loadUrl(url);
-        }
-        private class MyBrowser extends WebViewClient {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-        }
-    }
-
-    public static class StaticSheet extends Fragment
-    {
-        public StaticSheet()
-        {
-
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_staticsheet, container, false);
-            return rootView;
-        }
-    }
 }

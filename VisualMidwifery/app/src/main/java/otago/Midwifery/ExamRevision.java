@@ -1,63 +1,84 @@
 package otago.Midwifery;
 
-import android.app.Activity;
 import android.app.ActionBar;
-import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import ExamRevision.ExamRevisionPagerAdapter;
-import Fragments.BaseFragment;
 import Helper.NonSwipeableViewPager;
-import otago.Midwifery.R;
-import android.support.v4.app.FragmentManager;
 
-public class ExamRevisionPager extends FragmentActivity implements ActionBar.TabListener{
+public class ExamRevision extends FragmentActivity implements ActionBar.TabListener {
 
-    NonSwipeableViewPager viewPager;
+    /**
+     * Called when the activity is first created.
+     */
+    public static NonSwipeableViewPager viewPager;
+    int tabPos;
+    int counter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam_revision);
-        /*if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }*/
+        counter = 0;
+        Intent intentIn = getIntent();
 
+        Bundle b = intentIn.getExtras();
+        if (b != null) {
+            tabPos = b.getInt("tabPos");
+            if(tabPos == 0)
+            {
+                counter = 0;
+            }
+            else {
+                counter = -1;
+            }
+        }
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
+
+        // Specify that the Home/Up button should not be enabled, since there is no hierarchical
+        // parent.
+        //actionBar.setHomeButtonEnabled(false);
+
         // Specify that we will be displaying tabs in the action bar.
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-
-        viewPager = (NonSwipeableViewPager) this.findViewById(R.id.examPager);
-        viewPager.setEnabled(true);
+        viewPager = (NonSwipeableViewPager) findViewById(R.id.examPager);
+        viewPager.setPagingEnabled(false);
+        viewPager.setOffscreenPageLimit(4);
         ExamRevisionPagerAdapter viewPagerAdapter = new ExamRevisionPagerAdapter(getSupportFragmentManager());
 
-
         viewPager.setAdapter(viewPagerAdapter);
-        viewPager.setOffscreenPageLimit(4);
         viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 // When swiping between different app sections, select the corresponding tab.
                 // We can also use ActionBar.Tab#select() to do this if we have a reference to the
                 // Tab.
+
                 actionBar.setSelectedNavigationItem(position);
+                counter++;
+
+                if(counter>=1 && position != 0) {
+                    counter = -1;
+                    Intent intent = new Intent();
+                    intent.setClass(getApplication(), ExamRevision.class);
+                    Bundle extras = new Bundle();
+                    extras.putInt("tabPos", position);
+                    intent.putExtras(extras);
+                    finish();
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                }
             }
+
         });
         // For each of the sections in the app, add a tab to the action bar.
         for (int i = 0; i < viewPagerAdapter.getCount(); i++) {
@@ -67,24 +88,24 @@ public class ExamRevisionPager extends FragmentActivity implements ActionBar.Tab
             actionBar.addTab(
                     actionBar.newTab()
                             .setText(viewPagerAdapter.getPageTitle(i))
-                            .setTabListener(this));
+                            .setTabListener(this)
+            );
         }
+        //viewPager.setCurrentItem(position);
+        viewPager.setCurrentItem(tabPos);
+        actionBar.setSelectedNavigationItem(tabPos);
     }
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-        // When the given tab is selected, switch to the corresponding page in the ViewPager.
         viewPager.setCurrentItem(tab.getPosition());
     }
-
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
     }
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
 
     }
-
 }
