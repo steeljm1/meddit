@@ -134,7 +134,8 @@ public class PinchTouchModelDetailsImageView extends ImageView {
 
         setDrawingCacheEnabled(false);
         String myString = String.format("#%06X", (0xFFFFFF & pixel));//"" + Color.rgb(redValue, greenValue, blueValue);
-        //ModelDetails.getInstance().txtView.setText(myString);
+//        ModelViewDetailFragment.txtView.setText(myString);
+
         DatabaseController dataSource;
         ArrayList<ModelColorModel> colors;
         int modelID = ModelViewDetailFragment.modelID;
