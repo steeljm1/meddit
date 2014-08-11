@@ -3,6 +3,7 @@
     package="otago.Midwifery" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -30,6 +31,10 @@
         <activity
             android:name=".ExamRevision"
             android:label="@string/title_activity_exam_revision" >
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" >
         </activity>
     </application>
 

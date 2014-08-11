@@ -1,10 +1,13 @@
 package DBController;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import java.io.ByteArrayOutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -69,6 +72,22 @@ public class DatabaseController {
 
         return temp;
     }
+
+    public void updateContentCategories(ArrayList<ContentCategoryModel> modelArray) {
+
+        database = contentCategoryTable.getWritableDatabase();
+        database.delete("contentCategory", null, null);
+
+        for(int i = 0; i < modelArray.size(); i++) {
+            ContentValues values = new ContentValues();
+            values.put("_mainID", modelArray.get(i).getMainId());
+            values.put("title", modelArray.get(i).getTitle());
+            database.insert("contentCategory", null, values);
+        }
+
+        contentCategoryTable.close();
+
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -129,6 +148,28 @@ public class DatabaseController {
         temp.setTextContent(cursor.getString(2));
         temp.setCategoryID(cursor.getInt(3));
         return temp;
+    }
+
+    public void updateContentField(ArrayList<ContentFieldModel> modelArray) {
+
+        database = contentFieldsTable.getWritableDatabase();
+        database.delete("contentFields", null, null);
+
+        for(int i = 0; i < modelArray.size(); i++) {
+            ContentValues values = new ContentValues();
+            values.put("_categoryID", modelArray.get(i).getCategoryID());
+            values.put("notes", modelArray.get(i).getTextContent());
+
+            Bitmap bitmap = modelArray.get(i).getImageContent();
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] image = stream.toByteArray();
+            values.put("image", image);
+
+            database.insert("contentFields", null, values);
+        }
+
+        contentFieldsTable.close();
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -200,6 +241,31 @@ public class DatabaseController {
 
         return temp;
     }
+
+    public void updateModelView(ArrayList<ModelViewModel> modelArray) {
+
+        database = modelViewTable.getWritableDatabase();
+        database.delete("modelView", null, null);
+
+        for(int i = 0; i < modelArray.size(); i++) {
+            ContentValues values = new ContentValues();
+            values.put(ModelViewTable.COLUMN_MAINID, modelArray.get(i).getMainId());
+            values.put(ModelViewTable.COLUMN_ANGLE, modelArray.get(i).getAngle());
+
+            Bitmap bitmap = modelArray.get(i).getModelImage();
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] image = stream.toByteArray();
+
+            values.put(ModelViewTable.COLUMN_IMAGE, image);
+            values.put(ModelViewTable.COLUMN_LASTEDITED, modelArray.get(i).getLastEdited());
+            //values.put(ModelViewTable.COLUMN_STEP, modelArray.get(i).getStep());
+
+            database.insert("modelView", null, values);
+        }
+
+        modelViewTable.close();
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -232,6 +298,23 @@ public class DatabaseController {
         temp.setLastEdited(cursor.getString(4));
 
         return temp;
+    }
+
+    public void updateModelColour(ArrayList<ModelColorModel> modelArray) {
+
+        database = modelColorTable.getWritableDatabase();
+        database.delete("modelColor", null, null);
+
+        for(int i = 0; i < modelArray.size(); i++) {
+            ContentValues values = new ContentValues();
+            values.put("_modelID", modelArray.get(i).getModelID());
+            values.put("HEX", modelArray.get(i).getHex());
+            values.put("name", modelArray.get(i).getPartName());
+            values.put("LastEdited", modelArray.get(i).getLastEdited());
+            database.insert("modelColor", null, values);
+        }
+
+        modelColorTable.close();
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

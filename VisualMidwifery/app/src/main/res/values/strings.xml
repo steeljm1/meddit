@@ -26,5 +26,6 @@
     <string name="title_activity_static_sheet_fs">StaticSheetFS</string>
     <string name="title_activity_static_sheet_mp">StaticSheetMP</string>
     <string name="title_activity_static_sheet_ml">ML</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 
 </resources>
