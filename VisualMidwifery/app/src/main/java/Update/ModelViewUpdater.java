@@ -32,7 +32,8 @@ public class ModelViewUpdater extends ModelUpdater {
     }
 
     // READING JSON STREAM CONTENT CATEGORY
-    public void readModelViewJsonStream(InputStream in) throws IOException {
+    @Override
+    public void readInputStream(InputStream in) throws IOException {
         try {
             JSONObject json = new JSONObject(convertInputToJson(in));
             JSONArray jsonArray = json.getJSONArray("items");

@@ -2,6 +2,8 @@ package Update;
 
 import android.content.Context;
 
+import org.json.JSONArray;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,6 +21,10 @@ public abstract class ModelUpdater {
     protected ModelUpdater(Context context) {
         this.context = context;
         this.controller = new DatabaseController(context);
+    }
+
+    protected void readInputStream(InputStream in) throws IOException {
+
     }
 
     protected String convertInputToJson(InputStream in) throws IOException {

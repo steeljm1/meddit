@@ -28,7 +28,8 @@ public class ContentCategoryUpdater extends ModelUpdater {
     }
 
     // READING JSON STREAM CONTENT CATEGORY
-    public void readContentCategoryJsonStream(InputStream in) throws IOException {
+    @Override
+    public void readInputStream(InputStream in) throws IOException {
         try {
             JSONObject json = new JSONObject(convertInputToJson(in));
             JSONArray jsonArray = json.getJSONArray("items");

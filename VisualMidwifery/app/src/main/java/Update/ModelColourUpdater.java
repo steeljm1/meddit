@@ -27,7 +27,8 @@ public class ModelColourUpdater extends ModelUpdater {
         controller.updateModelColour(models);
     }
 
-    public void readModelColourJsonStream(InputStream in) throws IOException {
+    @Override
+    public void readInputStream(InputStream in) throws IOException {
         try {
             JSONObject json = new JSONObject(convertInputToJson(in));
             JSONArray jsonArray = json.getJSONArray("items");
