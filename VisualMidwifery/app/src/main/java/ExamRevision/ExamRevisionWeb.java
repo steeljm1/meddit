@@ -1,7 +1,10 @@
 package ExamRevision;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,10 +13,17 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import Models.ModelViewModel;
 import otago.Midwifery.R;
 
 public class ExamRevisionWeb extends Fragment {
+    WebView mywebview;
+    String url;
+    WebSettings webSettings;
+    ProgressDialog mProgress;
 
     public ExamRevisionWeb() {
         // Required empty public constructor
@@ -26,20 +36,24 @@ public class ExamRevisionWeb extends Fragment {
     }
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        WebView mywebview = (WebView) getActivity().findViewById(R.id.webviewExamRevision);
+        mywebview = (WebView) getActivity().findViewById(R.id.webviewExamRevision);
         mywebview.setWebViewClient(new MyBrowser());
 
         //mywebview.setScrollBarStyle(view.SCROLLBARS_INSIDE_OVERLAY);
+        mProgress = ProgressDialog.show(getActivity(), "Loading", "Please wait for a moment...");
 
-        WebSettings webSettings = mywebview.getSettings();
+        webSettings = mywebview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setLoadsImagesAutomatically(true);
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
         //webSettings.setDisplayZoomControls(true);
         webSettings.setUseWideViewPort(true);
-        String url = getResources().getString(R.string.moodleURL)+"10";
+        webSettings.setDisplayZoomControls(false);
+
+        url = getResources().getString(R.string.moodleURL)+"10";
         mywebview.loadUrl(url);
+
     }
     private class MyBrowser extends WebViewClient {
         @Override
@@ -47,6 +61,16 @@ public class ExamRevisionWeb extends Fragment {
             view.loadUrl(url);
             return true;
         }
-    }
+        @Override
+        public void onPageFinished(WebView view, final String url) {
+            if(mProgress.isShowing()) {
+                mProgress.dismiss();
+            }
+        }
 
+        @Override
+        public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+            mywebview.loadUrl("file:///android_asset/myerrorpage.html");
+        }
+    }
 }

@@ -2,6 +2,7 @@ package QuizView;
 
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -35,6 +36,8 @@ public class QuizLogIn extends BaseFragment {
     int mainID;
     DatabaseController dataSource;
     ArrayList<MainCategoryModel> allMain;
+    ProgressDialog mProgress;
+    WebView mywebview;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,10 +57,12 @@ public class QuizLogIn extends BaseFragment {
             e.printStackTrace();
         }
 
-        WebView mywebview = (WebView) mActivity.findViewById(R.id.webview);
+        mywebview = (WebView) mActivity.findViewById(R.id.webview);
         mywebview.setWebViewClient(new MyBrowser());
 
         //mywebview.setScrollBarStyle(view.SCROLLBARS_INSIDE_OVERLAY);
+        mProgress = ProgressDialog.show(getActivity(), "Loading", "Please wait for a moment...");
+
 
         WebSettings webSettings = mywebview.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -66,7 +71,7 @@ public class QuizLogIn extends BaseFragment {
         webSettings.setBuiltInZoomControls(true);
         //webSettings.setDisplayZoomControls(true);
         webSettings.setUseWideViewPort(true);
-
+        webSettings.setDisplayZoomControls(false);
         String url = getResources().getString(R.string.loginURL);
         if(mainID == 1){
             url = getResources().getString(R.string.moodleURL)+"2";
@@ -84,6 +89,17 @@ public class QuizLogIn extends BaseFragment {
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             view.loadUrl(url);
             return true;
+        }
+        @Override
+        public void onPageFinished(WebView view, final String url) {
+            if(mProgress.isShowing()) {
+                mProgress.dismiss();
+            }
+        }
+
+        @Override
+        public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+            mywebview.loadUrl("file:///android_asset/myerrorpage.html");
         }
     }
 }
