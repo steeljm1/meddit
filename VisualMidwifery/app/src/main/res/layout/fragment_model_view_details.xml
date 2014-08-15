@@ -35,7 +35,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/modelViewDetailSeekBar"
-                android:layout_weight="9" />
+                android:layout_weight="9"
+                android:layout_marginTop="3dp"
+                android:maxHeight="3dp"
+                />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

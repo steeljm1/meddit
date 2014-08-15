@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import DBController.DatabaseController;
 import Fragments.BaseFragment;
@@ -32,7 +34,11 @@ public class ContentGridViewFragment extends BaseFragment {
         int categoryID = bundle.getInt("categoryID");
 
         dataSource = new DatabaseController(getActivity());
-        content =  dataSource.getContentOfCategory(categoryID);
+        try {
+            content = dataSource.getContentOfCategory(categoryID);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         gridView = (GridView)v.findViewById(R.id.gridView);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

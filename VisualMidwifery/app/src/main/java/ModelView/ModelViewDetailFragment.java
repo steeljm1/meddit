@@ -5,6 +5,7 @@ package ModelView;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -102,6 +103,9 @@ public class ModelViewDetailFragment extends BaseFragment{
             else
             {
                 SeekBar seekBar = (SeekBar) mActivity.findViewById(R.id.modelViewDetailSeekBar);
+
+                seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekbarlayout));
+
                 final TextView seekBarValue = (TextView) mActivity.findViewById(R.id.seekbarValue);
                 seekBarValue.setText(""+0);
                 seekBar.setMax(matchAngles.size()-1);
@@ -111,7 +115,7 @@ public class ModelViewDetailFragment extends BaseFragment{
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                         seekBarValue.setText(String.valueOf(progress));
-                        new MyAsyncTask(getActivity(),matchAngles.get(progress),modelImageDisplay).execute();
+
                     }
 
                     @Override
@@ -121,6 +125,7 @@ public class ModelViewDetailFragment extends BaseFragment{
 
                     @Override
                     public void onStopTrackingTouch(SeekBar seekBar) {
+                        new MyAsyncTask(getActivity(),matchAngles.get(seekBar.getProgress()),modelImageDisplay).execute();
 
                     }
                 });

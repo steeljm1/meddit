@@ -3,6 +3,7 @@ package DBController;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import java.sql.SQLException;
@@ -124,7 +125,9 @@ public class DatabaseController {
         temp.setId(cursor.getInt(0));
 
         byte[] image = cursor.getBlob(1);
-        temp.setImageContent(BitmapFactory.decodeByteArray(image, 0, image.length));
+        BitmapFactory bf = new BitmapFactory();
+        Bitmap b = bf.decodeByteArray(image, 0, image.length);
+        temp.setImageContent(b);
 
         temp.setTextContent(cursor.getString(2));
         temp.setCategoryID(cursor.getInt(3));
