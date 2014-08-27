@@ -37,6 +37,8 @@ public class MenuActivity extends ActionBarActivity {
     private static final long TIME_INTERVAL = 1500; // # milliseconds, desired time passed between two back presses.
     private long mBackPressed;
 
+    private ImageButton settingsButton;
+
     private DatabaseController myDatabase;
     private ArrayList<String> mainMenuArrayList;
     private ArrayList<String> mainMenuArrayListDrawer;
@@ -192,6 +194,15 @@ public class MenuActivity extends ActionBarActivity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
+
+        settingsButton = (ImageButton)findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), otago.Midwifery.SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void prepareListData() {
