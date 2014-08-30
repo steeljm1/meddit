@@ -15,11 +15,10 @@
         <item>Quiz</item>
     </string-array>
 
-    <string name="loginURL">http://meddit.ict.op.ac.nz/moodle/moodle/login/index.php</string>
-    <string name="FetalSkull">http://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=2</string>
-    <string name="MaternalPelvis">http://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=7</string>
-    <string name="MechanismofLabor">http://google.co.nz</string>
-    <string name="moodleURL">http://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=</string>
+    <string name="loginURL">https://meddit.ict.op.ac.nz/moodle/moodle/login/index.php</string>
+    <string name="FetalSkull">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=2</string>
+    <string name="MaternalPelvis">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=7</string>
+    <string name="moodleURL">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_exam_revision">ExamRevision</string>
     <string name="title_activity_exam_revision_web">Exam Revision</string>
