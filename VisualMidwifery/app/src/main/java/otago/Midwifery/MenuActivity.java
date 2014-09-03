@@ -1,11 +1,14 @@
 package otago.Midwifery;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -28,6 +31,7 @@ import java.util.List;
 
 import DBController.DatabaseController;
 import Models.MainCategoryModel;
+import Update.Updater;
 
 
 public class MenuActivity extends ActionBarActivity {
@@ -37,6 +41,7 @@ public class MenuActivity extends ActionBarActivity {
     private static final long TIME_INTERVAL = 1500; // # milliseconds, desired time passed between two back presses.
     private long mBackPressed;
 
+    private Updater updater;
     private ImageButton settingsButton;
 
     private DatabaseController myDatabase;
@@ -84,6 +89,9 @@ public class MenuActivity extends ActionBarActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        //Creates update instance
+        updater = new Updater(this);
 
         //init mainMenu list view
         mainMenuListView = (ListView) findViewById(R.id.mainMenuList);
@@ -146,6 +154,7 @@ public class MenuActivity extends ActionBarActivity {
             }
         });
 
+
         // Listview on child click listener
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
@@ -194,16 +203,27 @@ public class MenuActivity extends ActionBarActivity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-
+        // Update Button
         settingsButton = (ImageButton)findViewById(R.id.settingsButton);
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), otago.Midwifery.SettingsActivity.class);
-                startActivity(intent);
+
+                AlertDialog alertDialog = new AlertDialog.Builder(MenuActivity.this).create();
+                alertDialog.setMessage("Check for updates?");
+                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", onUpdateClickListener);
+                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", onUpdateClickListener);
+                alertDialog.show();
             }
         });
     }
+    DialogInterface.OnClickListener onUpdateClickListener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+                if(i == DialogInterface.BUTTON_POSITIVE)
+                        updater.runUpdate();
+        }
+    };
 
     private void prepareListData() {
         //listDataHeader = new ArrayList<String>();
@@ -225,9 +245,7 @@ public class MenuActivity extends ActionBarActivity {
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
-
     }
 
     @Override
@@ -336,5 +354,10 @@ public class MenuActivity extends ActionBarActivity {
             txtCategory.setText(currentCategory);//set text for each item
             return category_view;
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 }

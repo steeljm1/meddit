@@ -28,22 +28,32 @@ import java.io.InputStream;
 
 public class Updater {
     public Context context;
+    private UpdateTask updateTask;
 
     public Updater(Context context) {
         this.context = context;
+        updateTask = new UpdateTask(context);
+    }
+
+    public void cancelUpdate() {
+        updateTask.cancel(true);
+    }
+
+    public void runUpdate() {
         //Checks for valid internet connection
         ConnectivityManager connMgr = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
         if (networkInfo != null && networkInfo.isConnected()) {
             String[] urls = { "http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ContentCategory.json",
-                              "http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ModelView.json",
-                               "http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ContentField.json",
-                              "http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ModelColour.json"
-                            };
+                    "http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ModelView.json",
+                    "http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ContentField.json",
+                    "http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ModelColour.json"
+            };
 
             //New async task to make the http request
-            new UpdateTask(context).execute(urls);
+            updateTask = new UpdateTask(context);
+            updateTask.execute(urls);
         } else {
             Toast.makeText(context, "Failed to connect to the network", Toast.LENGTH_LONG).show();
         }
@@ -89,6 +99,10 @@ public class Updater {
                     }
                     else {
                         Log.e("Building Input Stream", "Failed to download file");
+                    }
+
+                    if(isCancelled()) {
+                        dialog.dismiss();
                     }
                 }
             } catch (ClientProtocolException e) {
