@@ -22,7 +22,8 @@
         </activity>
         <activity
             android:name=".MenuActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".CategoryView"
@@ -31,7 +32,8 @@
         </activity>
         <activity
             android:name=".ExamRevision"
-            android:label="@string/title_activity_exam_revision" >
+            android:label="@string/title_activity_exam_revision"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 
