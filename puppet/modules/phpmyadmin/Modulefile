@@ -1,0 +1,13 @@
+name    'jay-phpmyadmin'
+version '0.1.0'
+source ''
+author ''
+license ''
+summary 'Phpmyadmin'
+description 'This module manages phpmyadmin'
+project_page ''
+
+## Add dependencies, if any:
+# dependency 'username/name', '>= 1.2.0'
+dependency 'jay/mysql', '0.1.0'
+dependency 'jay/apache', '0.1.0'

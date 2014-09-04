@@ -1,0 +1,19 @@
+# This file is managed by puppet
+<IfModule mod_userdir.c>
+        UserDir public_html
+        UserDir disabled root
+
+        <Directory /home/*/public_html>
+                AllowOverride All
+                Options MultiViews Indexes SymLinksIfOwnerMatch 
+                <Limit GET POST OPTIONS>
+                        Order allow,deny
+                        Allow from all
+                </Limit>
+                <LimitExcept GET POST OPTIONS>
+                        Order deny,allow
+                        Deny from all
+                </LimitExcept>
+        </Directory>
+</IfModule>
+

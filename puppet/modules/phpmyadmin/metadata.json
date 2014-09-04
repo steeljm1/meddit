@@ -1,0 +1,22 @@
+{
+  "name": "jay-phpmyadmin",
+  "version": "0.1.0",
+  "summary": "Phpmyadmin",
+  "author": "",
+  "description": "This module manages phpmyadmin",
+  "dependencies": [
+    {
+      "name": "jay/mysql",
+      "version_requirement": "0.1.0"
+    },
+    {
+      "name": "jay/apache",
+      "version_requirement": "0.1.0"
+    }
+  ],
+  "types": [],
+  "checksums": {},
+  "source": "",
+  "project_page": "",
+  "license": ""
+}

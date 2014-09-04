@@ -1,0 +1,3 @@
+# phpmyadmin #
+
+This is the phpmyadmin module. It provides...
