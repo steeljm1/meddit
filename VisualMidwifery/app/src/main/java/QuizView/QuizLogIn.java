@@ -3,11 +3,13 @@ package QuizView;
 
 
 import android.app.ProgressDialog;
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -72,6 +74,7 @@ public class QuizLogIn extends BaseFragment {
         //webSettings.setDisplayZoomControls(true);
         webSettings.setUseWideViewPort(true);
         webSettings.setDisplayZoomControls(false);
+
         String url = getResources().getString(R.string.loginURL);
         if(mainID == 1){
             url = getResources().getString(R.string.moodleURL)+"2";
@@ -95,6 +98,11 @@ public class QuizLogIn extends BaseFragment {
             if(mProgress.isShowing()) {
                 mProgress.dismiss();
             }
+        }
+
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            handler.proceed() ;
         }
 
         @Override

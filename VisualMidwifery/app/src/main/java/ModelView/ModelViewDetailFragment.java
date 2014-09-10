@@ -102,6 +102,21 @@ public class ModelViewDetailFragment extends BaseFragment{
             }
             else
             {
+                //sort matchAngles arraylist
+                for(int i = 1; i < matchAngles.size(); i++)
+                {
+                    for(int j = 0; j <  matchAngles.size() - i; j++)
+                    {
+                        if(matchAngles.get(j).getStep() > matchAngles.get(j + 1).getStep())
+                        {
+                            ModelViewModel temp = matchAngles.get(j);
+                            matchAngles.set(j,matchAngles.get(j + 1)) ;
+                            matchAngles.set(j+1,temp);//swap
+                        }
+                    }
+                }
+
+                //bubble sort end
                 SeekBar seekBar = (SeekBar) mActivity.findViewById(R.id.modelViewDetailSeekBar);
 
                 seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekbarlayout));

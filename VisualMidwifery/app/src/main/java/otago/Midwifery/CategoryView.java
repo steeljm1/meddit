@@ -436,6 +436,7 @@ public class CategoryView extends FragmentActivity{
        		 */
             if(mStacks.get(mCurrentTab).size() == 1){
                 super.onBackPressed();  // or call finish..
+                overridePendingTransition(R.anim.left_in, R.anim.right_out);
             }else{
                 popFragments();
             }
