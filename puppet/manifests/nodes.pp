@@ -9,6 +9,7 @@ node 'meddit.op.ac.nz'{
 #	include bootstrap
 #	include nagios
 #	include nix_bacula_client
+	include apt
 	include hosts_file
 	include sudo
 	include users
