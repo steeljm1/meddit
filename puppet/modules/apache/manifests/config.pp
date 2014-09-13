@@ -30,9 +30,9 @@ class apache::config {
               notify      => Class["apache::service"],
         }
         
-        file { "/var/www/ss":
-              ensure    => "directory",
-        }
+#        file { "/var/www/ss":
+#              ensure    => "directory",
+#        }
         
         file { "/etc/apache2/apache2.conf":
               notify    => Class["apache::service"],
