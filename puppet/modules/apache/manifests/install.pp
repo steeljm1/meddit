@@ -19,7 +19,8 @@ class apache::install {
         ensure    => present,
       }
       
-      $opt_prereqisites = ["php5-mysql", "curl", "libcurl3", "php5-curl", "php-soap", "php-xml", "php-xmlrpc"]
+      #$opt_prereqisites = ["php5-mysql", "curl", "libcurl3", "php5-curl", "php-soap", "php-xml", "php-xmlrpc"]
+      $opt_prereqisites = ["php5-mysql", "curl", "libcurl3", "php5-curl", "php-soap"]
 
       package { $opt_prereqisites :
         ensure  => present,

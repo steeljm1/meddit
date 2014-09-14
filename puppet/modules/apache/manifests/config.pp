@@ -129,25 +129,25 @@ class apache::config {
         }
       
       # SSL cert pem
-      file { "/etc/ssl/localcerts/apache-meddit.pem":
-              notify      => Class["apache::service"],
+      file { "/etc/ssl/localcerts/apache-meddit.pem":              
               ensure      => "present",
               source      => "puppet:///modules/apache/apache-meddit.pem",
               owner       => "root",
               group       => "root",
               mode        => 0600,
               require     => Class["apache::install"], 
+              notify      => Class["apache::service"],
         }
       
       # SSL cert key
-      file { "/etc/ssl/localcerts/apache-meddit.key":
-              notify      => Class["apache::service"],
+      file { "/etc/ssl/localcerts/apache-meddit.key":              
               ensure      => "present",
               source      => "puppet:///modules/apache/apache-meddit.key",
               owner       => "root",
               group       => "root",
               mode        => 0600,
-              require     => Class["apache::install"], 
+              require     => Class["apache::install"],
+              notify      => Class["apache::service"],
         }
       
       
