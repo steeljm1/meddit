@@ -6,6 +6,11 @@ class mysql::create{
     
     
     }
+    
+    
+    
+    
+    
     define db( $user, $password ) {
       exec { "create-${name}-db":
         unless => "/usr/bin/mysql -uroot ${name}",
