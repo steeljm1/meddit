@@ -29,9 +29,18 @@ class bootstrap {
                   hasrestart  => true,
                   enable      => true,
                   require     => Package["puppet"],
-      }
-
-
+        }
+        
+        file { "/etc/default/puppet" :
+                ensure    => present,
+                owner     => 'root',
+                group     => 'root',
+                mode      => 0644,
+                content   => template('bootstrap/puppet.erb'),
+                require     => Package["puppet"],
+        }
+        
+        
         # silence puppet annoyance about the puppet group
         group { 'puppet':
               ensure => 'present'
