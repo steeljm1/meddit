@@ -27,8 +27,17 @@ exec { "set-mysql-password":
     require => Class["mysql::install"],
 	notify => Class["mysql::service"],
   }
+  
+  
+  
+  
 
-
+#mysql::db { 'moodle':
+#  user     => 'moodleuser',
+#  password => 'M3dm00d13Db',
+#  host     => 'localhost',
+#  grant    => ['ALL'],
+#} 
 
 
 }
