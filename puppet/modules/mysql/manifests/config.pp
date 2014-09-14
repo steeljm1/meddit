@@ -19,25 +19,19 @@ file { "/etc/mysql/debian-start":
         notify => Class["mysql::service"],
 }
 
-exec { "set-mysql-password":
-    unless  => "mysql -uroot -proot",
-    path    => ["/bin", "/usr/bin"],
-	command => "/usr/bin/mysqladmin -u root password M3dL@mP",
-    #command => "mysqladmin -uroot password P@ssword",
-    require => Class["mysql::install"],
-	notify => Class["mysql::service"],
-  }
-  
-  
-  
+## Comment after initial install
+
+#exec { "set-mysql-password":
+#    unless  => "mysql -uroot -proot",
+#    path    => ["/bin", "/usr/bin"],
+#	command => "/usr/bin/mysqladmin -u root password M3dL@mP",
+#    #command => "mysqladmin -uroot password P@ssword",
+#    require => Class["mysql::install"],
+#	notify => Class["mysql::service"],
+#  }
+#  
   
 
-#mysql::db { 'moodle':
-#  user     => 'moodleuser',
-#  password => 'M3dm00d13Db',
-#  host     => 'localhost',
-#  grant    => ['ALL'],
-#} 
 
 
 }
