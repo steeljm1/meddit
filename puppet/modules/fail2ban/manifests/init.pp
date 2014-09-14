@@ -21,7 +21,7 @@ class fail2ban {
                   source    => "puppet:///modules/fail2ban/fail2ban.conf",
                   owner     => "root",
                   group     => "root",
-                  mode      => 644,
+                  mode      => 0644,
                   require   => Package["fail2ban"], 
                   notify    => Service["fail2ban"],              
             }
@@ -31,7 +31,7 @@ class fail2ban {
                   source    => "puppet:///modules/fail2ban/jail.conf",
                   owner     => "root",
                   group     => "root",
-                  mode      => 644,
+                  mode      => 0644,
                   require   => Package["fail2ban"], 
                   notify    => Service["fail2ban"],              
             }
