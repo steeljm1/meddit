@@ -18,7 +18,8 @@ node 'meddit.op.ac.nz'{
 	include fail2ban
 	include sshd
 	include phpmyadmin
-	include openssl
+	include moodle
+#	include openssl
 }
 
 # Backup server 

@@ -19,11 +19,11 @@ class mysql::create{
         $user            = 'moodleuser'
           
          ## fix - run onlyif!!! 
-#        exec {"create_moodle_user":
-#
-#             # command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE ${moodledb}; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhost' IDENTIFIED BY '${moodle_password}';\"",
-#             command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE ${moodledb}; CREATE USER '${user}'@'localhost' IDENTIFIED BY '${moodle_password}'; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhos$
-#        }
+        exec {"create_moodle_user":
+
+             # command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE ${moodledb}; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhost' IDENTIFIED BY '${moodle_password}';\"",
+             command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE ${moodledb}; CREATE USER '${user}'@'localhost' IDENTIFIED BY '${moodle_password}'; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhost';\"",
+        }
 
         # Push database
         file { "/root/moodle-database.sql":
