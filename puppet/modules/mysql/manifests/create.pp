@@ -1,35 +1,39 @@
 class mysql::create{ 
     
-    $user       = moodleuser
-    $password   = M3dm00d13Db
-    $name       = moodle
-    $host       = localhost
-    
-   
-    
-    
-    
-    
-    
-    
-    }
-    
-    
-    
-    
-    
-#    define db( $user, $password ) {
-#      exec { "create-${name}-db":
-#        unless => "/usr/bin/mysql -uroot ${name}",
-#        command => "/usr/bin/mysql -uroot -e \"create database ${name};\"",
-#        require => Class["mysql::install"],
-#        notify => Class["mysql::service"],
-#      }
-#
-#      exec { "grant-${name}-db":
-#        unless => "/usr/bin/mysql -u${user} -p${password} ${name}",
-#        command => "/usr/bin/mysql -uroot -e \"grant all on ${name}.* to ${user}@localhost identified by '$password';\"",
-#        require => [Class["mysql::service"], Exec["create-${name}-db"]]
-#      }
-#    
-#    }
+	####  Create databases   #####
+        
+        # Global variables
+        $db_host      = 'localhost'
+        
+        # Create Moodle db          
+        $moodle_password  = '*9C167602ADE8001A2D66B729D3A2E035FD2BA75B'
+          
+        mysql::db { 'moodle':
+              user            => 'moodleuser',
+              password_hash   => $moodle_password,
+              host            => $db_host,
+              grant           => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CREATE', 'CREATE TEMPORARY TABLES', 'DROP', 'INDEX', 'ALTER'],
+              sql             => '/root/moodle-database.sql',
+              require         => File['/root/moodle-database.sql']
+        }
+        
+        # Import moodle-database
+        file { "/root/moodle-database.sql":
+              ensure    => present,
+              source    => "puppet:///modules/mysql/moodle-database.sql",
+        }
+  
+  
+        # Create Silverstripe db
+        
+        
+        
+        
+        
+        # Mediawiki
+        
+	
+	
+	
+	
+  }
