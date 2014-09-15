@@ -52,7 +52,7 @@ class moodle::install {
               #creates => '/var/moodledata',
               cwd     =>  '/var',            
               command => "/bin/tar -xpvzf /var/$moodledata_tar",                                         
-              require => File['/var/$moodle_tar']
+              require => File['/var/$moodledata_tar']
         }
         
         ## Setup moodle root
