@@ -17,7 +17,8 @@ class mysql::create{
 
         $moodledb = 'moodle'
         $user            = 'moodleuser'
-
+          
+         ## fix - run onlyif!!! 
 #        exec {"create_moodle_user":
 #
 #             # command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE ${moodledb}; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhost' IDENTIFIED BY '${moodle_password}';\"",
@@ -29,7 +30,8 @@ class mysql::create{
               ensure    => present,
               source    => "puppet:///modules/mysql/moodle-database.sql",
         }
-
+        
+        ## fix - run onlyif!!!
         exec {'importMoodleDb':
 
              command => "/usr/bin/mysql -uroot -p$root_password ${moodledb} < /root/moodle-database.sql",
