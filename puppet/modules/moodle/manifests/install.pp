@@ -23,7 +23,7 @@ class moodle::install {
         
         # unpack moodledata
         exec { "unpack-moodledata":  
-              #creates => '/var/moodledata',
+              creates => '/var/moodledata',
               cwd     =>  '/var',            
               command => "/bin/tar -xpvzf /var/moodledata-07092014.tar.gz",                                         
               require => File['/var/moodledata-07092014.tar.gz']
@@ -52,7 +52,8 @@ class moodle::install {
         }
         
         # unpack moodleroot
-        exec { "unpack-moodleroot":  
+        exec { "unpack-moodleroot":
+			  creates =>  '/var/www/moodle',	
               cwd     =>  '/var/www/moodle',            
               command => "/bin/tar -xpvzf /var/moodleroot.tar.gz",                                         
               require => File['/var/moodleroot.tar.gz']
