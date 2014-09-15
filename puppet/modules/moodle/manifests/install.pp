@@ -1,60 +1,82 @@
 class moodle::install {
         
         $web_dir = '/var/www'  
-        $moodle_tar  = 'moodledata-19082014.tar.gz'
+        #$moodledata_tar  = 'moodledata-07092014.tar.gz'
         
-        # Create moodle dir
+
+        # Create moodledata dir
         file { "/var/moodledata":
-              ensure    => "directory",
+              ensure    => directory,
               owner     => "www-data",
               group     => "www-data",
               mode      => 0777,              
         }
         
-        # push moodledata
-        file { "/var/$moodle_tar":
+        # push moodledata ## fix tar file
+        file { "/var/moodledata-07092014.tar.gz":
               ensure    => "present",
-              source    => "puppet:///modules/moodle/moodledata-19082014.tar.gz",
+              source    => "puppet:///modules/moodle/moodledata-07092014.tar.gz",
               owner     => "root",
               group     => "root",
               mode      => 0644,              
         }
         
         # unpack moodledata
-        exec { "unpack-moodle":              
-              command => "/bin/tar -xvzf /var/$moodle_tar",
-              #creates => '/var/moodledata', 
+        exec { "unpack-moodledata":  
+              #creates => '/var/moodledata',
               cwd     =>  '/var',            
-              subscribe => File['/var/$moodle_tar'],
+              command => "/bin/tar -xpvzf /var/moodledata-07092014.tar.gz",                                         
+              require => File['/var/moodledata-07092014.tar.gz']
         }
         
+        ## Setup moodle root
+        # Ensure moodleroot dir
+        #$moodle_root    = '/var/www/moodle'
+        
+        ## Ceate moodle root
         file { "/var/www/moodle":
-              ensure    => "directory",
+              ensure    => directory,
               owner     => "root",
               group     => "www-data",
               mode      => 0755,
         }
       
-        $moodle_root    = '/var/www/moodle/moodle'
       
-        file { $moodle_root:
-              ensure    => "directory",
+        ## push moodleroot
+        file { "/var/moodleroot.tar.gz":
+              ensure    => "present",
+              source    => "puppet:///modules/moodle/moodleroot.tar.gz",
+              owner     => "root",
+              group     => "root",
+              mode      => 0644,              
+        }
+        
+        # unpack moodleroot
+        exec { "unpack-moodleroot":  
+              cwd     =>  '/var/www/moodle',            
+              command => "/bin/tar -xpvzf /var/moodleroot.tar.gz",                                         
+              require => File['/var/moodleroot.tar.gz']
+        }
+            
+        file { "/var/www/moodle/moodle":
+              ensure    => directory,
               owner     => "root",
               group     => "root",
               mode      => 0755,
-              require   => File["/var/www/moodle"]
+              require   => Exec['unpack-moodleroot']
         }
       
-       file { "$moodle_root/config.php":
-              ensure    => "present",
+       file { "/var/www/moodle/moodle/config.php":
+              ensure    => present,
               source    => "puppet:///modules/moodle/config.php",
               owner     => "root",
               group     => "root",
               mode      => 0644,
-              require   => File[$moodle_root]
+              require   => File['/var/www/moodle/moodle']
         }
             
         
       
       
 }
+
