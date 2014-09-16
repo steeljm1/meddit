@@ -54,19 +54,19 @@ class moodle::install {
         # unpack moodleroot
         ## Ensure moodleroot.tar.gz is in files dir before running
         exec { "unpack-moodleroot":  
-              creates	     => '/var/www/moodle',
+              creates	     => '/var/www/moodle/moodle',
 	            cwd          =>  '/var/www/moodle',            
               command      => "/bin/tar -xpvzf /var/moodleroot.tar.gz",                                         
               require      => File['/var/moodleroot.tar.gz']
         }
             
-        file { "/var/www/moodle/moodle":
-              ensure    => directory,
-              owner     => "root",
-              group     => "root",
-              mode      => 0755,
-              require   => Exec['unpack-moodleroot']
-        }
+#        file { "/var/www/moodle/moodle":
+#              ensure    => directory,
+#              owner     => "root",
+#              group     => "root",
+#              mode      => 0755,
+#              require   => Exec['unpack-moodleroot']
+#        }
       
        file { "/var/www/moodle/moodle/config.php":
               ensure    => present,
@@ -74,7 +74,8 @@ class moodle::install {
               owner     => "root",
               group     => "root",
               mode      => 0644,
-              require   => File['/var/www/moodle/moodle']
+              #require   => File['/var/www/moodle/moodle']
+              require   => Exec["unpack-moodleroot"]
         }
             
         
