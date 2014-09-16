@@ -20,12 +20,9 @@ class mysql::create{
         exec {"create_moodle_user":
              unless => "/usr/bin/mysql -u${user} -p${moodle_password} ${moodledb}",
              # command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE ${moodledb}; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhost' IDENTIFIED BY '${moodle_password}';\"",
-             command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE ${moodledb}; CREATE USER '${user}'@'localhost' IDENTIFIED BY '${moodle_password}'; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhost';\"",
+             command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE IF NOT EXISTS ${moodledb}; CREATE USER '${user}'@'localhost' IDENTIFIED BY '${moodle_password}'; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhost';\"",
              require => Class["mysql::install"],
         }
-
-
-
 
         # Push database
         file { "/root/moodle-database.sql":
@@ -36,10 +33,9 @@ class mysql::create{
         ## fix - run onlyif!!!
         exec {'importMoodleDb':
              # unless => "/usr/bin/mysql -u${user} -p${moodle_password} ${moodledb}",
-             command => "/usr/bin/mysql -uroot -p$root_password ${moodledb} < /root/moodle-database.sql",
-             require => File["/root/moodle-database.sql"],
-             #subscribe  => Exec["createMoodleDb"]
-       }
+             command => "/usr/bin/mysql -uroot -p$root_password ${moodledb} < /root/moodle-database.sql",             
+             require  => [Exec["create_moodle_user"], File["/root/moodle-database.sql"]]
+        }
 
 
 
