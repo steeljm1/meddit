@@ -22,19 +22,18 @@ class mysql::config {
 
 #### Comment after initial install
 
-        $root_password  =  '*FC0AB3C571070AFC1E7F420C4DECB92A249682F0'
+        #$root_password  =  '*FC0AB3C571070AFC1E7F420C4DECB92A249682F0'
+        $root_password  = 'M3dL@mP'
 
-#       exec { "set-mysql-password":
-#               unless  => "mysql -uroot -proot",
-#               path    => ["/bin", "/usr/bin"],
-#               ## Test hashed
-#               command => "/usr/bin/mysqladmin -u root password ${root_password}",
-#               ## Below works but unhashed ##
-#	              command => "/usr/bin/mysqladmin -u root password M3dL@mP",               
-#               require => Class["mysql::install"],
-#	              notify => Class["mysql::service"],
-#        }
-#  
+       exec { "set-mysql-password":               
+               unless => "/usr/bin/mysql -uroot -p${root_password}",
+               #path    => ["/bin", "/usr/bin"],
+               ## Test hashed
+               command => "/usr/bin/mysqladmin -u root password ${root_password}",                          
+               require => Class["mysql::install"],
+	             notify => Class["mysql::service"],
+        }
+  
   
 
 
