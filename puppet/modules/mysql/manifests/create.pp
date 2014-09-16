@@ -6,9 +6,7 @@ class mysql::create{
         $db_host      = 'localhost'
 
         # root password
-        #$root_password  =  '*2B5396BABAD4AC79025680BDC14F8669DD1414BD'
-        #$root_password  =  '*FC0AB3C571070AFC1E7F420C4DECB92A249682F0'
-
+        #$root_password  =  '*FC0AB3C571070AFC1E7F420C4DECB92A249682F0'  
         $root_password  = 'M3dL@mP'
 
         # Moodle db
@@ -16,11 +14,11 @@ class mysql::create{
         $moodle_password  = 'M3dm00d13Db'
 
         $moodledb = 'moodle'
-        $user            = 'moodleuser'
+        $user     = 'moodleuser'
           
          ## fix - run onlyif!!! 
         exec {"create_moodle_user":
-
+             unless => "/usr/bin/mysql -u${user} -p${moodle_password} ${moodledb}",
              # command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE ${moodledb}; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhost' IDENTIFIED BY '${moodle_password}';\"",
              command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE ${moodledb}; CREATE USER '${user}'@'localhost' IDENTIFIED BY '${moodle_password}'; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhost';\"",
         }
@@ -33,7 +31,7 @@ class mysql::create{
         
         ## fix - run onlyif!!!
         exec {'importMoodleDb':
-
+              unless => "/usr/bin/mysql -u${user} -p${moodle_password} ${moodledb}",
              command => "/usr/bin/mysql -uroot -p$root_password ${moodledb} < /root/moodle-database.sql",
              require => File["/root/moodle-database.sql"],
 

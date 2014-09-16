@@ -12,7 +12,7 @@
 #
 class openssl {   
               
-            package { "libssl":
+            package { 'libssl':
                       ensure => "latest",
                       
             }

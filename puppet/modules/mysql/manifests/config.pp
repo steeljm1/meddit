@@ -8,27 +8,32 @@ class mysql::config {
                 require => Class["mysql::install"],
                 notify => Class["mysql::service"],
 
-}
-file { "/etc/mysql/debian-start":
-        ensure => present,
-        source => "puppet:///modules/mysql/debian-start",
-        owner => "root",
-        group => "root",
-        mode => 0555,
-        require => Class["mysql::install"],
-        notify => Class["mysql::service"],
-}
+        }
+        
+        file { "/etc/mysql/debian-start":
+                ensure => present,
+                source => "puppet:///modules/mysql/debian-start",
+                owner => "root",
+                group => "root",
+                mode => 0555,
+                require => Class["mysql::install"],
+                notify => Class["mysql::service"],
+        }
 
-## Comment after initial install
+#### Comment after initial install
 
-#exec { "set-mysql-password":
-#    unless  => "mysql -uroot -proot",
-#    path    => ["/bin", "/usr/bin"],
-#	command => "/usr/bin/mysqladmin -u root password M3dL@mP",
-#    #command => "mysqladmin -uroot password P@ssword",
-#    require => Class["mysql::install"],
-#	notify => Class["mysql::service"],
-#  }
+        $root_password  =  '*FC0AB3C571070AFC1E7F420C4DECB92A249682F0'
+
+#       exec { "set-mysql-password":
+#               unless  => "mysql -uroot -proot",
+#               path    => ["/bin", "/usr/bin"],
+#               ## Test hashed
+#               command => "/usr/bin/mysqladmin -u root password ${root_password}",
+#               ## Below works but unhashed ##
+#	              command => "/usr/bin/mysqladmin -u root password M3dL@mP",               
+#               require => Class["mysql::install"],
+#	              notify => Class["mysql::service"],
+#        }
 #  
   
 
