@@ -6,9 +6,7 @@ node 'meddit.op.ac.nz'{
 	package { 'ruby-shadow': ensure => present }
 
 # Modules	
-#	include bootstrap
-#	include nagios
-#	include nix_bacula_client
+	include bootstrap
 	include apt
 	include hosts_file
 	include sudo
@@ -19,6 +17,7 @@ node 'meddit.op.ac.nz'{
 	include sshd
 	include phpmyadmin
 	include moodle
+	include ntp
 #	include openssl
 }
 

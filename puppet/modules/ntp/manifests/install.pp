@@ -1,4 +1,4 @@
-class ntp::install{
+class ntp::install {
   
               package { 'ntp':
                       ensure => present,
