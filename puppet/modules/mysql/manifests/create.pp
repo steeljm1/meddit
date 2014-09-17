@@ -18,7 +18,7 @@ class mysql::create{
         
         exec{"createMoodleUser":
             unless  => "/usr/bin/mysql -u${user} -p${moodle_password}",
-	    command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE USER '${user}'@'localhost' IDENTIFIED BY '${moodle_password}'; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhost';\"",
+	           command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE USER '${user}'@'localhost' IDENTIFIED BY '${moodle_password}'; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhost';\"",
             require => Class["mysql::install"],
         }
 
