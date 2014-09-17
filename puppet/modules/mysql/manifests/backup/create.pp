@@ -15,11 +15,12 @@ class mysql::create{
 
         $moodledb = 'moodle'
         $user     = 'moodleuser'
-        
-        exec{"createMoodleUser":
-            unless  => "/usr/bin/mysql -u${user} -p${moodle_password}",
-	    command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE USER '${user}'@'localhost' IDENTIFIED BY '${moodle_password}'; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhost';\"",
-            require => Class["mysql::install"],
+          
+         ## fix - run onlyif!!! 
+        exec {"create_moodle_user":
+             unless => "/usr/bin/mysql -u${user} -p${moodle_password} ${moodledb}",             
+             command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE IF NOT EXISTS ${moodledb}; CREATE USER '${user}'@'localhost' IDENTIFIED BY '${moodle_password}'; GRANT ALL ON ${moodledb}.* TO '${user}'@'localhost';\"",
+             require => Class["mysql::install"],
         }
 
         # Push database
@@ -27,26 +28,17 @@ class mysql::create{
               ensure    => present,
               source    => "puppet:///modules/mysql/moodle-database.sql",
         }
-          
-
-	## fix - run onlyif!!! 
-        exec {"setup_moodleDb":
-             #unless => "/usr/bin/mysql -u${user} -p${moodle_password} ${moodledb}",             
-             creates => "/var/lib/mysql/${moodledb}",
-             command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE IF NOT EXISTS ${moodledb};\"",
-             require => Class["mysql::install"]
-        } ->
         
         ## fix - run onlyif!!!
         exec {'importMoodleDb':
              # unless => "/usr/bin/mysql -u${user} -p${moodle_password} ${moodledb}",
              command => "/usr/bin/mysql -uroot -p$root_password ${moodledb} < /root/moodle-database.sql",             
-             require  => File["/root/moodle-database.sql"]
+             require  => [Exec["create_moodle_user"], File["/root/moodle-database.sql"]]
         }
 
 
 
-    # Create Silverstripe db
+        # Create Silverstripe db
 
 
 
