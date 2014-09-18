@@ -8,6 +8,7 @@ class ntp::config {
                     #backup    => false,
                     source => "puppet:///modules/ntp/ntp.conf",
                     require   => Class["ntp::install"],
+                    notify    => Class["ntp::service"]
             }
            
   
