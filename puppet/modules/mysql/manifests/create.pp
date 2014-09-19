@@ -47,8 +47,31 @@ class mysql::create{
 
 
     # Create Silverstripe db
+        $ss_user = 'root'
+        #Password = same as $root_password         
+        $ss_dbName  = 'SS_mysite'
+                
+        # Push database
+        file { "/root/ss-database.sql":
+              ensure    => present,
+              source    => "puppet:///modules/mysql/ss-database.sql",
+        }
+          
 
-
+  ## fix - run onlyif!!! 
+        exec {"setup_SsDb":
+             #unless => "/usr/bin/mysql -u${user} -p${moodle_password} ${moodledb}",             
+             creates => "/var/lib/mysql/${ss_dbName}",
+             command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE IF NOT EXISTS ${ss_dbName};\"",
+             require => Class["mysql::install"]
+        } ->
+        
+        ## fix - run onlyif!!!
+        exec {'importSsDb':
+             # unless => "/usr/bin/mysql -u${user} -p${moodle_password} ${moodledb}",
+             command => "/usr/bin/mysql -uroot -p$root_password ${ss_dbName} < /root/ss-database.sql",             
+             require  => File["/root/ss-database.sql"]
+        }
 
 
 
