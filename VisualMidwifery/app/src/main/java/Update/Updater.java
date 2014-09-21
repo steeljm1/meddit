@@ -3,9 +3,11 @@ package Update;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Calendar;
 
 
 /**
@@ -57,6 +60,8 @@ public class Updater {
         } else {
             Toast.makeText(context, "Failed to connect to the network", Toast.LENGTH_LONG).show();
         }
+
+
     }
 
     class UpdateTask extends AsyncTask<String, Integer, Void> {
@@ -94,7 +99,7 @@ public class Updater {
                         HttpEntity entity = response.getEntity();
                         InputStream in = entity.getContent();
                         modelUpdaters[i].readInputStream(in);
-                        publishProgress(i);
+                        publishProgress(i + 1);
                         Thread.sleep(200);
                     }
                     else {
@@ -122,6 +127,11 @@ public class Updater {
         @Override
         protected void onPostExecute(Void aVoid) {
             dialog.dismiss();
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = preferences.edit();
+            Calendar c = Calendar.getInstance();
+           c.get(Calendar.)
+            editor.putString("LastUpdated", "")
             Log.d("Update", "Update Complete");
         }
     }
