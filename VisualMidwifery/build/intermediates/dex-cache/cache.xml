@@ -14,6 +14,12 @@
         revision="19.1.0"
         sha1="50897ff6c212a72aa3780027e0bf5fc363f366a0"/>
     <item
+        dex="C:\Users\glenn_000\Documents\GitHub\Project\meddit\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\classes-fe87d0b2766e3cba1041ba22b14f99244262644f.jar"
+        jar="C:\Users\glenn_000\Documents\GitHub\Project\meddit\meddit\VisualMidwifery\app\build\intermediates\exploded-aar\com.joanzapata.pdfview\android-pdfview\1.0.2\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="50897ff6c212a72aa3780027e0bf5fc363f366a0"/>
+    <item
         dex="C:\Users\glenn_000\Documents\GitHub\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\classes-ccdc7960762c9c92cb0b7796fa3c44f648f27a01.jar"
         jar="C:\Users\glenn_000\Documents\GitHub\meddit\VisualMidwifery\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
         jumboMode="false"
@@ -25,5 +31,11 @@
         jumboMode="false"
         revision="19.1.0"
         sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="C:\Users\glenn_000\Documents\GitHub\Project\meddit\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\classes-03065821086274b6ac6c9ccee3d9491a98ac54a8.jar"
+        jar="C:\Users\glenn_000\Documents\GitHub\Project\meddit\meddit\VisualMidwifery\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
 
 </pre-dex-items>

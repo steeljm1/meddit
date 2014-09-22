@@ -31,6 +31,7 @@ import java.util.List;
 
 import DBController.DatabaseController;
 import Models.MainCategoryModel;
+import Update.PreUpdateCheck;
 import Update.Updater;
 
 
@@ -41,7 +42,7 @@ public class MenuActivity extends ActionBarActivity {
     private static final long TIME_INTERVAL = 1500; // # milliseconds, desired time passed between two back presses.
     private long mBackPressed;
 
-    private Updater updater;
+    private PreUpdateCheck updater;
     private ImageButton settingsButton;
 
     private DatabaseController myDatabase;
@@ -91,7 +92,7 @@ public class MenuActivity extends ActionBarActivity {
         }
 
         //Creates update instance
-        updater = new Updater(this);
+        updater = new PreUpdateCheck(this);
 
         //init mainMenu list view
         mainMenuListView = (ListView) findViewById(R.id.mainMenuList);

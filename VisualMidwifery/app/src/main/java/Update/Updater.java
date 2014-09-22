@@ -22,6 +22,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -127,11 +128,18 @@ public class Updater {
         @Override
         protected void onPostExecute(Void aVoid) {
             dialog.dismiss();
+            // Open shared preferences storage
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
             SharedPreferences.Editor editor = preferences.edit();
-            Calendar c = Calendar.getInstance();
-           c.get(Calendar.)
-            editor.putString("LastUpdated", "")
+
+            // Create new timestamp
+            Date date = new Date();
+            String timestamp = String.valueOf(date.getTime());
+
+            // Save date of last updated
+            editor.putString("LastUpdated", timestamp);
+            editor.apply();
+
             Log.d("Update", "Update Complete");
         }
     }
