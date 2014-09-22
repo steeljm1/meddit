@@ -1,6 +1,6 @@
 class mysql::create{ 
     
-	       ####  Create databases   #####
+	       ################################  Create databases   #####################################################
 
         # Global variables
         $db_host      = 'localhost'
@@ -9,7 +9,8 @@ class mysql::create{
         #$root_password  =  '*FC0AB3C571070AFC1E7F420C4DECB92A249682F0'  
         $root_password  = 'M3dL@mP'
 
-        # Moodle db
+        ################################  Create/Import Moodle DB   ################################################
+        
         #$moodle_password  = '*9C167602ADE8001A2D66B729D3A2E035FD2BA75B'
         $moodle_password  = 'M3dm00d13Db'
 
@@ -46,7 +47,8 @@ class mysql::create{
 
 
 
-    # Create Silverstripe db
+        ############################## Create/Import Silverstripe DB ########################################################
+    
         $ss_user = 'root'
         #Password = same as $root_password         
         $ss_dbName  = 'SS_mysite'

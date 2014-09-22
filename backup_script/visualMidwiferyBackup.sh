@@ -60,12 +60,12 @@ if [ ! -d $rootSilverStripeBackupFolder ]; then
         mkdir -p $rootSilverStripeBackupFolder
 fi
 
-# Backup old backup then dump current DB
+# Dump Silverstripe DB
 
+mysqldump -h localhost -u root --password=M3dL@mP SS_mysite > $rootSilverStripeBackupFolder/ss-database.sql
 
-
-
-
+# Tar Silverstripe DB
+tar -pczf $rootSilverStripeBackupFolder/ss-DB-$backupDate.tar.gz $rootSilverStripeBackupBackupFolder/ss-database.sql
 
 ####################################    Clean Up   ###########################################################
 # Remove old backups
