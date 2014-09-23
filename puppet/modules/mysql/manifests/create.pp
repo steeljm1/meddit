@@ -62,7 +62,7 @@ class mysql::create{
 
   ## fix - run onlyif!!! 
         exec {"setup_SsDb":
-             #unless => "/usr/bin/mysql -u${user} -p${moodle_password} ${moodledb}",             
+             #unless => "/usr/bin/mysql -u${ss_user} -p${root_password} ${ss_dbName}",             
              creates => "/var/lib/mysql/${ss_dbName}",
              command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE IF NOT EXISTS ${ss_dbName};\"",
              require => Class["mysql::install"]
@@ -70,7 +70,7 @@ class mysql::create{
         
         ## fix - run onlyif!!!
         exec {'importSsDb':
-             # unless => "/usr/bin/mysql -u${user} -p${moodle_password} ${moodledb}",
+             # unless => "/usr/bin/mysql -u${ss_user} -p${root_password} ${ss_dbName}",
              command => "/usr/bin/mysql -uroot -p$root_password ${ss_dbName} < /root/ss-database.sql",             
              require  => File["/root/ss-database.sql"]
         }
