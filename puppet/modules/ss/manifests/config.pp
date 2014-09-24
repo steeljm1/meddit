@@ -1,5 +1,5 @@
 class ss::config {
-  
+  #
   # push moodledata ## fix tar file
         file { "/ss-root-2014-09-23-090342.tar.gz":
               ensure    => "present",

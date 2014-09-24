@@ -78,7 +78,34 @@ class mysql::create{
 
 
         # Mediawiki
+        
+        $mw_user = 'root'
+        #Password = same as $root_password         
+        $mw_dbName  = 'my_wiki'
+        $wgShellLocale = "en_NZ.utf8"        
+                
+        # Push database
+        file { "/root/mw-database.sql":
+              ensure    => present,
+              source    => "puppet:///modules/mysql/mw-database.sql",
+        }
+        
+        
 
+        ## fix - run onlyif!!! 
+        exec {"setup_mwDb":
+             #unless => "/usr/bin/mysql -u${ss_user} -p${root_password} ${ss_dbName}",             
+             creates => "/var/lib/mysql/${mw_dbName}",
+             command => "/usr/bin/mysql -uroot -p$root_password -e \"CREATE DATABASE IF NOT EXISTS ${mw_dbName};\"",
+             require => Class["mysql::install"]
+        } ->
+        
+        ## fix - run onlyif!!!
+        exec {'importmwDb':
+             # unless => "/usr/bin/mysql -u${ss_user} -p${root_password} ${ss_dbName}",
+             command => "/usr/bin/mysql -uroot -p$root_password ${mw_dbName} < /root/mw-database.sql",             
+             require  => File["/root/mw-database.sql"]
+        }
         
         
         
