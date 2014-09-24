@@ -128,6 +128,7 @@ class CheckForUpdates extends AsyncTask<String, Void, Void> {
 
             Long a = (Long.valueOf(lastUpdated) / 1000);
             Long b = Long.valueOf(lastCMSUpdate);
+
             if(a < b) {
                 updater.runUpdate();
             }
