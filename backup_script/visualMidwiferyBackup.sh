@@ -97,11 +97,11 @@ mysqldump -h localhost -u root --password=M3dL@mP SS_mysite > $rootSilverStripeB
 # Tar Silverstripe DB
 #
 
-echo " Creating final compressed (tar.gz) TAR file of Silverstripe Database..." >> $logfile
+echo " Creating final compressed (tar.gz) TAR file of Silverstripe Database..." >> $logfilePath/$logfile
 tar -pczf $rootSilverStripeBackupFolder/ss-DB-$backupDate.tar.gz $rootSilverStripeBackupBackupFolder/ss-database.sql
 
 # Tar Silverstrip root dir
-echo " Creating final compressed (tar.gz) TAR file of silverstripe root directory..." >> $logfile
+echo " Creating final compressed (tar.gz) TAR file of silverstripe root directory..." >> $logfilePath/$logfile
 
 tar -pczf $rootSilverStripeBackupFolder/ss-root-$backupDate.tar.gz /var/www/ss
 
@@ -109,8 +109,8 @@ tar -pczf $rootSilverStripeBackupFolder/ss-root-$backupDate.tar.gz /var/www/ss
 #
 #
 
-echo " Dumping mediawiki database, using ..." >> $logfile
-echo " user:root database:my_wiki host:localhost " >> $logfile
+echo " Dumping mediawiki database, using ..." >> $logfilePath/$logfile
+echo " user:root database:my_wiki host:localhost " >> $logfilePath/$logfile
 
 # Check if Mediawiki directory in rootBackupFolder exists. If not, create it
 rootMediawikiBackupFolder="$rootBackupFolder/mediawiki"
