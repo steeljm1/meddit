@@ -2,6 +2,7 @@
 <pre-dex-items>
 
     <item
+<<<<<<< HEAD
         dex="C:\Users\glenn_000\Documents\GitHub\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\sqliteassethelper-2.0.1-68f8bbdbfd0498108adc73a63a7d1179d82b2297.jar"
         jar="C:\Users\glenn_000\.gradle\caches\modules-2\files-2.1\com.readystatesoftware.sqliteasset\sqliteassethelper\2.0.1\d5f02e4a4d65ec0fbb339f2e4228723d1540bb9f\sqliteassethelper-2.0.1.jar"
         jumboMode="false"
@@ -10,18 +11,32 @@
     <item
         dex="C:\Users\glenn_000\Documents\GitHub\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\classes-b7b61cbe1b618ebc97874317faac6043a421ea47.jar"
         jar="C:\Users\glenn_000\Documents\GitHub\meddit\VisualMidwifery\app\build\intermediates\exploded-aar\com.joanzapata.pdfview\android-pdfview\1.0.2\classes.jar"
+=======
+        dex="C:\Users\Bo\Desktop\VisualMidwifery\app\build\intermediates\pre-dexed\debug\classes-027300699ea805488d306a29f9e512388ddfb0db.jar"
+        jar="C:\Users\Bo\Desktop\VisualMidwifery\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
+>>>>>>> origin/bo
         jumboMode="false"
         revision="19.1.0"
-        sha1="50897ff6c212a72aa3780027e0bf5fc363f366a0"/>
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
     <item
+<<<<<<< HEAD
         dex="C:\Users\glenn_000\Documents\GitHub\Project\meddit\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\classes-fe87d0b2766e3cba1041ba22b14f99244262644f.jar"
         jar="C:\Users\glenn_000\Documents\GitHub\Project\meddit\meddit\VisualMidwifery\app\build\intermediates\exploded-aar\com.joanzapata.pdfview\android-pdfview\1.0.2\classes.jar"
+=======
+        dex="C:\Users\Bo\Desktop\VisualMidwifery\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-e311e493b238b75da4095bd5ee7b69d76d73dc42.jar"
+        jar="C:\Program Files (x86)\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+>>>>>>> origin/bo
         jumboMode="false"
         revision="19.1.0"
         sha1="50897ff6c212a72aa3780027e0bf5fc363f366a0"/>
     <item
+<<<<<<< HEAD
         dex="C:\Users\glenn_000\Documents\GitHub\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\classes-ccdc7960762c9c92cb0b7796fa3c44f648f27a01.jar"
         jar="C:\Users\glenn_000\Documents\GitHub\meddit\VisualMidwifery\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
+=======
+        dex="C:\Users\Bo\Desktop\VisualMidwifery\app\build\intermediates\pre-dexed\debug\sqliteassethelper-2.0.1-5fcd78e69ef055475982ce1e35bc780066ce4118.jar"
+        jar="C:\Users\Bo\.gradle\caches\modules-2\files-2.1\com.readystatesoftware.sqliteasset\sqliteassethelper\2.0.1\d5f02e4a4d65ec0fbb339f2e4228723d1540bb9f\sqliteassethelper-2.0.1.jar"
+>>>>>>> origin/bo
         jumboMode="false"
         revision="19.1.0"
         sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
@@ -32,10 +47,15 @@
         revision="19.1.0"
         sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
     <item
+<<<<<<< HEAD
         dex="C:\Users\glenn_000\Documents\GitHub\Project\meddit\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\classes-03065821086274b6ac6c9ccee3d9491a98ac54a8.jar"
         jar="C:\Users\glenn_000\Documents\GitHub\Project\meddit\meddit\VisualMidwifery\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
+=======
+        dex="C:\Users\Bo\Desktop\VisualMidwifery\app\build\intermediates\pre-dexed\debug\classes-12cd8f4db4d64fa73873143fcb7ad3f1619f7b16.jar"
+        jar="C:\Users\Bo\Desktop\VisualMidwifery\app\build\intermediates\exploded-aar\com.joanzapata.pdfview\android-pdfview\1.0.2\classes.jar"
+>>>>>>> origin/bo
         jumboMode="false"
         revision="19.1.0"
-        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+        sha1="50897ff6c212a72aa3780027e0bf5fc363f366a0"/>
 
 </pre-dex-items>
