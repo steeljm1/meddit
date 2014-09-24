@@ -38,7 +38,8 @@ import otago.Midwifery.R;
  * A simple {@link Fragment} subclass.
  *
  */
-public class ModelViewDetailFragment extends BaseFragment{
+public class
+        ModelViewDetailFragment extends BaseFragment{
     DatabaseController dataSource;
     ArrayList<ModelViewModel> angles;
     ArrayList<ModelViewModel> matchAngles;
