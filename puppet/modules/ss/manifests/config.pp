@@ -9,7 +9,7 @@ class ss::config {
               mode      => 0644,              
         }
         
-        # unpack moodledata
+        # unpack moodledata - unpack in /
         exec { "unpack-ss_root":  
               creates => '/var/www/ss',
               cwd     =>  '/var',            
