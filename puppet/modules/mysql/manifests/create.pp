@@ -77,7 +77,7 @@ class mysql::create{
 
 
 
-        # Mediawiki
+        ########################### Mediawiki  ##################################################################
         
         $mw_user = 'root'
         #Password = same as $root_password         
@@ -104,7 +104,8 @@ class mysql::create{
         exec {'importmwDb':
              # unless => "/usr/bin/mysql -u${ss_user} -p${root_password} ${ss_dbName}",
              command => "/usr/bin/mysql -uroot -p$root_password ${mw_dbName} < /root/mw-database.sql",             
-             require  => File["/root/mw-database.sql"]
+             require  => File["/root/mw-database.sql"],
+             
         }
         
         
