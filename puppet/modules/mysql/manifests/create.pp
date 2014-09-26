@@ -82,6 +82,7 @@ class mysql::create{
         $mw_user = 'root'
         #Password = same as $root_password         
         $mw_dbName  = 'my_wiki'
+        # Test import locale 
         $wgShellLocale = "en_NZ.utf8"        
                 
         # Push database

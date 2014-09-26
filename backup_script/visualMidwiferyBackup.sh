@@ -41,6 +41,24 @@ backupsToKeep=3
 echo "#############################################################################" >> $logfilePath/$logfile
 echo "Beginning site backup using visualMidwiferyBackup.sh. Starting at $backupDate" >> $logfilePath/$logfile
 
+###########################################  System  #######################################################
+#
+
+echo " Creating final compressed (tar.gz) TAR file of /etc /var/log..." >> $logfilePath/$logfile
+
+# Paths to backup
+pathsToBackup="/etc /var/log "
+
+# Check if moodle directory in rootBackupFolder exists. If not, create it
+rootSystemBackupFolder="$rootBackupFolder/visualMidwiferySystem"
+
+if [ ! -d $rootSystemBackupFolder ]; then
+        mkdir -p $rootSystemBackupFolder
+fi
+
+tar -pczf $rootSystemBackupFolder/system-$backupDate.tar.gz $pathsToBackup
+
+
 
 ######################################    Moodle Backup    #################################################
 #
