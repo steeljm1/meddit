@@ -47,7 +47,7 @@ echo "Beginning site backup using visualMidwiferyBackup.sh. Starting at $backupD
 echo " Creating final compressed (tar.gz) TAR file of /etc /var/log..." >> $logfilePath/$logfile
 
 # Paths to backup
-pathsToBackup="/etc /var/log "
+pathsToBackup="/etc /var/log /var/www/src"
 
 # Check if moodle directory in rootBackupFolder exists. If not, create it
 rootSystemBackupFolder="$rootBackupFolder/visualMidwiferySystem"
