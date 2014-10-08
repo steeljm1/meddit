@@ -5,12 +5,14 @@
 #                                   Visual Midwifery - Backup Script                                       #
 #                                                                                                          #
 # This script will backup the following:                                                                   #
-#  	*moodle database                                                                                   #
-#       *moodledata directory                                                                              #
-#	*moodleroot directory                                                                              #
-#	*Silverstripe database                                                                             #
-#	*Silverstripe assets directory                                                                     #
-#	*Silverstripe root directory                                                                       #
+# 	* /etc /var/log										           #		   
+#       * Web site files + /var/www/src                                                                    # 
+#  	* Moodle database                                                                                  # 
+#       * Moodledata directory                                                                             # 
+#	* Moodleroot directory                                                                             # 
+#	* Silverstripe database                                                                            # 
+#	* Silverstripe assets directory                                                                    # 
+#	* Silverstripe root directory                                                                      # 
 #                                                                                                          #
 # Add this script to cron if you want this to run on a schedule.                                           #
 #                                                                                                          #
