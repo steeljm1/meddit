@@ -3,17 +3,16 @@ package Update;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-<<<<<<< HEAD
+
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
-=======
+
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
->>>>>>> origin/bo
 import android.util.Log;
 import android.widget.Toast;
 
@@ -27,12 +26,9 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
 import java.io.InputStream;
-<<<<<<< HEAD
+
 import java.util.Calendar;
 import java.util.Date;
-=======
->>>>>>> origin/bo
-
 
 /**
  * Created by glenn_000 on 2/08/2014.
@@ -70,11 +66,6 @@ public class Updater {
         } else {
             Toast.makeText(context, "Failed to connect to the network", Toast.LENGTH_LONG).show();
         }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> origin/bo
     }
 
     class UpdateTask extends AsyncTask<String, Integer, Void> {
@@ -112,11 +103,7 @@ public class Updater {
                         HttpEntity entity = response.getEntity();
                         InputStream in = entity.getContent();
                         modelUpdaters[i].readInputStream(in);
-<<<<<<< HEAD
                         publishProgress(i + 1);
-=======
-                        publishProgress(i);
->>>>>>> origin/bo
                         Thread.sleep(200);
                     }
                     else {
@@ -144,7 +131,7 @@ public class Updater {
         @Override
         protected void onPostExecute(Void aVoid) {
             dialog.dismiss();
-<<<<<<< HEAD
+
             // Open shared preferences storage
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
             SharedPreferences.Editor editor = preferences.edit();
@@ -157,8 +144,6 @@ public class Updater {
             editor.putString("LastUpdated", timestamp);
             editor.apply();
 
-=======
->>>>>>> origin/bo
             Log.d("Update", "Update Complete");
         }
     }
