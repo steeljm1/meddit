@@ -18,6 +18,7 @@ import otago.Midwifery.R;
  *
  */
 public class StaticSheetMP extends Fragment {
+    //this fragment is contained a pdf and using pdf reader library
     PDFView pdfViewMP;
     private static final String SSMP = "SSMP.pdf";
 
@@ -37,13 +38,9 @@ public class StaticSheetMP extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         pdfViewMP =(PDFView) getActivity().findViewById(R.id.pdfviewssmp);
         pdfViewMP.fromAsset(SSMP)
-                //.pages(0, 2, 1, 3, 3, 3)
                 .defaultPage(1)
                 .showMinimap(false)
                 .enableSwipe(true)
-                        //.onDraw(onDrawListener)
-                        //.onLoad(onLoadCompleteListener)
-                        //.onPageChange(onPageChangeListener)
                 .load();
     }
 }

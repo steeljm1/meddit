@@ -1,20 +1,14 @@
 package ExamRevision;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-
-import otago.Midwifery.R;
 
 /**
  * Created by Bo on 5/08/2014.
+ * this fragment contains a pagerview
+ * this fragment will also use pdf library
+ * pdfs are static so hard code those pages
  */
 public class ExamRevisionPagerAdapter extends FragmentStatePagerAdapter {
     public ExamRevisionPagerAdapter(FragmentManager fm) {
@@ -71,10 +65,4 @@ public class ExamRevisionPagerAdapter extends FragmentStatePagerAdapter {
         }
         return title;
     }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-
-
 }

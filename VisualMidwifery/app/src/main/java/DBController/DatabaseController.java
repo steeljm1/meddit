@@ -23,10 +23,15 @@ import Models.ModelColorModel;
 import Models.ModelViewModel;
 
 /**
- * Created by liub3 on 16/05/14.
+ * Created on 16/05/14.
+ * Database controller build a connection with database
+ * Several methods with get data from database and stored
+ * into arrayList
  */
 public class DatabaseController {
-    private SQLiteDatabase database;
+    private SQLiteDatabase database;//instance of database
+    //all tables in database
+    //those tables will store all column names
     private ContentCategoryTable contentCategoryTable;
     private ContentFieldsTable contentFieldsTable;
     private MainCategoryTable mainCategoryTable;
@@ -38,9 +43,12 @@ public class DatabaseController {
         contentFieldsTable = new ContentFieldsTable(context);
         mainCategoryTable = new MainCategoryTable(context);
         modelViewTable = new ModelViewTable(context);
-        modelColorTable = new ModelColorTable(context);
+        modelColorTable = new ModelColorTable(context);//init all tables
     }
-
+    //
+    //following methods will index data with passing in the proper IDs
+    //the ids are coming from client click.
+    //loop the whole return value and create models.
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public ArrayList<ContentCategoryModel> GetAllContentCategory(int mainID) throws SQLException {
         ArrayList<ContentCategoryModel> contentCategoryModelArrayList = new ArrayList<ContentCategoryModel>();
@@ -153,6 +161,7 @@ public class DatabaseController {
     }
 
     // UPDATE METHOD
+    //passing in the collection of new models then push to database with queries
     public void updateContentField(ArrayList<ContentFieldModel> modelArray) {
 
         database = contentFieldsTable.getWritableDatabase();
@@ -250,7 +259,7 @@ public class DatabaseController {
             values.put(ModelViewTable.COLUMN_ANGLE, modelArray.get(i).getAngle());
             values.put(ModelViewTable.COLUMN_IMAGE, bitmapToByteArray(modelArray.get(i).getModelImage()));
             values.put(ModelViewTable.COLUMN_LASTEDITED, modelArray.get(i).getLastEdited());
-            //values.put(ModelViewTable.COLUMN_STEP, modelArray.get(i).getStep());
+            values.put(ModelViewTable.COLUMN_STEP, modelArray.get(i).getStep());
             database.insert(ModelViewTable.TABLE_NAME, null, values);
         }
 

@@ -2,6 +2,8 @@ package Helper;
 
 /**
  * Created by liub3 on 20/04/14.
+ * this pinch touch image view is only used model details fragment
+ * it is an extension of imageview with pinch guesture
  */
 
 import android.content.Context;
@@ -124,42 +126,49 @@ public class PinchTouchModelDetailsImageView extends ImageView {
 
         });
     }
-
+//image onclick method
     @Override
     public boolean performClick() {
-        setDrawingCacheEnabled(true);
-        buildDrawingCache();
-        Bitmap bitmap = getDrawingCache();
-        int pixel = bitmap.getPixel((int) curr.x, (int) curr.y);
+        if(!ModelViewDetailFragment.ON) {
+            //if the clicked image is normal model without steps
+            setDrawingCacheEnabled(true);
+            buildDrawingCache();
+            Bitmap bitmap = getDrawingCache();
+            int pixel = bitmap.getPixel((int) curr.x, (int) curr.y);
+            //get clicked position color code
+            setDrawingCacheEnabled(false);
+            String myString = String.format("#%06X", (0xFFFFFF & pixel));
+            //convert to hex color
+            DatabaseController dataSource;
+            ArrayList<ModelColorModel> colors;
+            int modelID = ModelViewDetailFragment.modelID;
+            dataSource = new DatabaseController(this.getContext());
+            try {
+                colors = dataSource.GetAllModelColor();
+                String hexColor = "";
+                //index color from database
+                //the difference is between 30 to -30
+                for (ModelColorModel c : colors) {
+                    hexColor = "#" + c.getHex();
 
-        setDrawingCacheEnabled(false);
-        String myString = String.format("#%06X", (0xFFFFFF & pixel));//"" + Color.rgb(redValue, greenValue, blueValue);
-//        ModelViewDetailFragment.txtView.setText(myString);
-
-        DatabaseController dataSource;
-        ArrayList<ModelColorModel> colors;
-        int modelID = ModelViewDetailFragment.modelID;
-        dataSource = new DatabaseController(this.getContext());
-        try{
-            colors = dataSource.GetAllModelColor();
-            String hexColor="";
-            for(ModelColorModel c : colors){
-                hexColor = "#"+c.getHex();
-                if(c.getModelID() == modelID){
-                    if(hexColor.equals(myString)) {
-                        ModelViewDetailFragment.txtView.setText(c.getPartName());
+                    int hexA = Color.parseColor(myString);
+                    int hexB = Color.parseColor(hexColor);
+                    if (c.getModelID() == modelID) {
+                        if (Math.abs(hexA - hexB) <= 30) {
+                            ModelViewDetailFragment.txtView.setText(c.getPartName());
+                            break;
+                        }
+                    } else {
+                        ModelViewDetailFragment.txtView.setText("");
                     }
                 }
-
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-
-
-        }catch (SQLException e){
-            e.printStackTrace();
         }
-
-
-        //MessageToast.message(getContext(), myString);
+        else {
+            MessageToast.message(getContext(), "Touch Arrow buttons to see next step.");
+        }
         return super.performClick();
     }
 

@@ -18,6 +18,7 @@ import otago.Midwifery.R;
  */
 public class StaticSheetFS extends Fragment {
 
+    //this fragment is contained a pdf and using pdf reader library
     PDFView pdfViewFS;
     private static final String SSFS = "SSFS.pdf";
     public StaticSheetFS() {
@@ -37,13 +38,9 @@ public class StaticSheetFS extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         pdfViewFS =(PDFView) getActivity().findViewById(R.id.pdfviewssfs);
         pdfViewFS.fromAsset(SSFS)
-                //.pages(0, 2, 1, 3, 3, 3)
                 .defaultPage(1)
                 .showMinimap(false)
                 .enableSwipe(true)
-                        //.onDraw(onDrawListener)
-                        //.onLoad(onLoadCompleteListener)
-                        //.onPageChange(onPageChangeListener)
                 .load();
     }
 }

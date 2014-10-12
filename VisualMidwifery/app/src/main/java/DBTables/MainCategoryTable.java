@@ -6,6 +6,7 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 /**
  * Created by liub3 on 16/05/14.
+ * table in database use this for easy access
  */
 public class MainCategoryTable extends SQLiteAssetHelper {
 

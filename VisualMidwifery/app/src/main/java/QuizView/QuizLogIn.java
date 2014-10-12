@@ -27,7 +27,8 @@ import otago.Midwifery.R;
 
 /**
  * A simple {@link Fragment} subclass.
- *
+ * Quiz fragment in quiz tab
+ * quiz urls are hard coded because moodle page id will not change
  */
 public class QuizLogIn extends BaseFragment {
 
@@ -61,9 +62,8 @@ public class QuizLogIn extends BaseFragment {
 
         mywebview = (WebView) mActivity.findViewById(R.id.webview);
         mywebview.setWebViewClient(new MyBrowser());
-
-        //mywebview.setScrollBarStyle(view.SCROLLBARS_INSIDE_OVERLAY);
         mProgress = ProgressDialog.show(getActivity(), "Loading", "Please wait for a moment...");
+        mProgress.setCanceledOnTouchOutside(false);
 
 
         WebSettings webSettings = mywebview.getSettings();
@@ -71,7 +71,6 @@ public class QuizLogIn extends BaseFragment {
         webSettings.setLoadsImagesAutomatically(true);
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
-        //webSettings.setDisplayZoomControls(true);
         webSettings.setUseWideViewPort(true);
         webSettings.setDisplayZoomControls(false);
 

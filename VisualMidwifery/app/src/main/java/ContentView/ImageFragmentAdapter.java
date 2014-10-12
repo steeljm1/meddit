@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import Models.ContentFieldModel;
 
 /**
- * Created by Bo on 4/08/2014.
+ * Created on 4/08/2014.
+ * pager adapter for image pager
  */
 public class ImageFragmentAdapter extends FragmentStatePagerAdapter {
     ArrayList<ContentFieldModel> content;
@@ -28,7 +29,7 @@ public class ImageFragmentAdapter extends FragmentStatePagerAdapter {
         Bundle bundle = new Bundle();
 
         bundle.putParcelable("image", content.get(position).getImageContent());
-        bundle.putString("notes", content.get(position).getTextContent());
+        bundle.putString("notes", content.get(position).getTextContent());//get image and note from parcel
 
         fragment.setArguments(bundle);
         return  fragment;
