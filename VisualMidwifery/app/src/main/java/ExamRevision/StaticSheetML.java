@@ -18,7 +18,7 @@ import otago.Midwifery.R;
  *
  */
 public class StaticSheetML extends Fragment {
-
+    //this fragment is contained a pdf and using pdf reader library
     PDFView pdfViewML;
     private static final String SSML = "SSML.pdf";
     public StaticSheetML() {
@@ -38,13 +38,9 @@ public class StaticSheetML extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         pdfViewML =(PDFView) getActivity().findViewById(R.id.pdfviewssml);
         pdfViewML.fromAsset(SSML)
-                //.pages(0, 2, 1, 3, 3, 3)
                 .defaultPage(1)
                 .showMinimap(false)
                 .enableSwipe(true)
-                        //.onDraw(onDrawListener)
-                        //.onLoad(onLoadCompleteListener)
-                        //.onPageChange(onPageChangeListener)
                 .load();
     }
 }

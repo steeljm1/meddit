@@ -2,6 +2,8 @@ package Models;
 
 /**
  * Created by liub3 on 16/05/14.
+ * Models will be generate by controller
+ * getting and setting methods are for easy access
  */
 public class ContentCategoryModel {
     int id;

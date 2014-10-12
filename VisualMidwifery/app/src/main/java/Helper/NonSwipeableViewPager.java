@@ -7,6 +7,9 @@ import android.view.MotionEvent;
 
 /**
  * Created by liub3 on 24/04/14.
+ * this class is the extension of viewpager
+ * only difference is disabled the swap function
+ * do this is to deal with the gesture conflict with pinch touch image view
  */
 public class NonSwipeableViewPager extends ViewPager {
     private boolean enabled;

@@ -81,6 +81,9 @@ public class Updater {
             dialog = new ProgressDialog(context, AlertDialog.THEME_HOLO_LIGHT);
             dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
             dialog.setMessage("Downloading Updates");
+            //disable cancelling
+            dialog.setCanceledOnTouchOutside(false);
+            /////////
             dialog.setIndeterminate(false);
             dialog.setMax(4);
         }

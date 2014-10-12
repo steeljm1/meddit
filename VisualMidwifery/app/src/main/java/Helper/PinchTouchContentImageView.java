@@ -16,6 +16,7 @@ import ContentView.ImagePager;
 
 /**
  * Created by glenn_000 on 17/05/2014.
+ * this class performance different with pinck touch model details imageview on onclick method
  */
 public class PinchTouchContentImageView extends ImageView {
 

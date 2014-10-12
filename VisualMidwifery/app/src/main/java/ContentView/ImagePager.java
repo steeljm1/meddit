@@ -1,26 +1,15 @@
 package ContentView;
 
-
-import android.app.Activity;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import Fragments.BaseFragment;
 import Helper.NonSwipeableViewPager;
 import Models.ContentFieldModel;
 import otago.Midwifery.R;
-import otago.Midwifery.TabConstants;
 
 // Pages through images also adds note fragment to the screen when clicked on.
 public class ImagePager extends BaseFragment {
@@ -41,22 +30,18 @@ public class ImagePager extends BaseFragment {
 
         View v = inflater.inflate(R.layout.image_pager, container, false);
 
-        this.content = (ArrayList<ContentFieldModel>)getArguments().getSerializable("content");
+        this.content = (ArrayList<ContentFieldModel>)getArguments().getSerializable("content");//get all content from last fragment
 
-        viewPager = (NonSwipeableViewPager)v.findViewById(R.id.imagePager);
-        viewPager.setPagingEnabled(true);
-        ImageFragmentAdapter viewPagerAdapter = new ImageFragmentAdapter(getFragmentManager(),content);
+        viewPager = (NonSwipeableViewPager)v.findViewById(R.id.imagePager);//link layout to object
+        viewPager.setPagingEnabled(true);//set properties of viewpager
+        ImageFragmentAdapter viewPagerAdapter = new ImageFragmentAdapter(getFragmentManager(),content);//set up adapter for the viewpager
 
         viewPager.setAdapter(viewPagerAdapter);
 
         int position = getArguments().getInt("position");
-        viewPager.setCurrentItem(position);
+        viewPager.setCurrentItem(position);//get the clicked content and switch displaying pager
 
         return v;
     }
 
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-
-    }
 }

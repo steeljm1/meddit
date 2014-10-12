@@ -21,7 +21,9 @@ import otago.Midwifery.TabConstants;
 
 /**
  * A simple {@link android.support.v4.app.Fragment} subclass.
- *
+ * this fragment extend normal fragment
+ * this fragment will inflate with a textview and a image view
+ * this imageview in here is extends PinchTouchContentImageView class
  */
 public class Image_Fragment extends BaseFragment  {
 
@@ -42,9 +44,9 @@ public class Image_Fragment extends BaseFragment  {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        image = getArguments().getParcelable("image");
-        notes = getArguments().getString("notes");
-        imageView.setImageBitmap(image);
-        noteTextView.setText(notes);
+        image = getArguments().getParcelable("image");//get bitmap from package from last fragment
+        notes = getArguments().getString("notes");//get note from package
+        imageView.setImageBitmap(image);//set image bitmap to imageview
+        noteTextView.setText(notes);//set text to textview
     }
 }
