@@ -46,7 +46,7 @@ public class ContentCategoryListFragment extends BaseFragmentList
         }
     }
 
-    //Item on click method tragger when an item in the list is clicked
+    //Item on click method tragger when an item in the list is clicked.
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         ContentCategoryModel clickedCategory = categories.get(position);
