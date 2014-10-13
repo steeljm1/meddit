@@ -151,8 +151,14 @@ public class DatabaseController {
         temp.setId(cursor.getInt(0));
 
         byte[] image = cursor.getBlob(1);
+
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPurgeable = true;
+
         BitmapFactory bf = new BitmapFactory();
-        Bitmap b = bf.decodeByteArray(image, 0, image.length);
+        Bitmap b = bf.decodeByteArray(image, 0, image.length, options);
+        image = null;
+
         temp.setImageContent(b);
 
         temp.setTextContent(cursor.getString(2));

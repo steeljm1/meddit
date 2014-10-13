@@ -34,9 +34,11 @@ public class ImagePager extends BaseFragment {
 
         viewPager = (NonSwipeableViewPager)v.findViewById(R.id.imagePager);//link layout to object
         viewPager.setPagingEnabled(true);//set properties of viewpager
+
         ImageFragmentAdapter viewPagerAdapter = new ImageFragmentAdapter(getFragmentManager(),content);//set up adapter for the viewpager
 
         viewPager.setAdapter(viewPagerAdapter);
+        viewPager.setOffscreenPageLimit(viewPagerAdapter.getCount());
 
         int position = getArguments().getInt("position");
         viewPager.setCurrentItem(position);//get the clicked content and switch displaying pager
