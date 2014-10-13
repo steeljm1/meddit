@@ -10,17 +10,39 @@
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <TabHost
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@android:id/tabhost"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
-            <Helper.NonSwipeableViewPager
-                xmlns:android="http://schemas.android.com/apk/res/android"
-           android:id="@+id/pager"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"/>
-        </RelativeLayout>
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="0"/>
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"/>
+                <FrameLayout
+                    android:id="@+android:id/realtabcontent"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+
+
+            </LinearLayout>
+        </TabHost>
+
 
     </FrameLayout>
 
@@ -38,7 +60,7 @@
         android:layout_gravity="start"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
-        android:background="#ffffffff"
+        android:background="#ff274ba1"
         android:orientation="vertical">
 
         <ExpandableListView

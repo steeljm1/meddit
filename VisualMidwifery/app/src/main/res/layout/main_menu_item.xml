@@ -14,5 +14,6 @@
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
         android:text="Category shows in here"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textColor="#ffffc4be"/>
 </RelativeLayout>

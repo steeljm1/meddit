@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Window;
 
-
+//launch class using a timer to display logo of Otago Polytechnic and then go to menu activity
 public class SplashMain extends ActionBarActivity {
 
     @Override

@@ -8,9 +8,23 @@
     <string name="title_activity_category_view">CategoryView</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+
     <string-array name="CateActivity">
         <item>Materials</item>
         <item>Model View</item>
         <item>Quiz</item>
     </string-array>
+
+    <string name="loginURL">https://meddit.ict.op.ac.nz/moodle/moodle/login/index.php</string>
+    <string name="FetalSkull">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=2</string>
+    <string name="MaternalPelvis">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=7</string>
+    <string name="moodleURL">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_exam_revision">ExamRevision</string>
+    <string name="title_activity_exam_revision_web">Exam Revision</string>
+    <string name="title_activity_static_sheet_fs">StaticSheetFS</string>
+    <string name="title_activity_static_sheet_mp">StaticSheetMP</string>
+    <string name="title_activity_static_sheet_ml">ML</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
 </resources>

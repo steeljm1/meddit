@@ -13,7 +13,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#ff274ba1">
 
             <ListView
                 android:id="@+id/mainMenuList"
@@ -24,6 +25,17 @@
                 android:dividerHeight="0dp"
                 android:layout_centerVertical="true"
                 android:background="@drawable/customshape" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/settingsButton"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/ic_action_download"
+                android:background="#00ffffff" />
+
         </RelativeLayout>
 
     </FrameLayout>
@@ -42,7 +54,7 @@
         android:layout_gravity="start"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
-        android:background="#ffffffff"
+        android:background="#ff274ba1"
         android:orientation="vertical">
 
         <ExpandableListView

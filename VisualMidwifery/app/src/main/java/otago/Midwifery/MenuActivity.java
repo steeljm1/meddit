@@ -1,11 +1,14 @@
 package otago.Midwifery;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -28,17 +31,26 @@ import java.util.List;
 
 import DBController.DatabaseController;
 import Models.MainCategoryModel;
+import Update.PreUpdateCheck;
+
+
 
 
 public class MenuActivity extends ActionBarActivity {
 
-    private final CharSequence mTitle = "Virtual Midwifery";//the title of this activity
+    private final CharSequence mTitle = "Visual Midwifery";//the title of this activity
     private final CharSequence mDrawerTitle = "Main Menu";
     private static final long TIME_INTERVAL = 1500; // # milliseconds, desired time passed between two back presses.
     private long mBackPressed;
 
+
+    private PreUpdateCheck updater;
+
+    private ImageButton settingsButton;
+
     private DatabaseController myDatabase;
     private ArrayList<String> mainMenuArrayList;
+    private ArrayList<String> mainMenuArrayListDrawer;
 
     private ListView mainMenuListView;
     private MyMainMenuListAdapter myMainMenuListAdapter;
@@ -69,14 +81,22 @@ public class MenuActivity extends ActionBarActivity {
         //Init sqlAdapter to get the category
         myDatabase = new DatabaseController(this);
         mainMenuArrayList = new ArrayList<String>();
+        mainMenuArrayListDrawer = new ArrayList<String>();
         try {
             tempCategory = myDatabase.GetAllMainCategory();
             for (MainCategoryModel mC : tempCategory) {
                 mainMenuArrayList.add(mC.getTitle());
+                mainMenuArrayListDrawer.add(mC.getTitle());
             }
+            //add an item for exam review
+            mainMenuArrayList.add("Exam Revision");
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        //Creates update instance
+        updater = new PreUpdateCheck(this);
+
 
         //init mainMenu list view
         mainMenuListView = (ListView) findViewById(R.id.mainMenuList);
@@ -103,7 +123,7 @@ public class MenuActivity extends ActionBarActivity {
         // preparing list data
         prepareListData();
 
-        listAdapter = new MyDrawerAdapter(this, mainMenuArrayList, listDataChild);
+        listAdapter = new MyDrawerAdapter(this, mainMenuArrayListDrawer, listDataChild);
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
@@ -138,6 +158,7 @@ public class MenuActivity extends ActionBarActivity {
             public void onGroupCollapse(int groupPosition) {
             }
         });
+
 
         // Listview on child click listener
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
@@ -187,7 +208,27 @@ public class MenuActivity extends ActionBarActivity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
+        // Update Button
+        settingsButton = (ImageButton)findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog alertDialog = new AlertDialog.Builder(MenuActivity.this).create();
+                alertDialog.setMessage("Check for updates?");
+                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", onUpdateClickListener);
+                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", onUpdateClickListener);
+                alertDialog.show();
+            }
+        });
     }
+    DialogInterface.OnClickListener onUpdateClickListener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+                if(i == DialogInterface.BUTTON_POSITIVE)
+                        updater.runUpdate();
+        }
+    };
 
     private void prepareListData() {
         //listDataHeader = new ArrayList<String>();
@@ -209,9 +250,7 @@ public class MenuActivity extends ActionBarActivity {
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
-
     }
 
     @Override
@@ -239,8 +278,16 @@ public class MenuActivity extends ActionBarActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             //get what user clicked
             int subTab = 0;
-            selectItem(position, subTab);
-            //MessageToast.message(getApplicationContext(),mainMenuArrayList.get(position));
+            if(position != 3) {
+                selectItem(position, subTab);
+            }else{
+                //selected exam revision item
+                Intent intent = new Intent();
+                intent.setClass(MenuActivity.this, ExamRevision.class);
+                startActivity(intent);
+
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            }
         }
     };
 
@@ -252,13 +299,13 @@ public class MenuActivity extends ActionBarActivity {
         intent.setClass(MenuActivity.this, CategoryView.class);
         Bundle extras = new Bundle();
 
-        extras.putInt("menuID",tempCategory.get(positionIn).getId());
+        extras.putInt("menuID", tempCategory.get(positionIn).getId());
         extras.putInt("activityId", positionIn);
 
         extras.putInt("subTabId", subTabIn);
 
-        String[] newArray = new String[mainMenuArrayList.size()];
-        extras.putStringArray("CategoryList", mainMenuArrayList.toArray(newArray));
+        String[] newArray = new String[mainMenuArrayListDrawer.size()];
+        extras.putStringArray("CategoryList", mainMenuArrayListDrawer.toArray(newArray));
 
         intent.putExtras(extras);
         startActivity(intent);
@@ -312,5 +359,10 @@ public class MenuActivity extends ActionBarActivity {
             txtCategory.setText(currentCategory);//set text for each item
             return category_view;
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 }

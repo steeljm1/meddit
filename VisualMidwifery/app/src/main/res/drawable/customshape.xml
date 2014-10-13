@@ -9,14 +9,14 @@
         android:topRightRadius="30dp" />
     <stroke
         android:width="3dp"
-        android:color="#ff9c35ff"></stroke>
+        android:color="#ff274ba1"></stroke>
     <padding
         android:bottom="15dp"
         android:left="15dp"
         android:right="15dp"
         android:top="30dp"></padding>
     <solid
-        android:color="#ffffffff">
+        android:color="#ff005baa">
 
     </solid>
 </shape> 

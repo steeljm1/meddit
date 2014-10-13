@@ -2,14 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="otago.Midwifery" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="otago.Midwifery.SplashMain"
-            android:label="@string/app_name" >
+            android:name=".SplashMain"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,12 +22,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="otago.Midwifery.MenuActivity"
-            android:label="@string/app_name" >
+            android:name=".MenuActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="otago.Midwifery.CategoryView"
-            android:label="@string/title_activity_category_view" >
+            android:name=".CategoryView"
+            android:label="@string/title_activity_category_view"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".ExamRevision"
+            android:label="@string/title_activity_exam_revision"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" >
         </activity>
     </application>
 

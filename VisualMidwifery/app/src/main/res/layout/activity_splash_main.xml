@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/splashImageView"
-        android:background="#ff2bffeb"
-        android:src="@drawable/splash"
+        android:background="#ff005baa"
+        android:src="@drawable/logo"
         android:scaleType="centerInside" />
 </RelativeLayout>
