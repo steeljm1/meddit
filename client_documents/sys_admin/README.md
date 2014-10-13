@@ -1,3 +1,3 @@
 Visual Midwifery System Accounts
 
-This file contains the login accounts for the system
+This directory contains user account information and sys admin notes for the support system.
