@@ -1,3 +1,7 @@
-Visual Midwifery System Accounts
+Visual Midwifery - System Administration
 
-This directory contains user account information and sys admin notes for the support system.
+This directory contains:
+
+ * User account information 
+
+ * System Configuration notes
