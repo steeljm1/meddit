@@ -43,8 +43,8 @@ public class ExamRevisionWeb extends Fragment {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setLoadsImagesAutomatically(true);
         webSettings.setSupportZoom(true);
+        webSettings.setSavePassword(false);
         webSettings.setBuiltInZoomControls(true);
-        //webSettings.setDisplayZoomControls(true);
         webSettings.setUseWideViewPort(true);
         webSettings.setDisplayZoomControls(false);
 

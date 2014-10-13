@@ -68,6 +68,7 @@ public class QuizLogIn extends BaseFragment {
 
         WebSettings webSettings = mywebview.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setSavePassword(false);
         webSettings.setLoadsImagesAutomatically(true);
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
