@@ -240,7 +240,6 @@ public class DatabaseController {
 
         byte[] image = cursor.getBlob(3);
         temp.setModelImage(BitmapFactory.decodeByteArray(image, 0, image.length));
-
         temp.setLastEdited(cursor.getString(4));
 
         temp.setStep(cursor.getInt(5));
