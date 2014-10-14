@@ -157,7 +157,9 @@ public class DatabaseController {
 
         BitmapFactory bf = new BitmapFactory();
         Bitmap b = bf.decodeByteArray(image, 0, image.length, options);
+
         image = null;
+        System.gc();
 
         temp.setImageContent(b);
 
