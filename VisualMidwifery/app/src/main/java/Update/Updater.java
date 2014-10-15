@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -30,6 +31,8 @@ import java.io.InputStream;
 import java.util.Calendar;
 import java.util.Date;
 
+import otago.Midwifery.R;
+
 /**
  * Created by glenn_000 on 2/08/2014.
  * Class is to facilitate the updating of information within the app, CRUD operations
@@ -54,11 +57,9 @@ public class Updater {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
         if (networkInfo != null && networkInfo.isConnected()) {
-            String[] urls = { "http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ContentCategory.json",
-                    "http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ModelView.json",
-                    "http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ContentField.json",
-                    "http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ModelColour.json"
-            };
+
+            Resources res = context.getResources();
+            String[] urls = res.getStringArray(R.array.update_urls);
 
             //New async task to make the http request
             updateTask = new UpdateTask(context);

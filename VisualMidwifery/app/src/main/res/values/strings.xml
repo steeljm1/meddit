@@ -27,4 +27,10 @@
     <string name="title_activity_static_sheet_ml">ML</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
+    <string-array name="update_urls">
+        <item>http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ContentCategory.json</item>
+        <item>http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ModelView.json</item>
+        <item>http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ContentField.json</item>
+        <item>http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ModelColour.json</item>
+    </string-array>
 </resources>
