@@ -67,6 +67,7 @@ public class ModelViewUpdater extends ModelUpdater {
             ModelViewModel mvm = new ModelViewModel();
             JSONObject mainCategory = item.getJSONObject("MainCategories");
 
+            mvm.setId(item.getInt("ID"));
             mvm.setLastEdited(item.getString("LastUpdated"));
             mvm.setAngle(item.getString("Title"));
             mvm.setStep(item.getInt("Step"));

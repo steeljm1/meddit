@@ -62,6 +62,7 @@ public class ContentCategoryUpdater extends ModelUpdater {
             ContentCategoryModel ccm = new ContentCategoryModel();
             JSONObject mainCategory = item.getJSONObject("MainCategories");
 
+            ccm.setId(item.getInt("ID"));
             ccm.setTitle(item.getString("Title"));
             ccm.setMainId(mainCategory.getInt("id"));
 

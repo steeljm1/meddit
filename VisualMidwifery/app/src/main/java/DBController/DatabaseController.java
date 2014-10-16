@@ -84,10 +84,14 @@ public class DatabaseController {
     public void updateContentCategories(ArrayList<ContentCategoryModel> modelArray) {
 
         database = contentCategoryTable.getWritableDatabase();
-        database.delete(ContentCategoryTable.TABLE_NAME, null, null);
+        database.execSQL("DROP TABLE IF EXISTS " + ContentCategoryTable.TABLE_NAME);
+        database.execSQL("CREATE TABLE contentCategory (_catID INTEGER PRIMARY KEY  NOT NULL , title VARCHAR NOT NULL , _mainID INTEGER, LastEdited VARCHAR)");
+
+        //database.delete(ContentCategoryTable.TABLE_NAME, null, null);
 
         for(int i = 0; i < modelArray.size(); i++) {
             ContentValues values = new ContentValues();
+            values.put(ContentCategoryTable.COLUMN_ID, modelArray.get(i).getId());
             values.put(ContentCategoryTable.COLUMN_MAINID, modelArray.get(i).getMainId());
             values.put(ContentCategoryTable.COLUMN_TITLE, modelArray.get(i).getTitle());
             database.insert(ContentCategoryTable.TABLE_NAME, null, values);
@@ -171,12 +175,16 @@ public class DatabaseController {
     // UPDATE METHOD
     //passing in the collection of new models then push to database with queries
     public void updateContentField(ArrayList<ContentFieldModel> modelArray) {
-
         database = contentFieldsTable.getWritableDatabase();
-        database.delete(ContentFieldsTable.TABLE_NAME, null, null);
+
+        database.execSQL("DROP TABLE IF EXISTS " + ContentFieldsTable.TABLE_NAME);
+        database.execSQL("CREATE TABLE contentFields (_id INTEGER PRIMARY KEY  NOT NULL , image BLOB NOT NULL , notes VARCHAR NOT NULL , _categoryID INTEGER NOT NULL , LastEdited VARCHAR)");
+
+        //database.delete(ContentFieldsTable.TABLE_NAME, null, null);
 
         for(int i = 0; i < modelArray.size(); i++) {
             ContentValues values = new ContentValues();
+            values.put(ContentFieldsTable.COLUMN_ID, modelArray.get(i).getId());
             values.put(ContentFieldsTable.COLUMN_CATEGORYID, modelArray.get(i).getCategoryID());
             values.put(ContentFieldsTable.COLUMN_NOTES, modelArray.get(i).getTextContent());
             values.put(ContentFieldsTable.COLUMN_IMAGE, bitmapToByteArray(modelArray.get(i).getImageContent()));
@@ -258,10 +266,15 @@ public class DatabaseController {
     public void updateModelView(ArrayList<ModelViewModel> modelArray) {
 
         database = modelViewTable.getWritableDatabase();
-        database.delete(ModelViewTable.TABLE_NAME, null, null);
+
+        database.execSQL("DROP TABLE IF EXISTS " + ModelViewTable.TABLE_NAME);
+        database.execSQL("CREATE TABLE modelView(_id INTEGER PRIMARY KEY NOT NULL, _mainID INTEGER DEFAULT (null) ,angle VARCHAR, image BLOB, LastEdited VARCHAR, step INTEGER NOT NULL  DEFAULT 0)");
+
+        //database.delete(ModelViewTable.TABLE_NAME, null, null);
 
         for(int i = 0; i < modelArray.size(); i++) {
             ContentValues values = new ContentValues();
+            values.put(ModelViewTable.COLUMN_ID, modelArray.get(i).getId());
             values.put(ModelViewTable.COLUMN_MAINID, modelArray.get(i).getMainId());
             values.put(ModelViewTable.COLUMN_ANGLE, modelArray.get(i).getAngle());
             values.put(ModelViewTable.COLUMN_IMAGE, bitmapToByteArray(modelArray.get(i).getModelImage()));
@@ -308,10 +321,14 @@ public class DatabaseController {
 
     public void updateModelColour(ArrayList<ModelColorModel> modelArray) {
         database = modelColorTable.getWritableDatabase();
-        database.delete(ModelColorTable.TABLE_NAME, null, null);
+
+        database.execSQL("DROP TABLE IF EXISTS " + ModelColorTable.TABLE_NAME);
+        database.execSQL("CREATE TABLE modelColor (_id INTEGER PRIMARY KEY  NOT NULL , _modelID INTEGER, HEX VARCHAR DEFAULT (null) ,name VARCHAR,LastEdited VARCHAR)");
+        //database.delete(ModelColorTable.TABLE_NAME, null, null);
 
         for(int i = 0; i < modelArray.size(); i++) {
             ContentValues values = new ContentValues();
+            values.put(ModelColorTable.COLUMN_ID, modelArray.get(i).getId());
             values.put(ModelColorTable.COLUMN_MODELID, modelArray.get(i).getModelID());
             values.put(ModelColorTable.COLUMN_HEX, modelArray.get(i).getHex());
             values.put(ModelColorTable.COLUMN_NAME, modelArray.get(i).getPartName());
