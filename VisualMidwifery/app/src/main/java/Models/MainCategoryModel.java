@@ -15,7 +15,6 @@ public class MainCategoryModel {
     public int getId() {
         return id;
     }
-
     public String getTitle() {
         return title;
     }
@@ -23,7 +22,6 @@ public class MainCategoryModel {
     public void setId(int id) {
         this.id = id;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }

@@ -45,6 +45,7 @@ public class DatabaseController {
         modelViewTable = new ModelViewTable(context);
         modelColorTable = new ModelColorTable(context);//init all tables
     }
+
     //
     //following methods will index data with passing in the proper IDs
     //the ids are coming from client click.
@@ -61,7 +62,7 @@ public class DatabaseController {
         Cursor cursor = database.query(contentCategoryTable.TABLE_NAME, contentCategoryColumns, whereClause, null, null, null, null);
         cursor.moveToFirst();
 
-        while(!cursor.isAfterLast()) {
+        while (!cursor.isAfterLast()) {
             ContentCategoryModel newContentCategoryModel = cursorToContentCategoryModel(cursor);
             contentCategoryModelArrayList.add(newContentCategoryModel);
             cursor.moveToNext();
@@ -71,7 +72,8 @@ public class DatabaseController {
 
         return contentCategoryModelArrayList;
     }
-    private ContentCategoryModel cursorToContentCategoryModel(Cursor cursor){
+
+    private ContentCategoryModel cursorToContentCategoryModel(Cursor cursor) {
         ContentCategoryModel temp = new ContentCategoryModel();
 
         temp.setId(cursor.getInt(0));
@@ -89,7 +91,7 @@ public class DatabaseController {
 
         //database.delete(ContentCategoryTable.TABLE_NAME, null, null);
 
-        for(int i = 0; i < modelArray.size(); i++) {
+        for (int i = 0; i < modelArray.size(); i++) {
             ContentValues values = new ContentValues();
             values.put(ContentCategoryTable.COLUMN_ID, modelArray.get(i).getId());
             values.put(ContentCategoryTable.COLUMN_MAINID, modelArray.get(i).getMainId());
@@ -108,11 +110,11 @@ public class DatabaseController {
 
         database = contentFieldsTable.getWritableDatabase();
         //queries from here
-        String[] contentFieldsColumns = {contentFieldsTable.COLUMN_ID, contentFieldsTable.COLUMN_IMAGE, contentFieldsTable.COLUMN_NOTES,contentFieldsTable.COLUMN_CATEGORYID};
+        String[] contentFieldsColumns = {contentFieldsTable.COLUMN_ID, contentFieldsTable.COLUMN_IMAGE, contentFieldsTable.COLUMN_NOTES, contentFieldsTable.COLUMN_CATEGORYID};
         Cursor cursor = database.query(contentFieldsTable.TABLE_NAME, contentFieldsColumns, null, null, null, null, null);
         cursor.moveToFirst();
 
-        while(!cursor.isAfterLast()) {
+        while (!cursor.isAfterLast()) {
             ContentFieldModel newContentFieldModel = cursorToContentFieldsModel(cursor);
             contentFieldModelArrayList.add(newContentFieldModel);
             cursor.moveToNext();
@@ -123,11 +125,10 @@ public class DatabaseController {
         return contentFieldModelArrayList;
     }
 
-    public ArrayList<ContentFieldModel> getContentOfCategory(int categoryId)
-    {
+    public ArrayList<ContentFieldModel> getContentOfCategory(int categoryId) {
         ArrayList<ContentFieldModel> content = new ArrayList<ContentFieldModel>();
 
-        String[] contentFieldsColumns = {contentFieldsTable.COLUMN_ID, contentFieldsTable.COLUMN_IMAGE, contentFieldsTable.COLUMN_NOTES,contentFieldsTable.COLUMN_CATEGORYID};
+        String[] contentFieldsColumns = {contentFieldsTable.COLUMN_ID, contentFieldsTable.COLUMN_IMAGE, contentFieldsTable.COLUMN_NOTES, contentFieldsTable.COLUMN_CATEGORYID};
 
         database = contentFieldsTable.getWritableDatabase();
 
@@ -135,8 +136,7 @@ public class DatabaseController {
         Cursor cursor = database.query(ContentFieldsTable.TABLE_NAME, contentFieldsColumns, whereClause, null, null, null, null);
 
         cursor.moveToFirst();
-        while (!cursor.isAfterLast())
-        {
+        while (!cursor.isAfterLast()) {
             ContentFieldModel newContent = cursorToContentFieldsModel(cursor);
             content.add(newContent);
 
@@ -146,10 +146,10 @@ public class DatabaseController {
         cursor.close();
         contentFieldsTable.close();
         database.close();
-        return  content;
+        return content;
     }
 
-    private ContentFieldModel cursorToContentFieldsModel(Cursor cursor){
+    private ContentFieldModel cursorToContentFieldsModel(Cursor cursor) {
         ContentFieldModel temp = new ContentFieldModel();
 
         temp.setId(cursor.getInt(0));
@@ -182,7 +182,7 @@ public class DatabaseController {
 
         //database.delete(ContentFieldsTable.TABLE_NAME, null, null);
 
-        for(int i = 0; i < modelArray.size(); i++) {
+        for (int i = 0; i < modelArray.size(); i++) {
             ContentValues values = new ContentValues();
             values.put(ContentFieldsTable.COLUMN_ID, modelArray.get(i).getId());
             values.put(ContentFieldsTable.COLUMN_CATEGORYID, modelArray.get(i).getCategoryID());
@@ -205,7 +205,7 @@ public class DatabaseController {
         Cursor cursor = database.query(mainCategoryTable.TABLE_NAME, mainCategoryColumns, null, null, null, null, null);
         cursor.moveToFirst();
 
-        while(!cursor.isAfterLast()) {
+        while (!cursor.isAfterLast()) {
             MainCategoryModel newmainCategoryModel = cursorToMainCategoryModel(cursor);
             mainCategoryModelsArrayList.add(newmainCategoryModel);
             cursor.moveToNext();
@@ -215,13 +215,27 @@ public class DatabaseController {
 
         return mainCategoryModelsArrayList;
     }
-    private MainCategoryModel cursorToMainCategoryModel(Cursor cursor){
+
+    private MainCategoryModel cursorToMainCategoryModel(Cursor cursor) {
         MainCategoryModel temp = new MainCategoryModel();
 
         temp.setId(cursor.getInt(0));
         temp.setTitle(cursor.getString(1));
 
         return temp;
+    }
+
+    public void updateMainCategory(ArrayList<MainCategoryModel> modelArray) {
+        database = mainCategoryTable.getWritableDatabase();
+        database.delete(MainCategoryTable.TABLE_NAME, null, null);
+
+        for(int i = 0; i < modelArray.size(); i++) {
+            ContentValues values = new ContentValues();
+            values.put(MainCategoryTable.COLUMN_ID, modelArray.get(i).getId());
+            values.put(MainCategoryTable.COLUMN_ID, modelArray.get(i).getTitle());
+
+            database.insert(MainCategoryTable.TABLE_NAME, null, values);
+        }
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
