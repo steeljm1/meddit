@@ -73,19 +73,7 @@ Edit /etc/puppet/modules/apache/manifests/config.pp appropriately
 
 file { "/etc/ssl/localcerts/apache-meddit.pem":
 
-ensure => "present",
-
 source => "puppet:///modules/apache/apache-meddit.pem",
-
-owner => "root",
-
-group => "root",
-
-mode => 0600,
-
-require => Class["apache::install"],
-
-notify => Class["apache::service"],
 
 }
 
@@ -93,19 +81,7 @@ notify => Class["apache::service"],
 
 file { "/etc/ssl/localcerts/apache-meddit.key":
 
-ensure => "present",
-
 source => "puppet:///modules/apache/apache-meddit.key",
-
-owner => "root",
-
-group => "root",
-
-mode => 0600,
-
-require => Class["apache::install"],
-
-notify => Class["apache::service"],
 
 }
 
