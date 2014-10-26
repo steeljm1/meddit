@@ -12,13 +12,13 @@ Edit the following files to suit the new system:
 
 --------------------------------------------------------- 
  
- ### /puppet/manifests/nodes.pp
+### /puppet/manifests/nodes.pp
  
  node 'generic.ict.op.ac.nz'{........}
  
 --------------------------------------------------------- 
   
- ### /puppet/modules/hosts_file/templates/debhosts.erb
+### /puppet/modules/hosts_file/templates/debhosts.erb
  
  127.0.0.1 localhost <%= hostname %>
 
@@ -46,7 +46,7 @@ puppetmaster ALL=(ALL:ALL) ALL
 
 ----------------------------------------------------------
 
-All modules contained within are licensed under the following:
+### All modules contained within are licensed under the following:
 
 Visual Midwifery by Otago MeddIT is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
 
