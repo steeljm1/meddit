@@ -69,7 +69,7 @@ You will want to generate a new set of SSL certs for your server.  See client_do
 
 Edit /etc/puppet/modules/apache/manifests/config.pp appropriately
 
-##### SSL cert pem - Overwrite apache-meddit.pem with new pem and update.
+##### SSL cert pem - Overwrite /etc/puppet/modules/apache/files/apache-meddit.pem with new pem file.  NOTE: ONLY change the file name in this file!
 
 file { "/etc/ssl/localcerts/apache-meddit.pem":
 
@@ -77,7 +77,7 @@ source => "puppet:///modules/apache/apache-meddit.pem",
 
 }
 
-##### SSL cert key- Overwrite apache-meddit.key with new key and update.
+##### SSL cert key- Overwrite /etc/puppet/modules/apache/files/apache-meddit.key with new key file.  NOTE: ONLY change the file name in this file!
 
 file { "/etc/ssl/localcerts/apache-meddit.key":
 
