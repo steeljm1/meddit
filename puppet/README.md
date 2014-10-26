@@ -2,13 +2,23 @@
 
 Edit the following files to suit the new system:
 
-Change the following in /puppet/puppet.conf
-
+/puppet/puppet.conf
+<tb>
+<tr>
+<td>
  [main]
- certname=generic.ict.op.ac.nz
- server=generic.ict.op.ac.nz
+ certname=generic.ict.op.ac.nz   # Server domain name
+ server=generic.ict.op.ac.nz   # Server domain name
+ </td>
+ </tr>
+ </tb>
  
+ /puppet/manifests/nodes.pp
  
+ node 'generic.ict.op.ac.nz'{........}
+ 
+
+ /puppet/modules/hosts_file/templates/debhosts.erb
 
 
 
