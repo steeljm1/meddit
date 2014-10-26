@@ -54,7 +54,7 @@ puppetmaster ALL=(ALL:ALL) ALL
 
 ### /etc/puppet/modules/moodle/files/config.php
 
-Edit wwwroot to suit location.  Note - Moodle will install to /var/www/moodle/moodle/ by default.  Change domain ONLY! 
+Edit wwwroot to suit location.  Note - Moodle will install to /var/www/moodle/moodle/ by default.  Change domain name ONLY! 
 
 
 $CFG->wwwroot = 'http://10.118.0.75/moodle/moodle';  
