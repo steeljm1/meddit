@@ -4,11 +4,11 @@ Edit the following files to suit the new system:
 
 /puppet/puppet.conf
 
-|head   |
-|---|
- [main]
+|[main]
  certname=generic.ict.op.ac.nz   # Server domain name
- server=generic.ict.op.ac.nz   # Server domain name
+ server=generic.ict.op.ac.nz   # Server domain name|
+|---|
+ 
  
  
  /puppet/manifests/nodes.pp
