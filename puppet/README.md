@@ -1,6 +1,11 @@
 ##  This is the root directory of Puppet for the use of creating a Generic Learning Framework System.  ##
 
-Edit the following files to suit the new system:
+### Install Puppet
+
+1. apt-get install puppetmaster puppet
+2. Copy the entire generic puppet directory to /etc - overwrite existing directory 
+
+##Edit the following files to suit the new system:
 
 ### /puppet/puppet.conf
 
@@ -45,6 +50,14 @@ Default System Admin Account
 puppetmaster ALL=(ALL:ALL) ALL
 
 ----------------------------------------------------------
+
+## Run the puppet agent to setup the system
+
+As root execute the following:
+
+puppet agent --server=generic.ict.op.ac.nz --no-daemonize --verbose
+
+------------------------------------------------------------
 
 ### All modules contained within are licensed under the following:
 
