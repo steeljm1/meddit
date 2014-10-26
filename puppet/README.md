@@ -1,4 +1,25 @@
-This is the root directory for Puppet.  All modules contained within are licensed under the following:
+#####  This is the root directory for the Puppet installation of a generic system.  #####
+
+Edit the following files to suit the new system:
+
+Change the following in /puppet/puppet.conf
+
+ [main]
+ certname=generic.ict.op.ac.nz
+ server=generic.ict.op.ac.nz
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+All modules contained within are licensed under the following:
 
 Visual Midwifery by Otago MeddIT is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
 
