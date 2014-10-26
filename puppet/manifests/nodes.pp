@@ -1,4 +1,4 @@
-node 'meddit.op.ac.nz'{
+node 'generic.ict.op.ac.nz'{
 # Packages
 	package { 'mc': ensure => present }
 	package { 'vim': ensure => present }
@@ -18,6 +18,8 @@ node 'meddit.op.ac.nz'{
 	include phpmyadmin
 	include moodle
 	include ntp
+	include ss
+	include mediawiki
 #	include openssl
 }
 

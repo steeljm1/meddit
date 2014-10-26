@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.35, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.40, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: SS_mysite
 -- ------------------------------------------------------
--- Server version	5.5.35-0+wheezy1
+-- Server version	5.5.40-0+wheezy1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +32,7 @@ CREATE TABLE `ContentCategory` (
   PRIMARY KEY (`ID`),
   KEY `MainCategoriesID` (`MainCategoriesID`),
   KEY `ClassName` (`ClassName`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `ContentCategory` (
 
 LOCK TABLES `ContentCategory` WRITE;
 /*!40000 ALTER TABLE `ContentCategory` DISABLE KEYS */;
-INSERT INTO `ContentCategory` VALUES (7,'ContentCategory','2014-09-17 12:00:55','2014-09-17 12:00:55','Test',1);
+INSERT INTO `ContentCategory` VALUES (1,'ContentCategory','2014-10-13 12:45:24','2014-10-13 12:45:24','Maternal Pelvis',2);
 /*!40000 ALTER TABLE `ContentCategory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,7 +64,7 @@ CREATE TABLE `ContentField` (
   KEY `ContentCategoryID` (`ContentCategoryID`),
   KEY `ImageID` (`ImageID`),
   KEY `ClassName` (`ClassName`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `ContentField` (
 
 LOCK TABLES `ContentField` WRITE;
 /*!40000 ALTER TABLE `ContentField` DISABLE KEYS */;
-INSERT INTO `ContentField` VALUES (1,'ContentField','2014-07-27 20:37:50','2014-07-27 20:37:50','This is the information for the slide',1,14),(4,'ContentField','2014-07-28 12:10:58','2014-07-28 12:11:28','another note',2,17),(5,'ContentField','2014-07-30 14:49:46','2014-08-11 18:10:40','Another note',1,19),(6,'ContentField','2014-07-30 16:00:00','2014-07-30 16:00:00','asdasdasdasd',1,20),(7,'ContentField','2014-08-11 18:13:37','2014-08-11 18:13:37','asdfafasfasdfasfasf',1,22),(8,'ContentField','2014-08-11 18:33:54','2014-08-11 18:33:54','Test ContentField',4,23),(9,'ContentField','2014-09-17 12:02:11','2014-09-17 12:02:11','Test',7,25);
+INSERT INTO `ContentField` VALUES (1,'ContentField','2014-10-13 12:46:24','2014-10-13 15:59:10',' ',1,52),(2,'ContentField','2014-10-13 12:46:53','2014-10-13 15:59:38',' ',1,53),(3,'ContentField','2014-10-13 12:47:10','2014-10-13 16:00:00',' ',1,54),(4,'ContentField','2014-10-13 12:47:30','2014-10-13 16:00:18',' ',1,55),(5,'ContentField','2014-10-13 12:47:51','2014-10-13 16:00:34','  ',1,56);
 /*!40000 ALTER TABLE `ContentField` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ CREATE TABLE `File` (
   KEY `ParentID` (`ParentID`),
   KEY `OwnerID` (`OwnerID`),
   KEY `ClassName` (`ClassName`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,7 +186,7 @@ CREATE TABLE `File` (
 
 LOCK TABLES `File` WRITE;
 /*!40000 ALTER TABLE `File` DISABLE KEYS */;
-INSERT INTO `File` VALUES (1,'Folder','2014-03-25 13:00:54','2014-03-25 13:00:54','Uploads','Uploads','assets/Uploads/',NULL,1,0,0),(2,'Image','2014-03-25 13:00:54','2014-03-25 13:00:54','SilverStripeLogo.png','SilverStripeLogo.png','assets/Uploads/SilverStripeLogo.png',NULL,1,1,0),(3,'File','2014-03-25 13:00:54','2014-03-25 13:00:54','error-404.html','error-404.html','assets/error-404.html',NULL,1,0,0),(4,'File','2014-03-25 13:00:54','2014-03-25 13:00:54','error-500.html','error-500.html','assets/error-500.html',NULL,1,0,0),(6,'Image','2014-07-27 16:42:10','2014-07-27 16:42:10','10300987-10201965735936716-1608455035784666364-n.jpg','10300987 10201965735936716 1608455035784666364 n','assets/Uploads/10300987-10201965735936716-1608455035784666364-n.jpg',NULL,1,1,1),(7,'Image','2014-07-27 19:37:41','2014-07-27 19:37:41','s.jpg','s','assets/Uploads/s.jpg',NULL,1,1,1),(8,'Image','2014-07-27 19:44:21','2014-07-27 19:44:21','s.jpg','s','assets/Uploads/s.jpg',NULL,1,1,1),(9,'Image','2014-07-27 19:46:31','2014-07-27 19:46:31','s.jpg','s','assets/Uploads/s.jpg',NULL,1,1,1),(10,'Image','2014-07-27 19:49:29','2014-07-27 19:49:29','s.jpg','s','assets/Uploads/s.jpg',NULL,1,1,1),(11,'Image','2014-07-27 19:52:31','2014-07-27 19:52:31','s.jpg','s','assets/Uploads/s.jpg',NULL,1,1,1),(12,'Image','2014-07-27 20:20:59','2014-07-27 20:20:59','R.jpg','R','assets/Uploads/R.jpg',NULL,1,1,1),(13,'Image','2014-07-27 20:24:02','2014-07-27 20:24:02','R.jpg','R','assets/Uploads/R.jpg',NULL,1,1,1),(14,'Image','2014-07-27 20:37:48','2014-07-27 20:37:48','slide1.jpg','slide1','assets/Uploads/slide1.jpg',NULL,1,1,1),(15,'Image','2014-07-27 20:38:36','2014-07-27 20:38:36','ModelImage.jpg','ModelImage','assets/Uploads/ModelImage.jpg',NULL,1,1,1),(16,'Image','2014-07-28 12:09:54','2014-07-28 12:09:54','android11.jpg','android11','assets/Uploads/android11.jpg',NULL,1,1,1),(17,'Image','2014-07-28 12:10:55','2014-07-28 12:10:55','android11.jpg','android11','assets/Uploads/android11.jpg',NULL,1,1,1),(18,'Image','2014-07-28 12:13:05','2014-07-28 12:13:05','android11.jpg','android11','assets/Uploads/android11.jpg',NULL,1,1,1),(19,'Image','2014-07-30 14:49:40','2014-07-30 14:49:40','Another-Warning-on-installation.PNG','Another Warning on installation','assets/Uploads/Another-Warning-on-installation.PNG',NULL,1,1,1),(20,'Image','2014-07-30 15:59:56','2014-07-30 15:59:56','10492509-1444644582473357-1998683549721059691-n.jpg','10492509 1444644582473357 1998683549721059691 n','assets/Uploads/10492509-1444644582473357-1998683549721059691-n.jpg',NULL,1,1,1),(21,'Image','2014-08-11 14:56:01','2014-08-11 14:56:01','androidstudio.jpg','androidstudio','assets/Uploads/androidstudio.jpg',NULL,1,1,1),(22,'Image','2014-08-11 18:13:34','2014-08-11 18:13:34','asdas.png','asdas','assets/Uploads/asdas.png',NULL,1,1,1),(23,'Image','2014-08-11 18:33:51','2014-08-11 18:33:51','iso-64x64-outside-0007.png','iso 64x64 outside 0007','assets/Uploads/iso-64x64-outside-0007.png',NULL,1,1,1),(25,'Image','2014-09-17 12:01:28','2014-09-17 12:01:28','New-Project-Eclipse.PNG','New Project Eclipse','assets/Uploads/New-Project-Eclipse.PNG',NULL,1,1,3),(26,'Image','2014-09-17 12:22:34','2014-09-17 12:22:34','GUI-Creation.PNG','GUI Creation','assets/Uploads/GUI-Creation.PNG',NULL,1,1,3);
+INSERT INTO `File` VALUES (1,'Folder','2014-03-25 13:00:54','2014-03-25 13:00:54','Uploads','Uploads','assets/Uploads/',NULL,1,0,0),(3,'File','2014-03-25 13:00:54','2014-03-25 13:00:54','error-404.html','error-404.html','assets/error-404.html',NULL,1,0,0),(4,'File','2014-03-25 13:00:54','2014-03-25 13:00:54','error-500.html','error-500.html','assets/error-500.html',NULL,1,0,0);
 /*!40000 ALTER TABLE `File` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -212,7 +212,7 @@ CREATE TABLE `Group` (
   PRIMARY KEY (`ID`),
   KEY `ParentID` (`ParentID`),
   KEY `ClassName` (`ClassName`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -221,7 +221,7 @@ CREATE TABLE `Group` (
 
 LOCK TABLES `Group` WRITE;
 /*!40000 ALTER TABLE `Group` DISABLE KEYS */;
-INSERT INTO `Group` VALUES (1,'Group','2014-03-25 13:00:52','2014-09-01 12:37:14','Content Authors',NULL,'content-authors',0,1,NULL,0),(2,'Group','2014-03-25 13:00:52','2014-03-25 13:00:52','Administrators',NULL,'administrators',0,0,NULL,0),(3,'Group','2014-09-01 12:23:07','2014-09-01 13:08:05','Lecturer',NULL,'lecturer',0,0,NULL,0);
+INSERT INTO `Group` VALUES (2,'Group','2014-03-25 13:00:52','2014-03-25 13:00:52','Administrators',NULL,'administrators',0,0,NULL,0),(3,'Group','2014-09-01 12:23:07','2014-10-16 12:18:32','Lecturer',NULL,'lecturer',0,0,NULL,0);
 /*!40000 ALTER TABLE `Group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -239,7 +239,7 @@ CREATE TABLE `Group_Members` (
   PRIMARY KEY (`ID`),
   KEY `GroupID` (`GroupID`),
   KEY `MemberID` (`MemberID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -248,7 +248,7 @@ CREATE TABLE `Group_Members` (
 
 LOCK TABLES `Group_Members` WRITE;
 /*!40000 ALTER TABLE `Group_Members` DISABLE KEYS */;
-INSERT INTO `Group_Members` VALUES (1,2,1),(2,2,2),(3,3,3);
+INSERT INTO `Group_Members` VALUES (1,2,1),(2,2,2),(3,3,3),(4,4,4);
 /*!40000 ALTER TABLE `Group_Members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -368,7 +368,6 @@ CREATE TABLE `MainCategories` (
 
 LOCK TABLES `MainCategories` WRITE;
 /*!40000 ALTER TABLE `MainCategories` DISABLE KEYS */;
-INSERT INTO `MainCategories` VALUES (1,'MainCategories','2014-08-27 19:30:39','2014-08-27 19:30:39','Fetal Skull'),(2,'MainCategories','2014-08-27 19:31:22','2014-08-27 19:31:22','Maternal Pelvis'),(3,'MainCategories','2014-08-27 19:31:41','2014-08-27 19:31:41','Mechanism of Labor');
 /*!40000 ALTER TABLE `MainCategories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -404,7 +403,7 @@ CREATE TABLE `Member` (
   PRIMARY KEY (`ID`),
   KEY `Email` (`Email`(255)),
   KEY `ClassName` (`ClassName`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -413,7 +412,7 @@ CREATE TABLE `Member` (
 
 LOCK TABLES `Member` WRITE;
 /*!40000 ALTER TABLE `Member` DISABLE KEYS */;
-INSERT INTO `Member` VALUES (1,'Member','2014-03-25 13:00:52','2014-09-22 14:07:46','Default Admin',NULL,'admin','$2y$10$7228a179a0ab0d6c066caurkWUU6sIS3mFneIlw.uetubkag.n2O.',NULL,57,'2014-09-22 14:07:46',NULL,NULL,'blowfish','10$7228a179a0ab0d6c066ca8',NULL,NULL,'en_US',0,NULL,NULL),(2,'Member','2014-03-25 14:25:06','2014-03-25 14:25:06','Jay','Steele','steeljm1@student.op.ac.nz','$2y$10$e991dadda1427ce13b614unu5NXFjZsUC1HHCOn1s1WWHYQHZ6T26',NULL,0,NULL,NULL,NULL,'blowfish','10$e991dadda1427ce13b6147',NULL,NULL,'en_US',0,'MMM d, y','h:mm:ss a'),(3,'Member','2014-09-01 12:25:39','2014-09-22 14:08:00','Suzane','MIller','Lecturer','$2y$10$4cbaed8105a4cc6c7a17dOmtfY/zIyl4AQUgnp8jJTQcTs8bBnSSe',NULL,12,'2014-09-22 14:33:04',NULL,NULL,'blowfish','10$4cbaed8105a4cc6c7a17dc',NULL,NULL,'en_US',0,'MMM d, y','h:mm:ss a');
+INSERT INTO `Member` VALUES (1,'Member','2014-03-25 13:00:52','2014-10-25 15:29:32','Default Admin',NULL,'admin','$2y$10$7228a179a0ab0d6c066caurkWUU6sIS3mFneIlw.uetubkag.n2O.',NULL,76,'2014-10-25 15:29:32',NULL,NULL,'blowfish','10$7228a179a0ab0d6c066ca8',NULL,NULL,'en_US',0,NULL,NULL),(3,'Member','2014-09-01 12:25:39','2014-10-16 12:49:06','Suzane','MIller','Lecturer','$2y$10$4cbaed8105a4cc6c7a17dODtSVcg4EBD3lTa1mvM2q5SxecjeZuxu',NULL,29,'2014-10-16 17:59:14',NULL,NULL,'blowfish','10$4cbaed8105a4cc6c7a17dc',NULL,NULL,'en_US',0,'MMM d, y','h:mm:ss a');
 /*!40000 ALTER TABLE `Member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -436,7 +435,7 @@ CREATE TABLE `MemberPassword` (
   PRIMARY KEY (`ID`),
   KEY `MemberID` (`MemberID`),
   KEY `ClassName` (`ClassName`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -445,7 +444,7 @@ CREATE TABLE `MemberPassword` (
 
 LOCK TABLES `MemberPassword` WRITE;
 /*!40000 ALTER TABLE `MemberPassword` DISABLE KEYS */;
-INSERT INTO `MemberPassword` VALUES (1,'MemberPassword','2014-03-25 13:00:54','2014-03-25 13:00:54','$2y$10$7228a179a0ab0d6c066caurkWUU6sIS3mFneIlw.uetubkag.n2O.','10$7228a179a0ab0d6c066ca8','blowfish',1),(2,'MemberPassword','2014-03-25 14:25:06','2014-03-25 14:25:06','$2y$10$e991dadda1427ce13b614unu5NXFjZsUC1HHCOn1s1WWHYQHZ6T26','10$e991dadda1427ce13b6147','blowfish',2),(3,'MemberPassword','2014-07-27 15:17:25','2014-07-27 15:17:25','$2y$10$7228a179a0ab0d6c066caurkWUU6sIS3mFneIlw.uetubkag.n2O.','10$7228a179a0ab0d6c066ca8','blowfish',1),(4,'MemberPassword','2014-09-01 12:25:39','2014-09-01 12:25:39','$2y$10$4cbaed8105a4cc6c7a17dOmtfY/zIyl4AQUgnp8jJTQcTs8bBnSSe','10$4cbaed8105a4cc6c7a17dc','blowfish',3);
+INSERT INTO `MemberPassword` VALUES (1,'MemberPassword','2014-03-25 13:00:54','2014-03-25 13:00:54','$2y$10$7228a179a0ab0d6c066caurkWUU6sIS3mFneIlw.uetubkag.n2O.','10$7228a179a0ab0d6c066ca8','blowfish',1),(2,'MemberPassword','2014-03-25 14:25:06','2014-03-25 14:25:06','$2y$10$e991dadda1427ce13b614unu5NXFjZsUC1HHCOn1s1WWHYQHZ6T26','10$e991dadda1427ce13b6147','blowfish',2),(3,'MemberPassword','2014-07-27 15:17:25','2014-07-27 15:17:25','$2y$10$7228a179a0ab0d6c066caurkWUU6sIS3mFneIlw.uetubkag.n2O.','10$7228a179a0ab0d6c066ca8','blowfish',1),(4,'MemberPassword','2014-09-01 12:25:39','2014-09-01 12:25:39','$2y$10$4cbaed8105a4cc6c7a17dOmtfY/zIyl4AQUgnp8jJTQcTs8bBnSSe','10$4cbaed8105a4cc6c7a17dc','blowfish',3),(5,'MemberPassword','2014-10-16 11:55:38','2014-10-16 11:55:38','$2y$10$4cbaed8105a4cc6c7a17dODtSVcg4EBD3lTa1mvM2q5SxecjeZuxu','10$4cbaed8105a4cc6c7a17dc','blowfish',3),(6,'MemberPassword','2014-10-16 12:20:38','2014-10-16 12:20:38','$2y$10$4cbaed8105a4cc6c7a17dODtSVcg4EBD3lTa1mvM2q5SxecjeZuxu','10$4cbaed8105a4cc6c7a17dc','blowfish',3),(7,'MemberPassword','2014-10-16 12:26:32','2014-10-16 12:26:32','$2y$10$9890bd009f8ebe82d88b1e3cYentJM0Z9p1qVzhenjhbC.BbTRQfG','10$9890bd009f8ebe82d88b1f','blowfish',4);
 /*!40000 ALTER TABLE `MemberPassword` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -462,12 +461,12 @@ CREATE TABLE `ModelColour` (
   `Created` datetime DEFAULT NULL,
   `LastEdited` datetime DEFAULT NULL,
   `Name` varchar(50) DEFAULT NULL,
-  `ModelViewID` int(11) NOT NULL DEFAULT '0',
   `BgColor` mediumtext,
+  `ModelViewID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`),
   KEY `ModelViewID` (`ModelViewID`),
   KEY `ClassName` (`ClassName`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -476,7 +475,7 @@ CREATE TABLE `ModelColour` (
 
 LOCK TABLES `ModelColour` WRITE;
 /*!40000 ALTER TABLE `ModelColour` DISABLE KEYS */;
-INSERT INTO `ModelColour` VALUES (3,'ModelColour','2014-07-30 14:35:24','2014-07-30 14:35:24','Information for colour',1,'5a25cc');
+INSERT INTO `ModelColour` VALUES (1,'ModelColour','2014-09-24 13:46:11','2014-09-24 13:57:22','Parietal Bone','966478',1),(2,'ModelColour','2014-09-24 13:46:47','2014-09-24 13:46:47','Frontal Bone','786414',1),(3,'ModelColour','2014-09-24 13:47:25','2014-09-24 13:55:25','Sphenoidal Fontanelle','3c28c7',1),(4,'ModelColour','2014-09-24 13:47:58','2014-09-24 14:02:03','Mastoid Fontanel','50a0c8',1),(5,'ModelColour','2014-09-24 13:48:41','2014-09-24 14:02:25','Posterior Fontanel','78b4c8',1),(6,'ModelColour','2014-09-24 13:49:02','2014-09-24 13:49:02','Ossification Center','5078fa',1),(7,'ModelColour','2014-09-24 13:49:26','2014-09-24 13:49:26','Occipital Bone','64c814',1),(8,'ModelColour','2014-09-24 13:49:46','2014-09-24 13:49:46','Temporal Bone','8c8cff',1),(9,'ModelColour','2014-09-24 13:50:11','2014-09-24 13:50:11','Anterior Fontanel','2878c8',1),(10,'ModelColour','2014-09-24 13:50:44','2014-09-24 13:50:44','Mandible','ff8cff',1),(11,'ModelColour','2014-09-24 13:51:13','2014-09-24 14:00:14','Sphenoid Bone','00c864',1),(12,'ModelColour','2014-09-24 14:04:07','2014-09-24 14:04:07','Occipital Bone','0ac8ff',2),(13,'ModelColour','2014-09-24 14:04:38','2014-09-24 14:04:38','Anterior Fontanelle','64ff64',2),(14,'ModelColour','2014-09-24 14:05:04','2014-09-24 14:05:04','Frontal Suture','ffff64',2),(15,'ModelColour','2014-09-24 14:05:29','2014-09-24 14:05:29','Posterior Fontanelle','649632',2),(16,'ModelColour','2014-09-24 14:05:55','2014-09-24 14:11:11','Sagittal Suture','c8c800',2),(17,'ModelColour','2014-09-24 14:06:48','2014-09-24 14:06:48','Frontal Bones','ff64ff',2),(18,'ModelColour','2014-09-24 14:07:26','2014-09-24 14:07:26','Parietal Bone','c8c8ff',2),(19,'ModelColour','2014-09-24 14:07:48','2014-09-24 14:07:48','Ossification Center','c87800',2),(20,'ModelColour','2014-09-24 14:08:08','2014-09-24 14:08:08','Coronel Suture','64ffff',2),(21,'ModelColour','2014-10-16 13:36:55','2014-10-16 13:36:55','Illium','64c864',12),(22,'ModelColour','2014-10-16 13:37:22','2014-10-16 13:37:22','Sacrum','286464',12),(23,'ModelColour','2014-10-16 13:37:56','2014-10-16 13:37:56','Pubis','c87882',12),(24,'ModelColour','2014-10-16 13:38:25','2014-10-16 13:38:25','Ischium','b4a0be',12),(25,'ModelColour','2014-10-16 13:39:00','2014-10-16 13:39:00','Pubic Symphysis','ff0000',12),(26,'ModelColour','2014-10-16 13:40:33','2014-10-16 13:40:33','Illium','c8c800',13),(27,'ModelColour','2014-10-16 13:40:54','2014-10-16 13:40:54','Sacrum','b400ff',13),(28,'ModelColour','2014-10-16 13:41:18','2014-10-16 13:41:18','Ischium','0064c8',13),(29,'ModelColour','2014-10-16 13:41:44','2014-10-16 13:41:44','Pubis','ff0a00',13),(30,'ModelColour','2014-10-16 13:42:10','2014-10-16 13:42:10','Coccyx','82ff00',13),(31,'ModelColour','2014-10-16 13:46:27','2014-10-16 13:46:27','Anterior superior illac spine','78ffff',14),(32,'ModelColour','2014-10-16 13:47:22','2014-10-16 13:47:22','Illiac crest','0064ff',14),(33,'ModelColour','2014-10-16 13:48:10','2014-10-16 13:49:51','Iliac fossa','8cff32',14),(34,'ModelColour','2014-10-16 13:49:14','2014-10-16 13:49:14','Arcuate line ','ffc800',14),(35,'ModelColour','2014-10-16 13:50:24','2014-10-16 13:50:24','Posterior superior illac spine','0b0b51',14),(36,'ModelColour','2014-10-16 13:52:29','2014-10-16 13:52:29','Auricular surface','64c814',14),(37,'ModelColour','2014-10-16 13:52:53','2014-10-16 13:52:53','Greater sciatic notch','c800c8',14),(38,'ModelColour','2014-10-16 13:53:25','2014-10-16 13:53:25','Ischium','7878c8',14),(39,'ModelColour','2014-10-16 13:54:01','2014-10-16 13:54:01','Obturator foramen','c8c8ff',14),(40,'ModelColour','2014-10-16 13:54:40','2014-10-16 13:54:40','Superior ramus of pubis','ff0000',14),(41,'ModelColour','2014-10-16 13:55:15','2014-10-16 13:55:15','Articular surface of pubis','00ffff',14),(42,'ModelColour','2014-10-16 13:55:58','2014-10-16 13:55:58','Pubic tubercle','e691ff',14),(43,'ModelColour','2014-10-16 13:57:07','2014-10-16 13:57:07','Anterior superior iliac spine','0a0a50',15),(44,'ModelColour','2014-10-16 13:57:47','2014-10-16 13:57:47','Posterior inferior iliac spine','ffff50',15),(45,'ModelColour','2014-10-16 13:58:13','2014-10-16 13:58:13','Ilium','ffb450',15),(46,'ModelColour','2014-10-16 13:58:39','2014-10-16 13:58:39','Anterior inferior iliac spine','50b450',15),(47,'ModelColour','2014-10-16 14:42:42','2014-10-16 14:42:42','Ischial body','ff64c8',15),(48,'ModelColour','2014-10-16 14:43:06','2014-10-16 14:43:06','Lesser sciatic notch','ff0000',15),(49,'ModelColour','2014-10-16 14:43:31','2014-10-16 14:43:31','Ischial tuberosity','645064',15),(50,'ModelColour','2014-10-16 14:43:50','2014-10-16 14:43:50','Ischium','ffffc8',15),(51,'ModelColour','2014-10-16 14:44:21','2014-10-16 14:44:21','Obturator foramen','c8c8ff',15),(52,'ModelColour','2014-10-16 14:44:43','2014-10-16 14:44:43','Ischial ramus','0a00ff',15),(53,'ModelColour','2014-10-16 14:45:07','2014-10-16 14:45:07','Inferior ramus of pubis','00ff0a',15),(54,'ModelColour','2014-10-16 14:45:34','2014-10-16 14:45:40','Acetabulum','006464',15);
 /*!40000 ALTER TABLE `ModelColour` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -500,7 +499,7 @@ CREATE TABLE `ModelView` (
   KEY `MainCategoriesID` (`MainCategoriesID`),
   KEY `ImageID` (`ImageID`),
   KEY `ClassName` (`ClassName`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -509,7 +508,7 @@ CREATE TABLE `ModelView` (
 
 LOCK TABLES `ModelView` WRITE;
 /*!40000 ALTER TABLE `ModelView` DISABLE KEYS */;
-INSERT INTO `ModelView` VALUES (2,'ModelView','2014-09-17 12:22:36','2014-09-17 12:22:36','Model 1',0,1,26);
+INSERT INTO `ModelView` VALUES (1,'ModelView','2014-09-24 13:45:01','2014-09-24 13:45:01','Side View',0,1,35),(2,'ModelView','2014-09-24 13:45:25','2014-09-24 13:45:25','Top View',0,1,36),(3,'ModelView','2014-10-13 12:35:24','2014-10-13 12:35:24','Mechanism of Labor',0,3,37),(4,'ModelView','2014-10-13 12:35:53','2014-10-13 12:35:53','Mechanism of Labor',1,3,38),(5,'ModelView','2014-10-13 12:36:11','2014-10-13 12:36:27','Mechanism of Labor',2,3,39),(6,'ModelView','2014-10-13 12:37:03','2014-10-13 12:37:08','Mechanism of Labor',3,3,40),(7,'ModelView','2014-10-13 12:38:40','2014-10-13 12:38:40','Mechanism of Labor',4,3,42),(8,'ModelView','2014-10-13 12:39:00','2014-10-13 12:39:00','Mechanism of Labor',5,3,43),(9,'ModelView','2014-10-13 12:39:53','2014-10-13 12:39:53','Mechanism of Labor',6,3,45),(10,'ModelView','2014-10-13 12:40:17','2014-10-13 12:40:17','Mechanism of Labor',7,3,46),(12,'ModelView','2014-10-16 13:35:29','2014-10-16 13:35:29','Anterior View',0,2,59),(13,'ModelView','2014-10-16 13:35:56','2014-10-16 13:35:56','Posterior View',0,2,60),(14,'ModelView','2014-10-16 13:42:44','2014-10-16 13:44:07','Anterior View - Right Hip Bone',0,2,61),(15,'ModelView','2014-10-16 13:43:51','2014-10-16 13:43:51','Lateral View - Right Hip Bone',0,2,62);
 /*!40000 ALTER TABLE `ModelView` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -533,7 +532,7 @@ CREATE TABLE `Permission` (
   KEY `GroupID` (`GroupID`),
   KEY `Code` (`Code`),
   KEY `ClassName` (`ClassName`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -542,7 +541,7 @@ CREATE TABLE `Permission` (
 
 LOCK TABLES `Permission` WRITE;
 /*!40000 ALTER TABLE `Permission` DISABLE KEYS */;
-INSERT INTO `Permission` VALUES (5,'Permission','2014-03-25 13:00:52','2014-03-25 13:00:52','ADMIN',0,1,2),(53,'Permission','2014-09-01 12:37:14','2014-09-01 12:37:14','CMS_ACCESS_CMSMain',0,1,1),(54,'Permission','2014-09-01 12:37:14','2014-09-01 12:37:14','CMS_ACCESS_AssetAdmin',0,1,1),(55,'Permission','2014-09-01 12:37:14','2014-09-01 12:37:14','CMS_ACCESS_ReportAdmin',0,1,1),(56,'Permission','2014-09-01 12:37:14','2014-09-01 12:37:14','SITETREE_REORGANISE',0,1,1),(100,'Permission','2014-09-01 13:08:05','2014-09-01 13:08:05','CMS_ACCESS_CMSMain',0,1,3),(101,'Permission','2014-09-01 13:08:05','2014-09-01 13:08:05','CMS_ACCESS_CategoryModelAdminExtension',0,1,3);
+INSERT INTO `Permission` VALUES (5,'Permission','2014-03-25 13:00:52','2014-03-25 13:00:52','ADMIN',0,1,2),(103,'Permission','2014-10-16 12:18:32','2014-10-16 12:18:32','CMS_ACCESS_CategoryModelAdminExtension',0,1,3),(104,'Permission','2014-10-16 12:18:32','2014-10-16 12:18:32','CMS_ACCESS_SecurityAdmin',0,1,3);
 /*!40000 ALTER TABLE `Permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -715,7 +714,7 @@ CREATE TABLE `SiteConfig` (
 
 LOCK TABLES `SiteConfig` WRITE;
 /*!40000 ALTER TABLE `SiteConfig` DISABLE KEYS */;
-INSERT INTO `SiteConfig` VALUES (1,'SiteConfig','2014-03-25 13:00:52','2014-03-25 16:11:32','Visual Midwifery','Administration Login',NULL,'Anyone','LoggedInUsers','LoggedInUsers');
+INSERT INTO `SiteConfig` VALUES (1,'SiteConfig','2014-03-25 13:00:52','2014-10-25 15:29:21','Generic','Administration Login',NULL,'Anyone','LoggedInUsers','LoggedInUsers');
 /*!40000 ALTER TABLE `SiteConfig` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1060,11 +1059,10 @@ CREATE TABLE `UpdateLog` (
   `Created` datetime DEFAULT NULL,
   `LastEdited` datetime DEFAULT NULL,
   `Description` varchar(50) DEFAULT NULL,
-  `MainCategoriesID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`),
-  KEY `MainCategoriesID` (`MainCategoriesID`),
-  KEY `ClassName` (`ClassName`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  KEY `ClassName` (`ClassName`),
+  KEY `LastEdited` (`LastEdited`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1073,7 +1071,7 @@ CREATE TABLE `UpdateLog` (
 
 LOCK TABLES `UpdateLog` WRITE;
 /*!40000 ALTER TABLE `UpdateLog` DISABLE KEYS */;
-INSERT INTO `UpdateLog` VALUES (1,'UpdateLog','2014-09-17 12:44:37','2014-09-17 12:44:37','Added new Models',0),(2,'UpdateLog','2014-09-17 12:51:12','2014-09-17 12:51:12','Added Stuff',0),(3,'UpdateLog','2014-09-22 14:08:16','2014-09-22 14:08:16','Test update',0),(4,'UpdateLog','2014-09-22 14:30:31','2014-09-22 14:30:31','New Update',0);
+INSERT INTO `UpdateLog` VALUES (1,'UpdateLog','2014-09-24 15:19:17','2014-09-24 15:19:17','Updated Slides'),(2,'UpdateLog','2014-10-13 12:41:02','2014-10-13 12:41:02','Uploaded Mechanism of Labor infomation'),(3,'UpdateLog','2014-10-13 12:48:31','2014-10-13 12:48:31','Maternal Pelvis Updates'),(4,'UpdateLog','2014-10-13 13:00:13','2014-10-13 13:00:13','Test Update'),(5,'UpdateLog','2014-10-15 12:39:06','2014-10-15 12:39:06','Update Test'),(6,'UpdateLog','2014-10-16 14:46:36','2014-10-16 14:46:36','Uploaded Maternal pelvis models'),(7,'UpdateLog','2014-10-16 15:38:34','2014-10-16 15:38:34','Test'),(8,'UpdateLog','2014-10-16 16:26:16','2014-10-16 16:26:16','Test'),(9,'UpdateLog','2014-10-16 16:43:52','2014-10-16 16:43:52','Test'),(10,'UpdateLog','2014-10-16 16:55:12','2014-10-16 16:55:12','Test'),(11,'UpdateLog','2014-10-16 17:09:08','2014-10-16 17:09:08','Delete Test'),(12,'UpdateLog','2014-10-16 17:10:45','2014-10-16 17:10:45','Delete Test');
 /*!40000 ALTER TABLE `UpdateLog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1167,4 +1165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-23  8:56:34
+-- Dump completed on 2014-10-25 15:41:39

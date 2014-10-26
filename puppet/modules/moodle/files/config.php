@@ -18,7 +18,7 @@ $CFG->dboptions = array (
 );
 
 // Edit wwwroot to suit location
-$CFG->wwwroot   = 'http://meddit.ict.op.ac.nz/moodle/moodle';
+$CFG->wwwroot   = 'http://10.118.0.75/moodle/moodle';
 $CFG->dataroot  = '/var/moodledata';
 $CFG->admin     = 'admin';
 

@@ -29,9 +29,8 @@ $wgMetaNamespace = "Visual_Midwifery";
 $wgScriptPath = "/wiki";
 $wgScriptExtension = ".php";
 
-### CHANGE
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://192.168.159.129";
+$wgServer = "http://meddit.ict.op.ac.nz";
 
 ## The relative URL path to the skins directory
 $wgStylePath = "$wgScriptPath/skins";

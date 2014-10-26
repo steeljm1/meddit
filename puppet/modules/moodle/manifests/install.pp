@@ -13,9 +13,9 @@ class moodle::install {
         }
         
         # push moodledata ## fix tar file
-        file { "/var/moodledata-07092014.tar.gz":
+        file { "/moodledata-2014-10-25-154024.tar.gz":
               ensure    => "present",
-              source    => "puppet:///modules/moodle/moodledata-07092014.tar.gz",
+              source    => "puppet:///modules/moodle/moodledata-2014-10-25-154024.tar.gz",
               owner     => "root",
               group     => "root",
               mode      => 0644,              
@@ -24,9 +24,9 @@ class moodle::install {
         # unpack moodledata
         exec { "unpack-moodledata":  
               creates => '/var/moodledata',
-              cwd     =>  '/var',            
-              command => "/bin/tar -xpvzf /var/moodledata-07092014.tar.gz",                                         
-              require => File['/var/moodledata-07092014.tar.gz']
+              cwd     =>  '/',            
+              command => "/bin/tar -xpvzf /moodledata-2014-10-25-154024.tar.gz",                                         
+              require => File['/moodledata-2014-10-25-154024.tar.gz']
         }
         
         ## Setup moodle root
@@ -43,9 +43,9 @@ class moodle::install {
       
       
         ## push moodleroot
-        file { "/var/moodleroot.tar.gz":
+        file { "/moodleroot-2014-10-25-154024.tar.gz":
               ensure    => "present",
-              source    => "puppet:///modules/moodle/moodleroot.tar.gz",
+              source    => "puppet:///modules/moodle/moodleroot-2014-10-25-154024.tar.gz",
               owner     => "root",
               group     => "root",
               mode      => 0644,              
@@ -55,9 +55,9 @@ class moodle::install {
         ## Ensure moodleroot.tar.gz is in files dir before running
         exec { "unpack-moodleroot":  
               creates	     => '/var/www/moodle/moodle',
-	            cwd          =>  '/var/www/moodle',            
-              command      => "/bin/tar -xpvzf /var/moodleroot.tar.gz",                                         
-              require      => File['/var/moodleroot.tar.gz']
+	            cwd          =>  '/',            
+              command      => "/bin/tar -xpvzf /moodleroot-2014-10-25-154024.tar.gz",                                         
+              require      => File['/moodleroot-2014-10-25-154024.tar.gz']
         }
             
 #        file { "/var/www/moodle/moodle":
