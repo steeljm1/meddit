@@ -52,6 +52,79 @@ puppetmaster ALL=(ALL:ALL) ALL
 
 ----------------------------------------------------------
 
+### /etc/puppet/modules/moodle/files/config.php
+
+Edit wwwroot to suit location.  Note - Moodle will install to /var/www/moodle/moodle/ by default.  Change domain ONLY! 
+
+
+$CFG->wwwroot = 'http://10.118.0.75/moodle/moodle';  
+
+$CFG->maildomain = 'ict.op.ac.nz';
+
+-------------------------------------------------------------
+
+### New SSL Certificate
+
+You will want to generate a new set of SSL certs for your server.  See client_documents/sys_admin/Visual Midwifery System Administration.docx for details.  
+
+Edit /etc/puppet/modules/apache/manifests/config.pp appropriately
+
+##### SSL cert pem - Overwrite apache-meddit.pem with new pem and update.
+
+file { "/etc/ssl/localcerts/apache-meddit.pem":
+
+ensure => "present",
+
+source => "puppet:///modules/apache/apache-meddit.pem",
+
+owner => "root",
+
+group => "root",
+
+mode => 0600,
+
+require => Class["apache::install"],
+
+notify => Class["apache::service"],
+
+}
+
+##### SSL cert key- Overwrite apache-meddit.key with new key and update.
+
+file { "/etc/ssl/localcerts/apache-meddit.key":
+
+ensure => "present",
+
+source => "puppet:///modules/apache/apache-meddit.key",
+
+owner => "root",
+
+group => "root",
+
+mode => 0600,
+
+require => Class["apache::install"],
+
+notify => Class["apache::service"],
+
+}
+
+--------------------------------------------------------------
+
+### Edit /etc/puppet/modules/mediawiki/files/LocalSettings.php to suit....
+
+$wgSitename = "Visual Midwifery";
+
+$wgMetaNamespace = "Visual_Midwifery";
+
+$wgServer = "http://meddit.ict.op.ac.nz";
+
+$wgEmergencyContact = "apache@meddit.ict.op.ac.nz";
+
+$wgPasswordSender = "apache@meddit.ict.op.ac.nz";
+
+--------------------------------------------------------------
+
 ## Run the puppet agent to setup the system
 
 As root execute the following:
