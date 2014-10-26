@@ -3,11 +3,12 @@
 ### Install Puppet
 
 1. apt-get install puppetmaster puppet
-2. Copy the entire generic puppet directory to /etc - overwrite existing directory 
+2. Copy the entire generic puppet directory to /etc/ - overwrite existing directory 
+3. Note - Before you run puppet, ensure to place moodleroot-2014-10-25-154024.tar.gz in /etc/puppet/modules/moodle/files/
 
-##Edit the following files to suit the new system:
+## Edit the following files to suit the new system:
 
-### /puppet/puppet.conf
+### /etc/puppet/puppet.conf
 
  [main]
  
@@ -17,13 +18,13 @@
 
 --------------------------------------------------------- 
  
-### /puppet/manifests/nodes.pp
+### /etc/puppet/manifests/nodes.pp
  
  node 'generic.ict.op.ac.nz'{........}
  
 --------------------------------------------------------- 
   
-### /puppet/modules/hosts_file/templates/debhosts.erb
+### /etc/puppet/modules/hosts_file/templates/debhosts.erb
  
  127.0.0.1 localhost <%= hostname %>
 
@@ -35,7 +36,7 @@
 
 ----------------------------------------------------------
 
-### /puppet/modules/sudo/files/sudoers
+### /etc/puppet/modules/sudo/files/sudoers
 
 #####User privilege specification - Define Sudoers
 
