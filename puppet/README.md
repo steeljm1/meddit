@@ -1,17 +1,13 @@
-#####  This is the root directory for the Puppet installation of a generic system.  #####
+#  This is the root directory for the Puppet installation of a generic system.  #
 
 Edit the following files to suit the new system:
 
 /puppet/puppet.conf
-<tb>
-<tr>
-<td>
+**
  [main]
  certname=generic.ict.op.ac.nz   # Server domain name
  server=generic.ict.op.ac.nz   # Server domain name
- </td>
- </tr>
- </tb>
+ **
  
  /puppet/manifests/nodes.pp
  
