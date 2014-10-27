@@ -72,11 +72,12 @@ public class Updater {
     class UpdateTask extends AsyncTask<String, Integer, Void> {
         private ProgressDialog dialog;
         ModelUpdater[] modelUpdaters = {
+                                        new MainCategoryUpdater(context),
                                         new ContentCategoryUpdater(context),
                                         new ModelViewUpdater(context),
                                         new ContentFieldUpdater(context),
                                         new ModelColourUpdater(context)
-                                    };
+                                       };
 
         public UpdateTask(Context context) {
             dialog = new ProgressDialog(context, AlertDialog.THEME_HOLO_LIGHT);
