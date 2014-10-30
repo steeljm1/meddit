@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Visual Midwifery</string>
+    <string name="app_name">Visual Aboriculture</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_menu">MenuActivity</string>
@@ -28,10 +28,10 @@
     <string name="title_activity_settings">SettingsActivity</string>
 
     <string-array name="update_urls">
-        <item>http://meddit.ict.op.ac.nz/ss/index.php/api/v1/MainCategories.json</item>
-        <item>http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ContentCategory.json</item>
-        <item>http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ModelView.json</item>
-        <item>http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ContentField.json</item>
-        <item>http://meddit.ict.op.ac.nz/ss/index.php/api/v1/ModelColour.json</item>
+        <item>http://arboriculture.ict.op.ac.nz/ss/index.php/api/v1/MainCategories.json</item>
+        <item>http://arboriculture.ict.op.ac.nz/ss/index.php/api/v1/ContentCategory.json</item>
+        <item>http://arboriculture.ict.op.ac.nz/ss/index.php/api/v1/ModelView.json</item>
+        <item>http://arboriculture.ict.op.ac.nz/ss/index.php/api/v1/ContentField.json</item>
+        <item>http://arboriculture.ict.op.ac.nz/ss/index.php/api/v1/ModelColour.json</item>
     </string-array>
 </resources>

@@ -366,9 +366,9 @@ public class CategoryView extends FragmentActivity{
         // Adding child data
         List<String> myCats = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.CateActivity)));
 
-        listDataChild.put(mainMenuArrayList.get(0), myCats); // Header, Child data
-        listDataChild.put(mainMenuArrayList.get(1), myCats);
-        listDataChild.put(mainMenuArrayList.get(2), myCats);
+        for(int i = 0; i < mainMenuArrayList.size(); i++) {
+            listDataChild.put(mainMenuArrayList.get(i), myCats); // Header, Child data
+        }
     }
 
     @Override

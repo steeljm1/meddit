@@ -42,7 +42,7 @@ public class PreUpdateCheck {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
         if (networkInfo != null && networkInfo.isConnected()) {
-            String url = "http://meddit.ict.op.ac.nz/ss/index.php/api/v1/UpdateLog.json";
+            String url = "http://arboriculture.ict.op.ac.nz/ss/index.php/api/v1/UpdateLog.json";
             new CheckForUpdates(updater, context).execute(url);
 
         } else {

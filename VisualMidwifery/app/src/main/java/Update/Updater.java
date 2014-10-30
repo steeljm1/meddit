@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
@@ -150,6 +151,10 @@ public class Updater {
             editor.apply();
 
             Log.d("Update", "Update Complete");
+
+            Intent i = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            context.startActivity(i);
         }
     }
 }

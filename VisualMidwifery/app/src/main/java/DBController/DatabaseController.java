@@ -232,10 +232,12 @@ public class DatabaseController {
         for(int i = 0; i < modelArray.size(); i++) {
             ContentValues values = new ContentValues();
             values.put(MainCategoryTable.COLUMN_ID, modelArray.get(i).getId());
-            values.put(MainCategoryTable.COLUMN_ID, modelArray.get(i).getTitle());
+            values.put(MainCategoryTable.COLUMN_TITLE, modelArray.get(i).getTitle());
 
             database.insert(MainCategoryTable.TABLE_NAME, null, values);
         }
+
+        mainCategoryTable.close();
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
