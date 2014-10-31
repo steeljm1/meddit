@@ -13,17 +13,14 @@ import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ArrayAdapter;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import DBController.DatabaseController;
-import DBTables.MainCategoryTable;
 import Fragments.BaseFragment;
-import Models.ContentCategoryModel;
 import Models.MainCategoryModel;
-import otago.Midwifery.R;
+import otago.Arb.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,15 +73,15 @@ public class QuizLogIn extends BaseFragment {
         webSettings.setDisplayZoomControls(false);
 
         String url = getResources().getString(R.string.loginURL);
-        if(mainID == 1){
+
+        if(mainID == 2){
+            url = getResources().getString(R.string.moodleURL)+"1";
+        }
+        if(mainID == 4){
             url = getResources().getString(R.string.moodleURL)+"2";
         }
-        if(mainID == 2){
-            url = getResources().getString(R.string.moodleURL)+"7";
-        }
-        if(mainID == 3){
-            url = getResources().getString(R.string.moodleURL)+"9";
-        }
+
+
         mywebview.loadUrl(url);
     }
     private class MyBrowser extends WebViewClient {

@@ -7,11 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.joanzapata.pdfview.PDFView;
 
-import otago.Midwifery.R;
+import otago.Arb.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,7 +19,7 @@ import otago.Midwifery.R;
 public class StaticSheetML extends Fragment {
     //this fragment is contained a pdf and using pdf reader library
     PDFView pdfViewML;
-    private static final String SSML = "SSML.pdf";
+    private String SSML;
     public StaticSheetML() {
         // Required empty public constructor
     }
@@ -30,7 +29,7 @@ public class StaticSheetML extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_staticsheet_ml, container, false);
-
+        SSML = getResources().getString(R.string.static_sheet_name3);
         return v;
     }
 

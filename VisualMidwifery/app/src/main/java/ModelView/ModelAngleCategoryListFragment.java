@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import DBController.DatabaseController;
 import Fragments.BaseFragmentList;
 import Models.ModelViewModel;
-import otago.Midwifery.CategoryView;
-import otago.Midwifery.R;
-import otago.Midwifery.TabConstants;
+import otago.Arb.CategoryView;
+import otago.Arb.R;
+import otago.Arb.TabConstants;
 
 /**
  * Created by liub3 on 19/05/2014.

@@ -11,7 +11,7 @@ import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import otago.Midwifery.R;
+import otago.Arb.R;
 
 //page for examrevisionpager
 

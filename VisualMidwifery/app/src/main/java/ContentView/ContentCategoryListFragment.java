@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import DBController.DatabaseController;
 import Fragments.BaseFragmentList;
 import Models.ContentCategoryModel;
-import otago.Midwifery.R;
-import otago.Midwifery.TabConstants;
+import otago.Arb.R;
+import otago.Arb.TabConstants;
 
 /**
  * Created on 17/05/2014.

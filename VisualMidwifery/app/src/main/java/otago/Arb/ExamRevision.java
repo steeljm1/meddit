@@ -1,4 +1,4 @@
-package otago.Midwifery;
+package otago.Arb;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
@@ -7,11 +7,9 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import ExamRevision.ExamRevisionPagerAdapter;
 import Helper.NonSwipeableViewPager;
+import otago.Arb.R;
 
 public class ExamRevision extends FragmentActivity implements ActionBar.TabListener {
 
@@ -53,7 +51,7 @@ public class ExamRevision extends FragmentActivity implements ActionBar.TabListe
         viewPager = (NonSwipeableViewPager) findViewById(R.id.examPager);
         viewPager.setPagingEnabled(false);
         viewPager.setOffscreenPageLimit(4);
-        ExamRevisionPagerAdapter viewPagerAdapter = new ExamRevisionPagerAdapter(getSupportFragmentManager());
+        ExamRevisionPagerAdapter viewPagerAdapter = new ExamRevisionPagerAdapter(getSupportFragmentManager(), getApplicationContext());
 
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {

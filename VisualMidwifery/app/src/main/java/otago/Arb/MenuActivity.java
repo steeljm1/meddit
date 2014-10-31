@@ -1,4 +1,4 @@
-package otago.Midwifery;
+package otago.Arb;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -8,7 +8,6 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -32,17 +31,13 @@ import java.util.List;
 import DBController.DatabaseController;
 import Models.MainCategoryModel;
 import Update.PreUpdateCheck;
-
-
+import otago.Arb.R;
 
 
 public class MenuActivity extends ActionBarActivity {
 
-    private final CharSequence mTitle = "Visual Midwifery";//the title of this activity
-    private final CharSequence mDrawerTitle = "Main Menu";
     private static final long TIME_INTERVAL = 1500; // # milliseconds, desired time passed between two back presses.
     private long mBackPressed;
-
 
     private PreUpdateCheck updater;
 
@@ -75,8 +70,9 @@ public class MenuActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
         //set title of this activity
-        this.getActionBar().setTitle(mTitle);
+        this.getActionBar().setTitle(getString(R.string.app_name));
 
         //Init sqlAdapter to get the category
         myDatabase = new DatabaseController(this);
@@ -89,7 +85,7 @@ public class MenuActivity extends ActionBarActivity {
                 mainMenuArrayListDrawer.add(mC.getTitle());
             }
             //add an item for exam review
-            //mainMenuArrayList.add("Exam Revision");
+            mainMenuArrayList.add("Exam Revision");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -188,11 +184,11 @@ public class MenuActivity extends ActionBarActivity {
                 R.string.drawer_close  /* "close drawer" description for accessibility */
         ) {
             public void onDrawerClosed(View view) {
-                getActionBar().setTitle(mTitle);
+                getActionBar().setTitle(getString(R.string.app_name));
             }
 
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(mDrawerTitle);
+                getActionBar().setTitle(getString(R.string.draw_title));
 
                 //invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
                 ImageButton imgBtnExit = (ImageButton) findViewById(R.id.imgBtnExit);
@@ -280,7 +276,7 @@ public class MenuActivity extends ActionBarActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             //get what user clicked
             int subTab = 0;
-            if(position != 3) {
+            if(position != mainMenuArrayList.size()-1) {
                 selectItem(position, subTab);
             }else{
                 //selected exam revision item

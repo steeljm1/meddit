@@ -2,6 +2,7 @@ package Update;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -24,6 +25,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import otago.Arb.R;
+
 /**
  * Created by glenn_000 on 18/09/2014.
  */
@@ -42,9 +45,10 @@ public class PreUpdateCheck {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
         if (networkInfo != null && networkInfo.isConnected()) {
-            String url = "http://arboriculture.ict.op.ac.nz/ss/index.php/api/v1/UpdateLog.json";
-            new CheckForUpdates(updater, context).execute(url);
+            Resources res = context.getResources();
+            String url = res.getString(R.string.update_pre_check);
 
+            new CheckForUpdates(updater, context).execute(url);
         } else {
             Toast.makeText(context, "Failed to connect to the network", Toast.LENGTH_LONG).show();
         }

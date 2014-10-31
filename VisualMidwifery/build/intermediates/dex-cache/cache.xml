@@ -2,17 +2,17 @@
 <pre-dex-items>
 
     <item
-        dex="H:\My Documents\GitHub\project\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-ae51cd7271d68d7414781f62c530907cb861ea23.jar"
-        jar="D:\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
-    <item
         dex="H:\My Documents\GitHub\project\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\sqliteassethelper-2.0.1-55bf14cfcb63d11c9afb245744405eed4f750f85.jar"
         jar="C:\Users\default-user\.gradle\caches\modules-2\files-2.1\com.readystatesoftware.sqliteasset\sqliteassethelper\2.0.1\d5f02e4a4d65ec0fbb339f2e4228723d1540bb9f\sqliteassethelper-2.0.1.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="d5f02e4a4d65ec0fbb339f2e4228723d1540bb9f"/>
+    <item
+        dex="H:\My Documents\GitHub\project\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-ae51cd7271d68d7414781f62c530907cb861ea23.jar"
+        jar="D:\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
     <item
         dex="H:\My Documents\GitHub\project\meddit\VisualMidwifery\app\build\intermediates\pre-dexed\debug\classes-5789c48574773877c3726208cc0a96fb7742431b.jar"
         jar="H:\My Documents\GitHub\project\meddit\VisualMidwifery\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"

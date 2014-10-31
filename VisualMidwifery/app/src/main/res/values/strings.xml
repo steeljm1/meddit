@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Visual Aboriculture</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_menu">MenuActivity</string>
+    <!-- App Configurable Menu Display Names -->
+    <string name="app_name">Visual Arboriculture</string>
+    <string name="draw_title">Main Menu</string>
+
+    <!-- Exam Revision Content -->
+        <!--Page Titles -->
+        <string name="ER_page1">Tree identification</string>
+        <string name="ER_page2">Knots</string>
+        <string name="ER_page3">Arboriculture Fundimentals</string>
+        <string name="ER_default">Exam Revision</string>
+
+        <!-- Static sheet PDF file Names -->
+        <string name="static_sheet_name1">SSFS.pdf</string>
+        <string name="static_sheet_name2">SSMP.pdf</string>
+        <string name="static_sheet_name3">SSML.pdf</string>
+
+
+
+    <!-- Activity Names-->
     <string name="title_activity_category_view">CategoryView</string>
+    <string name="title_activity_exam_revision">ExamRevision</string>
+
+    <!-- Component Names -->
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
@@ -14,19 +33,16 @@
         <item>Quiz</item>
     </string-array>
 
-    <string name="loginURL">https://meddit.ict.op.ac.nz/moodle/moodle/login/index.php</string>
-    <string name="FetalSkull">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=2</string>
-    <string name="MaternalPelvis">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=7</string>
-    <string name="moodleURL">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=</string>
+    <!-- Moodle Url Information -->
+    <string name="loginURL">http://arboriculture.ict.op.ac.nz/moodle/moodle/login/index.php</string>
+    <string name="moodleURL">http://arboriculture.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_exam_revision">ExamRevision</string>
-    <string name="title_activity_exam_revision_web">Exam Revision</string>
-    <string name="title_activity_static_sheet_fs">StaticSheetFS</string>
-    <string name="title_activity_static_sheet_mp">StaticSheetMP</string>
-    <string name="title_activity_static_sheet_ml">ML</string>
-    <string name="title_activity_settings">SettingsActivity</string>
 
+
+
+
+    <!-- Urls for update process -->
+    <string name="update_pre_check">http://arboriculture.ict.op.ac.nz/ss/index.php/api/v1/UpdateLog.json</string>
     <string-array name="update_urls">
         <item>http://arboriculture.ict.op.ac.nz/ss/index.php/api/v1/MainCategories.json</item>
         <item>http://arboriculture.ict.op.ac.nz/ss/index.php/api/v1/ContentCategory.json</item>
@@ -34,4 +50,18 @@
         <item>http://arboriculture.ict.op.ac.nz/ss/index.php/api/v1/ContentField.json</item>
         <item>http://arboriculture.ict.op.ac.nz/ss/index.php/api/v1/ModelColour.json</item>
     </string-array>
+
+
+    <!-- Maybe Deprecated - All have no found usages -->
+    <string name="FetalSkull">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=2</string>
+    <string name="MaternalPelvis">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=7</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_menu">MenuActivity</string>
+
+    <string name="title_activity_exam_revision_web">Exam Revision</string>
+    <string name="title_activity_static_sheet_fs">StaticSheetFS</string>
+    <string name="title_activity_static_sheet_mp">StaticSheetMP</string>
+    <string name="title_activity_static_sheet_ml">ML</string>
+
 </resources>

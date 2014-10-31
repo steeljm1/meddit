@@ -1,4 +1,4 @@
-package otago.Midwifery;
+package otago.Arb;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.List;
+
+import otago.Arb.R;
 
 /**
  * Created by liub3 on 17/04/14.

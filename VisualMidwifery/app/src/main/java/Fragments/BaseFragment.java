@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import otago.Midwifery.CategoryView;
+import otago.Arb.CategoryView;
 
 /**
  * Created by liub3 on 16/07/2014.

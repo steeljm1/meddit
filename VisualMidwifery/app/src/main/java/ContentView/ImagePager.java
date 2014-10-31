@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import Fragments.BaseFragment;
 import Helper.NonSwipeableViewPager;
 import Models.ContentFieldModel;
-import otago.Midwifery.R;
+import otago.Arb.R;
 
 // Pages through images also adds note fragment to the screen when clicked on.
 public class ImagePager extends BaseFragment {

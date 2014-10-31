@@ -1,4 +1,4 @@
-package otago.Midwifery;
+package otago.Arb;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -32,6 +32,7 @@ import Fragments.BaseFragmentList;
 import ModelView.ModelAngleCategoryListFragment;
 import Models.MainCategoryModel;
 import QuizView.QuizLogIn;
+import otago.Arb.R;
 
 
 public class CategoryView extends FragmentActivity{

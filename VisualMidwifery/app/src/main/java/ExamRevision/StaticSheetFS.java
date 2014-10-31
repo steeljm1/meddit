@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.joanzapata.pdfview.PDFView;
 
-import otago.Midwifery.R;
+import otago.Arb.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,7 +20,8 @@ public class StaticSheetFS extends Fragment {
 
     //this fragment is contained a pdf and using pdf reader library
     PDFView pdfViewFS;
-    private static final String SSFS = "SSFS.pdf";
+    private String SSFS;
+
     public StaticSheetFS() {
         // Required empty public constructor
     }
@@ -30,7 +31,7 @@ public class StaticSheetFS extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_staticsheet_fs, container, false);
-
+        SSFS = getString(R.string.static_sheet_name1);
         return v;
     }
 

@@ -17,7 +17,6 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -25,9 +24,7 @@ import java.util.ArrayList;
 import DBController.DatabaseController;
 import ModelView.ModelViewDetailFragment;
 import Models.ModelColorModel;
-import Models.ModelViewModel;
-import otago.Midwifery.MessageToast;
-import otago.Midwifery.R;
+import otago.Arb.MessageToast;
 
 public class PinchTouchModelDetailsImageView extends ImageView {
 

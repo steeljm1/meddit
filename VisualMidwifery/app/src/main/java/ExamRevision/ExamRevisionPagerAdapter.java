@@ -1,8 +1,12 @@
 package ExamRevision;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import otago.Arb.R;
 
 /**
  * Created by Bo on 5/08/2014.
@@ -11,8 +15,11 @@ import android.support.v4.app.FragmentStatePagerAdapter;
  * pdfs are static so hard code those pages
  */
 public class ExamRevisionPagerAdapter extends FragmentStatePagerAdapter {
-    public ExamRevisionPagerAdapter(FragmentManager fm) {
+    Context context;
+
+    public ExamRevisionPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
+        this.context = context;
     }
 
     @Override
@@ -45,22 +52,24 @@ public class ExamRevisionPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
+        Resources resources = context.getResources();
+
         String title= "Exam Revision";
         switch (position) {
             case 1:
-                title = "Fetal Skull";
+                title = resources.getString(R.string.ER_page1);
                 break;
             case 2:
-                title = "Maternal Pelvis";
+                title = resources.getString(R.string.ER_page2);
                 break;
             case 3:
-                title = "Mechanism of Labor";
+                title = resources.getString(R.string.ER_page3);
                 break;
             case 0:
-                title = "Exam Revision";
+                title = resources.getString(R.string.ER_default);
                 break;
             default:
-                title = "Exam Revision";
+                title = resources.getString(R.string.ER_default);
                 break;
         }
         return title;

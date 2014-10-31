@@ -1,10 +1,12 @@
-package otago.Midwifery;
+package otago.Arb;
 
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Window;
+
+import otago.Arb.R;
 
 //launch class using a timer to display logo of Otago Polytechnic and then go to menu activity
 public class SplashMain extends ActionBarActivity {

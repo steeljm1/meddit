@@ -1,22 +1,15 @@
 package ContentView;
 
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import Fragments.BaseFragment;
 import Helper.PinchTouchContentImageView;
-import otago.Midwifery.R;
-import otago.Midwifery.TabConstants;
+import otago.Arb.R;
 
 
 /**

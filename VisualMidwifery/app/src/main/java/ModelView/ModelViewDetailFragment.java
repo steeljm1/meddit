@@ -19,9 +19,9 @@ import DBController.DatabaseController;
 import Fragments.BaseFragment;
 import Helper.PinchTouchModelDetailsImageView;
 import Models.ModelViewModel;
-import otago.Midwifery.CategoryView;
-import otago.Midwifery.MessageToast;
-import otago.Midwifery.R;
+import otago.Arb.CategoryView;
+import otago.Arb.MessageToast;
+import otago.Arb.R;
 
 /**
  * A simple {@link Fragment} subclass.
