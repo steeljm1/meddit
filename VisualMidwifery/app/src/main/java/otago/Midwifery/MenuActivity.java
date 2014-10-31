@@ -89,7 +89,7 @@ public class MenuActivity extends ActionBarActivity {
                 mainMenuArrayListDrawer.add(mC.getTitle());
             }
             //add an item for exam review
-            mainMenuArrayList.add("Exam Revision");
+            //mainMenuArrayList.add("Exam Revision");
         } catch (SQLException e) {
             e.printStackTrace();
         }

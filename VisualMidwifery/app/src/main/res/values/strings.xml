@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Visual Aboriculture</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_category_view">CategoryView</string>
@@ -19,6 +18,7 @@
     <string name="FetalSkull">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=2</string>
     <string name="MaternalPelvis">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=7</string>
     <string name="moodleURL">https://meddit.ict.op.ac.nz/moodle/moodle/mod/quiz/view.php?id=</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_exam_revision">ExamRevision</string>
     <string name="title_activity_exam_revision_web">Exam Revision</string>
