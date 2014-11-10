@@ -83,9 +83,12 @@ public class
             //check how many matched angles in array
             if(matchAngles.size() == 1)
             {
-                ON = false;
                 LinearLayout l =(LinearLayout) mActivity.findViewById(R.id.seekBarVisiable);
                 l.setVisibility(LinearLayout.GONE);
+
+                LinearLayout f = (LinearLayout) mActivity.findViewById(R.id.imageFrame);
+                f.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 8f));
+
                 new MyAsyncTask(getActivity(),matchAngles.get(0),modelImageDisplay).execute();
             }
             //if more than one means layout changes
