@@ -86,6 +86,10 @@ public class
                 ON = false;
                 LinearLayout l =(LinearLayout) mActivity.findViewById(R.id.seekBarVisiable);
                 l.setVisibility(LinearLayout.GONE);
+
+                LinearLayout f =(LinearLayout) mActivity.findViewById(R.id.imageFrame);
+                f.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,0, 8f));
+
                 new MyAsyncTask(getActivity(),matchAngles.get(0),modelImageDisplay).execute();
             }
             //if more than one means layout changes
@@ -95,6 +99,10 @@ public class
                 ON = true;
                 LinearLayout l =(LinearLayout) mActivity.findViewById(R.id.infoLayout);
                 l.setVisibility(LinearLayout.GONE);
+
+                LinearLayout f =(LinearLayout) mActivity.findViewById(R.id.imageFrame);
+                f.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,0, 7f));
+
                 for(int i = 1; i < matchAngles.size(); i++)
                 {
                     for(int j = 0; j <  matchAngles.size() - i; j++)
