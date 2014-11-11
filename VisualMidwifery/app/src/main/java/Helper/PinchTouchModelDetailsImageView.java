@@ -151,7 +151,7 @@ public class PinchTouchModelDetailsImageView extends ImageView {
                     int hexA = Color.parseColor(myString);
                     int hexB = Color.parseColor(hexColor);
                     if (c.getModelID() == modelID) {
-                        if (Math.abs(hexA - hexB) <= 30) {
+                        if (Math.abs(hexA - hexB) <= 45) {
                             ModelViewDetailFragment.txtView.setText(c.getPartName());
                             break;
                         }
